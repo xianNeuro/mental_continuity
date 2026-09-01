@@ -1,0 +1,20 @@
+figure2_full-panel — full Figure 2 composite, NATIVE matplotlib rebuild
+(one figure, one shared type scale; svg text editable via
+svg.fonttype=none). Design reference: a hand-made draft of the panel
+(not distributed).
+  a  ISPC matching vs shuffled schematic: explicit
+     epoch-pairing diagram (same epoch N<->N vs different epoch N<->M),
+     three same-size matrices with labeled axes + ISPC/deltaISPC scales,
+     arithmetically consistent cartoon values, red = onset only
+  b  Group-averaged epoch selectivity maps (A1+/dlPFC/PMC x IP-IP/SP-SP/
+     IT-IP; staged maps from figure2_ttc-4col_line-plot/data/), ONE
+     shared colorbar, per-row cortical-surface ROI insets from the
+     figure2_brain-mask 4-view stacks (A1+/dlPFC lateral, PMC medial);
+     SP-SP-unscr appears only in panel d (identical data to SP-SP for
+     the map and the strips)
+  c  interruption-phase matching (circle) vs mismatching (square) ISPC
+     strip plots (clean_report_engine, deterministic seed)
+  d  PMC evolve lineplots, 4 schemes (clean_report_engine.compute_evolve)
+Analysis results are cached in data/*.npz — delete that folder to force
+a recompute. Type scale: titles 8 bold / labels 6.5 / ticks 5.5 /
+letters 13 bold (panel-b density caps ticks below the _figstyle 8pt).

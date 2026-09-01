@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>Result 2.1: PMC reliability (interruption)</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:1200px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+h1{border-bottom:2px solid #333;padding-bottom:6px;}
+h2{margin-top:1.8rem;border-bottom:1px solid #aaa;padding-bottom:4px;}
+h3{margin-top:1.2rem;}
+table{border-collapse:collapse;font-size:13px;margin:12px 0;width:100%;}
+th,td{border:1px solid #bbb;padding:5px 8px;text-align:left;}
+th{background:#f4f6f8;}
+.fig{display:block;margin:18px auto;max-width:100%;}
+.note{color:#555;font-size:13px;margin-top:6px;}
+.legend{color:#333;font-size:13px;margin:8px 0 18px 0;padding-left:22px;}
+.legend li{margin-bottom:4px;}
+th.desc, td.desc{background:#f1f3f4;color:#666;}
+</style></head><body>
+<h1>Result 2.1: PMC reliability (interruption)</h1>
+
+
+
+<h2>Methods</h2>
+<p>We tested whether the multivoxel pattern in posterior medial cortex (PMC) at each interruption epoch is shared across participants. Inter-subject pattern correlation (ISPC) was measured in a 15-second window spanning the ten TRs that began 7.5 s after interruption onset (the first five post-onset TRs were discarded to avoid hemodynamic carry-over from the preceding story segment). For each participant and each epoch, the Pearson correlation between that participant's PMC pattern and the across-participant average PMC pattern of the other participants in the same condition was computed at every TR in the window and averaged across the ten TRs to a single per-(participant, epoch) score. ISPC was evaluated under four inter-subject schemes: three within-condition (intact-pause, IP-IP; scrambled-pause, SP-SP; intact-theory-of-mind, IT-IT) and one across-condition (IT-IP, in which each intact-theory-of-mind participant was compared with the across-participant average pattern of the intact-pause group at the matched epoch). PMC voxels were defined by the project's anatomical PMC mask and per-voxel timecourses were z-scored across the entire run before analysis.</p><p>All averaging across subjects was performed in Fisher-z space (each per-(subject, epoch) Pearson r was arctanh-transformed before any aggregation). The table first reports the descriptive statistics of the group ISPC: the number of participants <em>n</em>, the Fisher-z group mean &theta;&#770;<sub>z</sub> (each participant&rsquo;s mean arctanh(r) across epochs, averaged across participants), its standard error across participants (SD of the participant Fisher-z means / &radic;n), and the corresponding 95% confidence interval &theta;&#770;<sub>z</sub> &plusmn; 1.96&nbsp;SE.</p><p>Whether the group ISPC exceeds zero was then assessed by a one-sided sign-flip permutation test carried out on delete-one-subject jackknife pseudo-values. Deleting one participant at a time and recomputing &theta;&#770;<sub>z</sub> on the remaining participants yields one pseudo-value per participant (<em>n</em>&thinsp;&theta;&#770;<sub>z</sub> &minus; (<em>n</em>&minus;1)&thinsp;&theta;&#770;<sub>z(&minus;i)</sub>); because each leave-one-out ISPC depends on the other participants, the jackknife pseudo-values, not the raw participant means, are the exchangeable units the permutation acts on. The null distribution was built by randomly flipping the sign of each pseudo-value over 10000 iterations and recording the mean; the one-sided permutation <em>p</em> is (<em>k</em>&nbsp;+&nbsp;1)/(10000&nbsp;+&nbsp;1), where <em>k</em> is the number of null means at or beyond the observed mean in the expected direction (&gt; 0). For within-condition schemes the deleted participant also leaves the comparison group; for the across-condition scheme (IT-IP) only the intact-theory-of-mind side loses a participant while the intact-pause group average is held fixed. The legend under the table defines each column.</p>
+
+<h2>Results</h2>
+<table>
+<thead><tr><th>Cond</th><th>n</th><th>ISPC mean (r)</th><th>ISPC mean (Fisher-z, &theta;&#770;<sub>z</sub>)</th><th>SE</th><th>95% CI</th><th>p (sign-flip)</th></tr></thead>
+<tbody>
+<tr><td>IP-IP</td><td>19</td><td>0.1166</td><td>0.1192</td><td>0.0130</td><td>[0.0938, 0.1447]</td><td>1.00e-04</td></tr>
+<tr><td>SP-SP</td><td>19</td><td>0.0813</td><td>0.0828</td><td>0.0129</td><td>[0.0576, 0.1080]</td><td>0.0002</td></tr>
+<tr><td>IT-IT</td><td>19</td><td>0.1863</td><td>0.1910</td><td>0.0107</td><td>[0.1701, 0.2119]</td><td>1.00e-04</td></tr>
+<tr><td>IT-IP</td><td>19</td><td>0.0456</td><td>0.0462</td><td>0.0104</td><td>[0.0259, 0.0665]</td><td>0.0006</td></tr>
+</tbody></table>
+<ul class="legend"><li><strong>ISPC mean (r)</strong> &mdash; raw arithmetic mean of the Pearson correlations: each participant&rsquo;s mean r across epochs, averaged across participants (no Fisher-z transform).</li><li><strong>ISPC mean (Fisher-z, &theta;&#770;<sub>z</sub>)</strong> &mdash; <em>group mean ISPC in Fisher-z</em>: each participant&rsquo;s mean arctanh(r) across epochs, averaged across participants (the same participant unit as the SE and 95% CI). Main point estimate (the SE and 95% CI are on this value); back-transform to r-space via tanh(&theta;&#770;<sub>z</sub>). Bar-plot bar height.</li><li><strong>SE</strong> &mdash; standard error of &theta;&#770;<sub>z</sub> across participants: SD(participant Fisher-z means) / &radic;n<sub>participants</sub>. Bar-plot whisker.</li><li><strong>95% CI</strong> &mdash; 95% confidence interval on &theta;&#770;<sub>z</sub>, &theta;&#770;<sub>z</sub> &plusmn; 1.96&nbsp;SE (Fisher-z space; same participant unit as the SE column).</li><li><strong>p (sign-flip)</strong> &mdash; the reported test. One-sided sign-flip permutation p (10000 iter) on subject pseudo-values from a delete-one-subject jackknife on &theta;&#770;<sub>z</sub>, in the expected direction (&gt; 0). For within-condition schemes (IP-IP, SP-SP, IT-IT) the jackknife recomputes ISPC after deleting one participant, so the group of other participants the deleted participant was compared against also shrinks; for the across-condition scheme (IT-IP) only the IT side loses one participant, while the IP group&rsquo;s average pattern is held fixed.</li><li><strong>n</strong> &mdash; number of participants in the cell.</li></ul>
+<p><img class="fig" src="figures/Result2_1_PMC-reliable_4bars.png" alt="PMC reliability across four conditions"/></p>
+<p class="note">Bars: &theta;&#770;<sub>z</sub> (Fisher-z group mean). Whiskers: &plusmn;SE across participants (SD / &radic;n<sub>participants</sub>). Dots: subject-mean Fisher-z values. Condition codes: IP-IP / SP-SP / IT-IT within-condition leave-one-out; IT-IP each intact-theory-of-mind participant vs. the intact-pause group mean.</p>
+</body></html>

@@ -1,0 +1,8 @@
+figure3c — intact-pause group-mean story-phase (mvp1) PMC pattern of
+interruption epoch 1 on the fsaverage medial surface (R, L), RdBu_r
+±0.4 (cbrng4). Same data/view as figure3_mvp-wall's
+fig_cbrng4/carver_intact_pause_PMC_mvp1_ep1.png, without the
+title and colorbar — in the Figure 3 composite the panel-d wall
+colorbar (same range) serves this plot. Pattern NIfTI reused from
+figure3_mvp-wall/_render_group-mean/nii/ when present, else
+recomputed (mvp1 = 10 TRs ending at the epoch-1 onset, group mean).

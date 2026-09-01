@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>Result 3.2: PMC story-to-interruption inversion selectivity (invert-test)</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:1020px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+h1{border-bottom:2px solid #333;padding-bottom:6px;}
+h2{margin-top:1.6rem;}
+table{border-collapse:collapse;font-size:14px;margin:12px 0;width:100%;}
+th,td{border:1px solid #bbb;padding:6px 10px;text-align:left;}
+th{background:#f4f6f8;}
+tbody tr:nth-child(6){border-top:3px solid #333;}
+.fig{display:block;margin:18px auto;max-width:100%;}
+.note{color:#555;font-size:13px;margin-top:6px;}
+.legend{color:#333;font-size:13px;margin:8px 0 18px 0;padding-left:22px;}
+.legend li{margin-bottom:4px;}
+th.desc, td.desc{background:#f1f3f4;color:#666;}
+</style></head>
+<body>
+<h1>Result 3.2: PMC story-to-interruption inversion selectivity</h1>
+
+<h2>Methods</h2>
+<p>We tested whether the story-to-interruption inversion in posterior
+medial cortex (PMC) is <em>epoch-specific</em>: whether a participant's
+story-window pattern is more strongly anti-correlated with the
+comparison group's interruption-window pattern at the <em>same</em>
+epoch than at any other epoch. For every interruption epoch we built
+two 10-TR template patterns in PMC: a <strong>story window</strong>
+ending one TR before interruption onset, and an
+<strong>interruption window</strong> starting five TRs after onset (the
+first five post-onset TRs were discarded to avoid hemodynamic
+carry-over from the preceding story segment). Inter-subject pattern
+correlation (ISPC) at every ordered pair of epochs (<em>i</em>,
+<em>j</em>) was a single Pearson correlation between one participant's
+window template at epoch <em>i</em> and the across-participant average
+of the comparison group's window template at epoch <em>j</em>. Two
+pattern-similarity families were computed: the
+<strong>story-story</strong> family used the story window on both
+sides, while the <strong>story-interruption</strong> family used the
+participant's story window and the comparison group's interruption
+window. Each family was evaluated under five inter-subject schemes:
+three within-condition, in which each participant was compared with the
+average pattern of the other participants in the same condition
+(intact-pause, IP-IP; scrambled-pause, SP-SP; intact-theory-of-mind,
+IT-IT), and two across-condition, in which each participant in one
+condition was compared with the across-participant average of the other
+condition's group (IP-IT and IT-IP). PMC voxels were defined by the
+project's anatomical PMC mask and per-voxel timecourses were z-scored
+across the entire run before analysis.</p>
+
+<p>For each participant the ISPC values at <em>i</em> = <em>j</em>
+formed the matching set, and the ISPC values at <em>i</em> &ne;
+<em>j</em> formed the mismatching set; participant selectivity was
+mean(matching) &minus; mean(mismatching), and group selectivity was
+the across-participants mean. The two families have opposite
+directional predictions: story-story selectivity should exceed zero
+(matching positive and larger than mismatching), and
+story-interruption selectivity should fall below zero (matching more
+negative than mismatching, the inversion). To test whether each
+family's group selectivity exceeds chance in its expected direction we
+reshuffled each participant's matching-versus-mismatching labels: the
+matching and mismatching ISPC values were pooled and randomly
+re-assigned to sets of the original sizes, participant selectivity was
+recomputed, and the group mean was recorded; 10000 iterations
+built the null. The one-tailed permutation <em>p</em> is
+(<em>k</em> + 1)/(10000 + 1), where <em>k</em> is the number of
+null group selectivities at-or-above the observed value
+for story-story, and at-or-below it for story-interruption. The table
+also reports the standard error of the group selectivity, a
+bootstrap 95% confidence interval (10000 iter, resampling
+participants), a descriptive paired <em>t</em>-test on subject
+(matching &minus; mismatching) values, and Cohen's <em>dz</em>; the
+legend under the table defines each column.</p>
+
+<h2>Results</h2>
+<p style="color:#666;font-size:12.5px;margin:0 0 4px 0;">Primary stats
+(unshaded) | Descriptive / context (light gray)</p>
+<table>
+<thead><tr>
+  <th>Family</th><th>Cond</th>
+  <th>Selectivity</th><th>SE</th><th>95% CI</th>
+  <th>p (perm)</th>
+  <th class="desc">n</th>
+  <th class="desc">Mean&nbsp;matching&nbsp;r</th>
+  <th class="desc">SE<sub>match</sub></th>
+  <th class="desc">Mean&nbsp;mismatching&nbsp;r</th>
+  <th class="desc">SE<sub>mismatch</sub></th>
+  <th class="desc">t</th><th class="desc">df</th>
+  <th class="desc">dz</th>
+</tr></thead>
+<tbody>
+<tr><td>story-story</td><td>IP-IP</td><td>0.1924</td><td>0.0203</td><td>[0.1523, 0.2296]</td><td>1.00e-04</td><td class="desc">19</td><td class="desc">0.2992</td><td class="desc">0.0258</td><td class="desc">0.1068</td><td class="desc">0.0105</td><td class="desc">9.469</td><td class="desc">18</td><td class="desc">2.172</td></tr>
+<tr><td>story-story</td><td>SP-SP</td><td>0.0824</td><td>0.0143</td><td>[0.0540, 0.1084]</td><td>1.00e-04</td><td class="desc">19</td><td class="desc">0.2098</td><td class="desc">0.0268</td><td class="desc">0.1273</td><td class="desc">0.0181</td><td class="desc">5.771</td><td class="desc">18</td><td class="desc">1.324</td></tr>
+<tr><td>story-story</td><td>IT-IT</td><td>0.1433</td><td>0.0191</td><td>[0.1059, 0.1784]</td><td>1.00e-04</td><td class="desc">19</td><td class="desc">0.2373</td><td class="desc">0.0261</td><td class="desc">0.0939</td><td class="desc">0.0123</td><td class="desc">7.486</td><td class="desc">18</td><td class="desc">1.717</td></tr>
+<tr><td>story-story</td><td>IP-IT</td><td>0.1800</td><td>0.0144</td><td>[0.1519, 0.2065]</td><td>1.00e-04</td><td class="desc">19</td><td class="desc">0.2674</td><td class="desc">0.0175</td><td class="desc">0.0874</td><td class="desc">0.0090</td><td class="desc">12.505</td><td class="desc">18</td><td class="desc">2.869</td></tr>
+<tr><td>story-story</td><td>IT-IP</td><td>0.1604</td><td>0.0221</td><td>[0.1171, 0.2008]</td><td>1.00e-04</td><td class="desc">19</td><td class="desc">0.2359</td><td class="desc">0.0300</td><td class="desc">0.0755</td><td class="desc">0.0133</td><td class="desc">7.253</td><td class="desc">18</td><td class="desc">1.664</td></tr>
+<tr><td>story-interruption</td><td>IP-IP</td><td>-0.0637</td><td>0.0107</td><td>[-0.0834, -0.0420]</td><td>0.0012</td><td class="desc">19</td><td class="desc">-0.2209</td><td class="desc">0.0211</td><td class="desc">-0.1572</td><td class="desc">0.0142</td><td class="desc">-5.928</td><td class="desc">18</td><td class="desc">-1.360</td></tr>
+<tr><td>story-interruption</td><td>SP-SP</td><td>-0.0382</td><td>0.0097</td><td>[-0.0567, -0.0195]</td><td>0.0245</td><td class="desc">19</td><td class="desc">-0.1894</td><td class="desc">0.0239</td><td class="desc">-0.1511</td><td class="desc">0.0200</td><td class="desc">-3.931</td><td class="desc">18</td><td class="desc">-0.902</td></tr>
+<tr><td>story-interruption</td><td>IT-IT</td><td>-0.0585</td><td>0.0120</td><td>[-0.0817, -0.0361]</td><td>0.0013</td><td class="desc">19</td><td class="desc">-0.1552</td><td class="desc">0.0178</td><td class="desc">-0.0967</td><td class="desc">0.0123</td><td class="desc">-4.895</td><td class="desc">18</td><td class="desc">-1.123</td></tr>
+<tr><td>story-interruption</td><td>IP-IT</td><td>-0.0586</td><td>0.0091</td><td>[-0.0760, -0.0414]</td><td>7.00e-04</td><td class="desc">19</td><td class="desc">-0.1249</td><td class="desc">0.0136</td><td class="desc">-0.0662</td><td class="desc">0.0064</td><td class="desc">-6.473</td><td class="desc">18</td><td class="desc">-1.485</td></tr>
+<tr><td>story-interruption</td><td>IT-IP</td><td>-0.0356</td><td>0.0105</td><td>[-0.0549, -0.0151]</td><td>0.0526</td><td class="desc">19</td><td class="desc">-0.1459</td><td class="desc">0.0250</td><td class="desc">-0.1104</td><td class="desc">0.0186</td><td class="desc">-3.385</td><td class="desc">18</td><td class="desc">-0.776</td></tr>
+</tbody></table>
+<ul class="legend">
+  <li><strong>Selectivity</strong> &mdash; group-mean selectivity in
+      r-space: mean across participants of
+      (mean matching r &minus; mean mismatching r) at the participant
+      level. Bar-plot bar height.</li>
+  <li><strong>SE</strong> &mdash; standard error of the group-mean
+      selectivity: SD(subject selectivities) /
+      &radic;n<sub>subjects</sub>. Bar-plot whisker.</li>
+  <li><strong>95% CI</strong> &mdash; bootstrap 95% percentile interval
+      on the group-mean selectivity, resampling unit = subject
+      selectivities (10000 iter). In r-space.</li>
+  <li><strong>p (perm)</strong> &mdash; primary inferential test.
+      Within-participant matching-vs-mismatching label-shuffle
+      permutation (10000 iter); one-sided in the family&rsquo;s
+      expected direction (story-story <em>&gt;</em>&nbsp;0;
+      story-interruption <em>&lt;</em>&nbsp;0).</li>
+  <li><strong>n</strong> (descriptive) &mdash; number of participants
+      contributing to the cell.</li>
+  <li><strong>Mean&nbsp;matching&nbsp;r / SE<sub>match</sub></strong>
+      (descriptive) &mdash; across-participants mean of each
+      participant&rsquo;s mean matching ISPC, and its standard error
+      (SD<sub>match</sub> / &radic;n<sub>subjects</sub>).</li>
+  <li><strong>Mean&nbsp;mismatching&nbsp;r / SE<sub>mismatch</sub></strong>
+      (descriptive) &mdash; across-participants mean of each
+      participant&rsquo;s mean mismatching ISPC, and its standard error.</li>
+  <li><strong>t / df</strong> (descriptive) &mdash; paired
+      <em>t</em>-test on subject (matching &minus; mismatching) values
+      against 0 (two-sided; df = n<sub>subjects</sub> &minus; 1).</li>
+  <li><strong>dz</strong> (descriptive) &mdash; Cohen&rsquo;s
+      <em>dz</em> on subject selectivities.</li>
+</ul>
+
+<p><img class="fig" src="figures/Result3_2_PMC-story-to-int_invert-selective_combined_carver_skip5-use10.png"
+    alt="PMC story-story vs story-to-interruption selectivity across five condition schemes"/></p>
+
+<p class="note">Bars: group-mean selectivity (matching &minus; mismatching
+r). Whiskers: &plusmn;SE across participants. Solid bars = story-story
+family; hatched = story-interruption (inversion) family. Dots:
+subject selectivity values. Condition codes: intact-pause within group
+(IP-IP), scrambled-pause within group (SP-SP), intact-theory-of-mind
+within group (IT-IT), each intact-pause participant versus the
+intact-theory-of-mind group mean (IP-IT), each intact-theory-of-mind
+participant versus the intact-pause group mean (IT-IP).</p>
+
+</body></html>

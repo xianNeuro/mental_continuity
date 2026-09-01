@@ -1,0 +1,70 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'/><title>S2_global-onset-response — Supplementary Section: whole-brain interruption-onset response</title><style>body{font-family:system-ui,sans-serif;max-width:1020px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}h1{border-bottom:2px solid #333;padding-bottom:6px;}h2{margin-top:1.6rem;}img{max-width:100%;height:auto;}table{border-collapse:collapse;font-size:14px;margin:12px 0;width:100%;}th,td{border:1px solid #bbb;padding:6px 10px;text-align:left;}th{background:#f4f6f8;}.note{color:#555;font-size:13px;margin-top:6px;}</style></head><body>
+<h1>Supplementary Section &mdash; Whole-brain interruption-onset response across conditions</h1>
+<h2>Methods</h2><p>We asked where in the cortex the blood-oxygen-level-dependent (BOLD) signal changes at the moment a story is interrupted, and whether that change differs across the three interrupted conditions. This extends the bilateral-hippocampus onset analysis (<code>Result1_3_hipp-boundary-activity.py</code>) to every cortical parcel of the Schaefer 400-parcel, 17-network atlas (Schaefer et al., 2018). For each parcel and each of the three interrupted conditions (intact-pause, intact-theory-of-mind, and scrambled-pause; the continuous condition has no interruptions and is excluded), every voxel's timecourse was z-scored across the whole run and averaged across the parcel's voxels to give one parcel-mean timecourse per participant. For every interruption epoch the onset response was the mean signal in the 5 repetition times (TRs) immediately after interruption onset minus the mean signal in the 5 TRs immediately before onset, with the onset TR skipped; these were averaged across a participant's epochs to give one onset response per participant. Each parcel was tested with a one-sample two-sided <em>t</em>-test of the participant onset responses against zero, and the resulting <em>p</em>-values were corrected across the 400 parcels with the Benjamini&ndash;Hochberg false-discovery rate (FDR) at .05. A positive statistic marks a parcel whose signal rises at the story-to-interruption boundary, the whole-cortex counterpart of the hippocampal boundary response reported in Result 1 (cf. Ben-Yakov &amp; Henson, 2018; Baldassano et al., 2017).</p>
+<h2>Results</h2>
+<p>The table below pools the three interrupted conditions. For each condition it reports, per Schaefer-17 network, the number of parcels and how many survive FDR &lt; .05, together with the mean one-sample <em>t</em> among the FDR-significant parcels; the bold row totals the 17 networks. The condition label spans its block of rows. Full per-parcel statistics for each condition are in the linked tables.</p>
+<p class='note'>Full per-parcel tables &mdash; Intact-pause (IP): <a href='data/parcel_onset-response_t_fdr_intact_pause.csv'>parcel_onset-response_t_fdr_intact_pause.csv</a> &nbsp;|&nbsp; Intact-theory-of-mind (IT): <a href='data/parcel_onset-response_t_fdr_intact_tom.csv'>parcel_onset-response_t_fdr_intact_tom.csv</a> &nbsp;|&nbsp; Scrambled-pause (SP): <a href='data/parcel_onset-response_t_fdr_scram_pause.csv'>parcel_onset-response_t_fdr_scram_pause.csv</a>.</p>
+<table><thead><tr><th>Condition</th><th>Network</th><th>Parcels (<i>n</i>)</th><th>FDR &lt; .05 (<i>n</i>)</th><th>FDR &lt; .05 (%)</th><th>Mean <i>t</i> (FDR-sig parcels)</th></tr></thead><tbody>
+<tr><td rowspan='18' style='vertical-align:top;font-weight:bold;background:#f9fbfd;'>Intact-pause (IP)<br/><span style='font-weight:normal;color:#666;'>(<i>n</i> = 19)</span></td><td>VisCent</td><td>24</td><td>21</td><td>87.5%</td><td>3.79</td></tr>
+<tr><td>VisPeri</td><td>23</td><td>20</td><td>87.0%</td><td>4.03</td></tr>
+<tr><td>SomMotA</td><td>39</td><td>24</td><td>61.5%</td><td>2.88</td></tr>
+<tr><td>SomMotB</td><td>31</td><td>17</td><td>54.8%</td><td>-5.27</td></tr>
+<tr><td>DorsAttnA</td><td>27</td><td>22</td><td>81.5%</td><td>4.24</td></tr>
+<tr><td>DorsAttnB</td><td>25</td><td>15</td><td>60.0%</td><td>3.37</td></tr>
+<tr><td>SalVentAttnA</td><td>34</td><td>26</td><td>76.5%</td><td>5.12</td></tr>
+<tr><td>SalVentAttnB</td><td>17</td><td>17</td><td>100.0%</td><td>8.06</td></tr>
+<tr><td>LimbicA</td><td>13</td><td>1</td><td>7.7%</td><td>2.92</td></tr>
+<tr><td>LimbicB</td><td>11</td><td>4</td><td>36.4%</td><td>4.28</td></tr>
+<tr><td>ContA</td><td>24</td><td>23</td><td>95.8%</td><td>5.38</td></tr>
+<tr><td>ContB</td><td>25</td><td>23</td><td>92.0%</td><td>5.86</td></tr>
+<tr><td>ContC</td><td>12</td><td>12</td><td>100.0%</td><td>7.03</td></tr>
+<tr><td>DefaultA</td><td>34</td><td>20</td><td>58.8%</td><td>5.46</td></tr>
+<tr><td>DefaultB</td><td>32</td><td>17</td><td>53.1%</td><td>2.09</td></tr>
+<tr><td>DefaultC</td><td>13</td><td>4</td><td>30.8%</td><td>3.06</td></tr>
+<tr><td>TempPar</td><td>16</td><td>11</td><td>68.8%</td><td>-4.99</td></tr>
+<tr style='font-weight:bold;background:#eef'><td>All 17 networks</td><td>400</td><td>277</td><td>69.2%</td><td>3.68</td></tr>
+<tr><td rowspan='18' style='vertical-align:top;font-weight:bold;background:#f9fbfd;'>Intact-theory-of-mind (IT)<br/><span style='font-weight:normal;color:#666;'>(<i>n</i> = 19)</span></td><td>VisCent</td><td>24</td><td>7</td><td>29.2%</td><td>2.86</td></tr>
+<tr><td>VisPeri</td><td>23</td><td>22</td><td>95.7%</td><td>3.91</td></tr>
+<tr><td>SomMotA</td><td>39</td><td>1</td><td>2.6%</td><td>3.40</td></tr>
+<tr><td>SomMotB</td><td>31</td><td>8</td><td>25.8%</td><td>4.49</td></tr>
+<tr><td>DorsAttnA</td><td>27</td><td>16</td><td>59.3%</td><td>3.39</td></tr>
+<tr><td>DorsAttnB</td><td>25</td><td>11</td><td>44.0%</td><td>3.08</td></tr>
+<tr><td>SalVentAttnA</td><td>34</td><td>32</td><td>94.1%</td><td>4.23</td></tr>
+<tr><td>SalVentAttnB</td><td>17</td><td>17</td><td>100.0%</td><td>5.84</td></tr>
+<tr><td>LimbicA</td><td>13</td><td>0</td><td>0.0%</td><td>&mdash;</td></tr>
+<tr><td>LimbicB</td><td>11</td><td>4</td><td>36.4%</td><td>3.08</td></tr>
+<tr><td>ContA</td><td>24</td><td>23</td><td>95.8%</td><td>4.40</td></tr>
+<tr><td>ContB</td><td>25</td><td>19</td><td>76.0%</td><td>4.50</td></tr>
+<tr><td>ContC</td><td>12</td><td>11</td><td>91.7%</td><td>5.50</td></tr>
+<tr><td>DefaultA</td><td>34</td><td>14</td><td>41.2%</td><td>3.54</td></tr>
+<tr><td>DefaultB</td><td>32</td><td>12</td><td>37.5%</td><td>-1.87</td></tr>
+<tr><td>DefaultC</td><td>13</td><td>1</td><td>7.7%</td><td>2.63</td></tr>
+<tr><td>TempPar</td><td>16</td><td>6</td><td>37.5%</td><td>6.40</td></tr>
+<tr style='font-weight:bold;background:#eef'><td>All 17 networks</td><td>400</td><td>204</td><td>51.0%</td><td>3.90</td></tr>
+<tr><td rowspan='18' style='vertical-align:top;font-weight:bold;background:#f9fbfd;'>Scrambled-pause (SP)<br/><span style='font-weight:normal;color:#666;'>(<i>n</i> = 19)</span></td><td>VisCent</td><td>24</td><td>0</td><td>0.0%</td><td>&mdash;</td></tr>
+<tr><td>VisPeri</td><td>23</td><td>7</td><td>30.4%</td><td>2.96</td></tr>
+<tr><td>SomMotA</td><td>39</td><td>0</td><td>0.0%</td><td>&mdash;</td></tr>
+<tr><td>SomMotB</td><td>31</td><td>25</td><td>80.6%</td><td>-8.91</td></tr>
+<tr><td>DorsAttnA</td><td>27</td><td>5</td><td>18.5%</td><td>3.16</td></tr>
+<tr><td>DorsAttnB</td><td>25</td><td>1</td><td>4.0%</td><td>3.37</td></tr>
+<tr><td>SalVentAttnA</td><td>34</td><td>14</td><td>41.2%</td><td>1.43</td></tr>
+<tr><td>SalVentAttnB</td><td>17</td><td>16</td><td>94.1%</td><td>4.49</td></tr>
+<tr><td>LimbicA</td><td>13</td><td>2</td><td>15.4%</td><td>-3.74</td></tr>
+<tr><td>LimbicB</td><td>11</td><td>3</td><td>27.3%</td><td>3.06</td></tr>
+<tr><td>ContA</td><td>24</td><td>14</td><td>58.3%</td><td>3.99</td></tr>
+<tr><td>ContB</td><td>25</td><td>12</td><td>48.0%</td><td>4.82</td></tr>
+<tr><td>ContC</td><td>12</td><td>9</td><td>75.0%</td><td>4.38</td></tr>
+<tr><td>DefaultA</td><td>34</td><td>11</td><td>32.4%</td><td>3.80</td></tr>
+<tr><td>DefaultB</td><td>32</td><td>9</td><td>28.1%</td><td>-3.72</td></tr>
+<tr><td>DefaultC</td><td>13</td><td>0</td><td>0.0%</td><td>&mdash;</td></tr>
+<tr><td>TempPar</td><td>16</td><td>13</td><td>81.2%</td><td>-7.77</td></tr>
+<tr style='font-weight:bold;background:#eef'><td>All 17 networks</td><td>400</td><td>141</td><td>35.2%</td><td>-0.21</td></tr>
+</tbody></table>
+<h2>Whole-brain interruption-onset response maps</h2>
+<p><img src='figures/S2_fourview_per-condition.svg' alt='per-condition four-view maps'/></p>
+<p class='note'><strong>Whole-cortex interruption-onset response, by condition.</strong> Each row is one condition; the four columns are the four cortical views (lateral and medial of the left and right hemispheres) on the Schaefer-400 surface. Every parcel is colored by its one-sample <em>t</em>-statistic of the participant post-minus-pre onset response against zero; bright (yellow) colors mark parcels whose signal falls at the story-to-interruption boundary and dark (purple) colors mark parcels whose signal rises. All three conditions share the color scale (bottom), the perceptually-uniform, colorblind-safe magma map used for the whole-brain cortical maps in Baldassano et al. (2017), applied on a continuous range symmetric about zero (&plusmn;10 <em>t</em>-units). The posterior-medial cortex (PMC) region of interest is outlined in black on every map. The color is the group-level <em>t</em>-statistic itself; per-parcel uncertainty is summarized by the <em>t</em> and corrected <em>p</em> values in the linked tables.</p>
+<h2>Posterior-medial cortex onset response</h2>
+<p><img src='figures/S2_PMC_onset_lineplot.png' alt='PMC onset line plots by hemisphere'/></p>
+<p class='note'><strong>Interruption-onset signal in the PMC region of interest, by hemisphere and condition.</strong> The two columns are the left and right PMC (the Schaefer-400 parcels outlined on the maps above). Each line is the group-mean PMC signal at each repetition time (TR) relative to interruption onset (intact-pause blue, scrambled-pause green, intact-theory-of-mind orange), with the shaded band of the matching color giving &plusmn;1 standard error of the mean across participants; the signal is z-scored per voxel over the whole run, pooled across the hemisphere's PMC voxels, and averaged over interruption epochs. The two gray vertical bands mark the 5-TR pre-onset and 5-TR post-onset windows whose difference is the boundary-response statistic mapped above. This is the whole-cortex counterpart, restricted to PMC, of the hippocampal boundary response of Result&nbsp;1 (<code>Result1_3_hipp-boundary-activity.py</code>).</p>
+<h3>Is the PMC onset response reliable across participants?</h3><p>The line plots above show a rise in the PMC signal just after interruption onset in all three conditions. To test it we took, for each participant, the mean of the five TRs beginning one TR after onset minus the mean of the five TRs ending one TR before onset, averaged over interruption epochs, and pooled the three interrupted cohorts into a single one-sample two-sided <em>t</em>-test against zero. The windows, the pooling and the test are identical to the hippocampal statistic of Result&nbsp;1.3, so the two numbers are directly comparable.</p><table><thead><tr><th>Region</th><th>n</th><th>Mean post &minus; pre</th><th>95% CI</th><th>t (df)</th><th>p (two-sided)</th><th>Cohen&rsquo;s d</th></tr></thead><tbody><tr><td>PMC (bilateral)</td><td>57</td><td>0.1392</td><td>[0.086, 0.192]</td><td>5.26 (56)</td><td>&lt; .001</td><td>0.70</td></tr></tbody></table><p class='note'>Per-participant values are in <code>data/pmc_pooled_per_subject_diffs.csv</code> and the test in <code>data/pmc_pooled_one_sample_t_stats.csv</code>. The hippocampal counterpart is in <code>Result1_3_hipp-boundary-activity/data/pooled_one_sample_t_stats.csv</code>.</p>
+</body></html>

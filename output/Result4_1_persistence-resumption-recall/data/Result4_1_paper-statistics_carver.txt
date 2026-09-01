@@ -1,0 +1,71 @@
+Result 4 — Shared PMC pattern persistence and hippocampal boundary activity
+predict neural resumption (DMN realignment, excl. PMC) and later narrative recall.
+
+Pooled IP+IT+SP ordinary least squares; condition fixed effect; per-participant observations.
+Inputs:
+  PMC persistence:    carver_PMC_interruption-phase-mean_skip5-use10_inter-subj.xlsx  (col: interruption-phase-mean_overall, roi=PMC)
+  Hipp boundary:      carver_hipp_post-pre-5trs-skip1trs_diff.xlsx   (per-subject mean of ep*_onset-diff)
+  DMN realignment:    carver_neural-realign_combo-4DMN.xlsx  (joint DMN mask: AG + PCC + dmPFC + vmPFC)
+  Recall:             carver_tally_clean.xlsx    (col: recall)
+
+=== Resumption: DMN realignment ~ PMC persistence (+ condition) ===
+  Formula: dmn_realign ~ pmc_quad5 + C(cond)   |   n rows = 57
+  Model R² = 0.3540   adj R² = 0.3174
+  Predictor                                  β          SE         t           p
+  --------------------------------  ----------  ----------  --------  ----------
+  Intercept (baseline)                0.006824    0.009562     0.714      0.4786
+  Condition intact_tom (vs. baseli     0.01694    0.007653     2.213      0.0312
+  Condition scram_pause (vs. basel     0.01287    0.008068     1.595      0.1167
+  PMC interruption-phase pattern p      0.3857     0.07725     4.993   6.805e-06
+
+=== Resumption: DMN realignment ~ Hipp boundary activity (+ condition) ===
+  Formula: dmn_realign ~ hipp_onset_diff + C(cond)   |   n rows = 57
+  Model R² = 0.1813   adj R² = 0.1350
+  Predictor                                  β          SE         t           p
+  --------------------------------  ----------  ----------  --------  ----------
+  Intercept (baseline)                 0.03669    0.006897     5.319   2.138e-06
+  Condition intact_tom (vs. baseli     0.02045    0.008932     2.290     0.02604
+  Condition scram_pause (vs. basel    0.007169    0.008961     0.800      0.4273
+  Hippocampal boundary activity (p     0.09328       0.032     2.915    0.005203
+
+=== Resumption: DMN realignment ~ PMC + Hipp (+ condition) ===
+  Formula: dmn_realign ~ pmc_quad5 + hipp_onset_diff + C(cond)   |   n rows = 57
+  Model R² = 0.4231   adj R² = 0.3787
+  Predictor                                  β          SE         t           p
+  --------------------------------  ----------  ----------  --------  ----------
+  Intercept (baseline)                0.003354    0.009227     0.364      0.7177
+  Condition intact_tom (vs. baseli       0.022    0.007577     2.903    0.005411
+  Condition scram_pause (vs. basel     0.01727    0.007897     2.187     0.03324
+  PMC interruption-phase pattern p      0.3503     0.07505     4.668   2.173e-05
+  Hippocampal boundary activity (p     0.06893     0.02762     2.496     0.01577
+
+=== Recall: recall ~ PMC persistence (+ condition) ===
+  Formula: recall ~ pmc_quad5 + C(cond)   |   n rows = 55
+  Model R² = 0.3589   adj R² = 0.3212
+  Predictor                                  β          SE         t           p
+  --------------------------------  ----------  ----------  --------  ----------
+  Intercept (baseline)                  0.1747     0.03127     5.589   8.974e-07
+  Condition intact_tom (vs. baseli    -0.04083     0.02497    -1.635      0.1082
+  Condition scram_pause (vs. basel    -0.08564     0.02604    -3.289    0.001829
+  PMC interruption-phase pattern p      0.7636      0.2547     2.998     0.00419
+
+=== Recall: recall ~ Hipp boundary activity (+ condition) ===
+  Formula: recall ~ hipp_onset_diff + C(cond)   |   n rows = 55
+  Model R² = 0.3262   adj R² = 0.2866
+  Predictor                                  β          SE         t           p
+  --------------------------------  ----------  ----------  --------  ----------
+  Intercept (baseline)                   0.229     0.02019    11.340   1.491e-15
+  Condition intact_tom (vs. baseli    -0.03077     0.02656    -1.158      0.2522
+  Condition scram_pause (vs. basel       -0.09     0.02662    -3.380    0.001396
+  Hippocampal boundary activity (p       0.232     0.09409     2.466     0.01709
+
+=== Recall: recall ~ PMC + Hipp (+ condition) ===
+  Formula: recall ~ pmc_quad5 + hipp_onset_diff + C(cond)   |   n rows = 55
+  Model R² = 0.4080   adj R² = 0.3606
+  Predictor                                  β          SE         t           p
+  --------------------------------  ----------  ----------  --------  ----------
+  Intercept (baseline)                  0.1661     0.03064     5.419   1.723e-06
+  Condition intact_tom (vs. baseli    -0.02681     0.02519    -1.064      0.2924
+  Condition scram_pause (vs. basel     -0.0732       0.026    -2.815    0.006956
+  PMC interruption-phase pattern p      0.6626      0.2521     2.628     0.01137
+  Hippocampal boundary activity (p       0.185     0.09085     2.036     0.04704

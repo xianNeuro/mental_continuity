@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'/>
+<title>Whole-brain selectivity and evolve maps</title>
+<style>body{font-family:system-ui,sans-serif;max-width:1500px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}h1{border-bottom:2px solid #333;padding-bottom:6px;}h2{margin-top:1.6rem;}table{border-collapse:collapse;font-size:13px;margin:12px 0;}th,td{border:1px solid #bbb;padding:5px 9px;text-align:right;}th{background:#f4f6f8;}.note{color:#555;font-size:13px;margin-top:6px;}.brain-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px 12px;margin:18px 0 26px;align-items:start;}.brain-grid .row-label{grid-column:1 / -1;font-weight:600;color:#333;margin-top:10px;border-bottom:1px solid #ddd;padding-bottom:3px;}.brain-grid .col-header{font-weight:600;color:#333;text-align:center;font-size:13px;padding:4px 0 2px;border-bottom:1px solid #eee;}.brain-grid figure{margin:0;}.brain-grid img{width:100%;height:auto;display:block;}</style></head><body>
+<h1>Supplementary Section S6 (whole-brain): selectivity and evolve maps</h1>
+<h2>Methods</h2>
+<p>The pattern-similarity reliability, selectivity, and evolve analyses reported for posterior medial cortex (PMC) in the main text (Result&nbsp;2.1, Result&nbsp;2.2 and Result&nbsp;2.3) were repeated at every Schaefer-400 parcel. For every parcel we computed the same per-participant inter-subject pattern correlation (15-second analysis window beginning 7.5&nbsp;s after interruption onset, the first five TRs from onset discarded to avoid hemodynamic carry-over). Reliability inference follows Result&nbsp;2.1: a one-sided sign-flip permutation test on subject pseudo-values from a delete-one-subject jackknife on the Fisher-z group mean ISPC (a parcel passes when <em>p</em><sub>perm</sub>&nbsp;&lt;&nbsp;0.05 in the expected positive direction). Selectivity is the participant-level mean matching minus mean mismatching ISPC; evolve is the per-participant OLS slope of mean ISPC against forward epoch distance d&nbsp;=&nbsp;1..8. Per-parcel inferential statistics for all three tests &mdash; reliability &theta;&#770;<sub>z</sub>, SE, bootstrap CI, sign-flip permutation <em>p</em>; selectivity mean diff, <em>t</em>, within-subject label-shuffle permutation <em>p</em>, bootstrap CI; evolve slope, within-subject temporal-label permutation <em>p</em> &mdash; are listed in <code>data/parcel_results.csv</code>.</p>
+<p>Two brain-map rows are shown, with the posterior medial cortex (PMC) region of interest outlined in black on every map so the whole-brain statistics can be read against the PMC location. <strong>Row 1</strong> shows the t-statistic at every parcel that passes own-condition reliability (<em>p</em><sub>perm</sub>&nbsp;&lt;&nbsp;0.05) for five (condition &times; measure) cells: IP-IP selectivity, IT-IP selectivity, IP-IP evolve, IT-IP evolve, and SP-SP evolve. <strong>Row 2</strong> shows the same t-statistic at every parcel whose own permutation test reaches an uncorrected <em>p</em>&nbsp;&lt;&nbsp;0.10 in the hypothesised direction: the selectivity panels retain parcels with positive selectivity (matching &gt; mismatching), and the evolve panels (including the SP-SP evolve control) retain parcels with a negative slope (pattern similarity declining with epoch distance). Rows&nbsp;1 and&nbsp;2 share column layout exactly so each column compares the reliability set against the uncorrected-significant set within the same (condition &times; measure) cell.</p>
+<p>Both rows use the project&rsquo;s high-resolution four-view cortical surface helper on the inflated <code>fsaverage</code> mesh (lateral and medial views of each hemisphere), with the project&rsquo;s native red&minus;blue diverging palette centered at 0 and the PMC region drawn as a black outline.</p>
+<p><strong>Per-parcel <em>n</em>_passing of 400.</strong> Reliability (sign-flip permutation <em>p</em> &lt; 0.05): IP-IP 266; SP-SP 256; IT-IT 379; IT-IP 132. Selectivity (uncorrected permutation <em>p</em> &lt; 0.10, positive): IP-IP 103; IT-IP 107. Evolve (uncorrected permutation <em>p</em> &lt; 0.10, negative): IP-IP 58; IT-IP 74; SP-SP 30.</p>
+<p><strong>Multiple-comparison-corrected counts (of 400).</strong> The counts above are at an uncorrected permutation threshold; after correcting across all 400 parcels the picture is far sparser. Reliability (Benjamini&ndash;Hochberg FDR &lt; 0.05): IP-IP 246; SP-SP 226; IT-IT 379; IT-IP 79. Selectivity (FDR &lt; 0.05): IP-IP 11; SP-SP 3; IT-IT 348; IT-IP 0. Pattern evolution (FDR &lt; 0.05, declining): IP-IP 5; SP-SP 0; IT-IT 37; IT-IP 21.</p>
+<p><strong>Full episodic-background profile.</strong> Restricting to parcels that are reliable <em>and</em> epoch-selective <em>and</em> evolving, each at an uncorrected permutation threshold <em>p</em>&nbsp;&lt;&nbsp;0.005, leaves exactly 2 parcels in the intact-pause scheme &mdash; the right angular gyrus (parcel&nbsp;386, default-mode network) and a right superior-occipital / extrastriate parcel (parcel&nbsp;221); none in the scrambled-pause or across-group schemes, consistent with the predicted absence of narrative integration without a coherent story. The intact-ToM scheme (question epochs, not tabulated) yields 32 such parcels.</p>
+<h2>Whole-brain maps</h2>
+<div class="brain-grid">
+  <div class="row-label">Row 1 &mdash; t-statistic at every reliability-passing parcel (black PMC outline)</div>
+  <div class="col-header">IP-IP selectivity</div>
+  <div class="col-header">IT-IP selectivity</div>
+  <div class="col-header">IP-IP evolve</div>
+  <div class="col-header">IT-IP evolve</div>
+  <div class="col-header">SP-SP evolve</div>
+  <figure><img src="figures/S6_row1_IP-IP_selectivity.png" alt="Row 1 (reliability set): IP-IP selectivity"/></figure>
+  <figure><img src="figures/S6_row1_IT-IP_selectivity.png" alt="Row 1 (reliability set): IT-IP selectivity"/></figure>
+  <figure><img src="figures/S6_row1_IP-IP_evolve.png" alt="Row 1 (reliability set): IP-IP evolve"/></figure>
+  <figure><img src="figures/S6_row1_IT-IP_evolve.png" alt="Row 1 (reliability set): IT-IP evolve"/></figure>
+  <figure><img src="figures/S6_row1_SP-SP_evolve.png" alt="Row 1 (reliability set): SP-SP evolve"/></figure>
+  <div class="row-label">Row 2 &mdash; t-statistic at parcels with an uncorrected permutation <em>p</em>&nbsp;&lt;&nbsp;0.10 in the hypothesised direction (selectivity: positive; evolve: negative; black PMC outline)</div>
+  <div class="col-header">IP-IP selectivity</div>
+  <div class="col-header">IT-IP selectivity</div>
+  <div class="col-header">IP-IP evolve</div>
+  <div class="col-header">IT-IP evolve</div>
+  <div class="col-header">SP-SP evolve</div>
+  <figure><img src="figures/S6_row2_IP-IP_selectivity.png" alt="Row 2 (uncorrected p<.10): IP-IP selectivity"/></figure>
+  <figure><img src="figures/S6_row2_IT-IP_selectivity.png" alt="Row 2 (uncorrected p<.10): IT-IP selectivity"/></figure>
+  <figure><img src="figures/S6_row2_IP-IP_evolve.png" alt="Row 2 (uncorrected p<.10): IP-IP evolve"/></figure>
+  <figure><img src="figures/S6_row2_IT-IP_evolve.png" alt="Row 2 (uncorrected p<.10): IT-IP evolve"/></figure>
+  <figure><img src="figures/S6_row2_SP-SP_evolve.png" alt="Row 2 (uncorrected p<.10): SP-SP evolve"/></figure>
+</div>
+<h2>Per-parcel CSV</h2>
+<p>Per-parcel results: <code>data/parcel_results.csv</code> (parcel_id, parcel_label; for each of the four conditions: reliability mean, Fisher-z group mean and 95% bootstrap CI in Fisher-z, and the sign-flip-jackknife permutation <em>p</em>; selectivity mean diff, <em>t</em>, permutation <em>p</em> and bootstrap CI; evolve slope, temporal-label permutation <em>p</em> (primary), and supplementary per-participant slope <em>t</em> and its <em>t</em>-test <em>p</em>; pass flags for all three).</p>
+</body></html>

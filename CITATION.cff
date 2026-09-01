@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: >-
+  If you use this code or data bundle, please cite the accompanying paper
+  (preferred-citation below).
+title: "mental_continuity — analysis code and data for the Mental Continuity paper"
+type: software
+authors:
+  - family-names: Li
+    given-names: Xian
+    affiliation: >-
+      Department of Psychological and Brain Sciences, Johns Hopkins University
+    email: xli239@jhu.edu
+  - family-names: Lee
+    given-names: Hongmi
+    affiliation: >-
+      Department of Psychological Sciences, Purdue University
+  - family-names: Honey
+    given-names: Christopher
+    affiliation: >-
+      Department of Psychological and Brain Sciences, Johns Hopkins University
+license: MIT
+preferred-citation:
+  type: article
+  title: "Cortical and Hippocampal Pathways to Mental Continuity"
+  authors:
+    - family-names: Li
+      given-names: Xian
+    - family-names: Lee
+      given-names: Hongmi
+    - family-names: Honey
+      given-names: Christopher
+  year: 2026
+  # journal / volume / pages / doi: to be added upon publication

@@ -1,0 +1,69 @@
+system,network_17,scheme,n_parcels,n_sig_FDR,stat_range,centroid_MNI
+Default mode,DefaultA,IP-IP,34,2,0.022–0.027,"(18, 51, 20)"
+Default mode,DefaultB,IP-IP,32,1,0.026–0.026,"(-6, 10, 64)"
+Default mode,DefaultC,IP-IP,13,0,—,—
+Frontoparietal control,ContA,IP-IP,24,1,0.023–0.023,"(24, 10, 58)"
+Frontoparietal control,ContB,IP-IP,25,1,0.023–0.023,"(28, 55, -14)"
+Frontoparietal control,ContC,IP-IP,12,0,—,—
+Salience / ventral attention,SalVentAttnA,IP-IP,34,1,0.025–0.025,"(-8, -3, 71)"
+Salience / ventral attention,SalVentAttnB,IP-IP,17,1,0.021–0.021,"(-27, 49, -14)"
+Dorsal attention,DorsAttnA,IP-IP,27,0,—,—
+Dorsal attention,DorsAttnB,IP-IP,25,1,0.021–0.021,"(61, -14, 30)"
+Somatomotor,SomMotA,IP-IP,39,1,0.026–0.026,"(-19, -40, 72)"
+Somatomotor,SomMotB,IP-IP,31,1,0.026–0.026,"(59, -5, 27)"
+Temporoparietal,TempPar,IP-IP,16,0,—,—
+Visual,VisCent,IP-IP,24,0,—,—
+Visual,VisPeri,IP-IP,23,1,0.015–0.015,"(-24, -54, -8)"
+Limbic,LimbicA,IP-IP,13,0,—,—
+Limbic,LimbicB,IP-IP,11,0,—,—
+Default mode,DefaultA,SP-SP,34,0,—,—
+Default mode,DefaultB,SP-SP,32,0,—,—
+Default mode,DefaultC,SP-SP,13,0,—,—
+Frontoparietal control,ContA,SP-SP,24,0,—,—
+Frontoparietal control,ContB,SP-SP,25,1,0.027–0.027,"(28, 59, 3)"
+Frontoparietal control,ContC,SP-SP,12,0,—,—
+Salience / ventral attention,SalVentAttnA,SP-SP,34,0,—,—
+Salience / ventral attention,SalVentAttnB,SP-SP,17,0,—,—
+Dorsal attention,DorsAttnA,SP-SP,27,0,—,—
+Dorsal attention,DorsAttnB,SP-SP,25,0,—,—
+Somatomotor,SomMotA,SP-SP,39,1,0.018–0.018,"(-32, -29, 62)"
+Somatomotor,SomMotB,SP-SP,31,0,—,—
+Temporoparietal,TempPar,SP-SP,16,0,—,—
+Visual,VisCent,SP-SP,24,0,—,—
+Visual,VisPeri,SP-SP,23,0,—,—
+Limbic,LimbicA,SP-SP,13,1,0.016–0.016,"(28, -1, -40)"
+Limbic,LimbicB,SP-SP,11,0,—,—
+Default mode,DefaultA,IT-IT,34,31,0.014–0.073,"(2, -8, 24)"
+Default mode,DefaultB,IT-IT,32,28,0.011–0.055,"(-15, 13, 14)"
+Default mode,DefaultC,IT-IT,13,12,0.012–0.072,"(1, -50, 5)"
+Frontoparietal control,ContA,IT-IT,24,21,0.012–0.058,"(-8, -15, 36)"
+Frontoparietal control,ContB,IT-IT,25,20,0.017–0.053,"(8, -9, 30)"
+Frontoparietal control,ContC,IT-IT,12,11,0.030–0.066,"(2, -58, 37)"
+Salience / ventral attention,SalVentAttnA,IT-IT,34,31,0.010–0.059,"(3, -10, 27)"
+Salience / ventral attention,SalVentAttnB,IT-IT,17,16,0.016–0.050,"(6, 28, 15)"
+Dorsal attention,DorsAttnA,IT-IT,27,26,0.015–0.064,"(1, -63, 25)"
+Dorsal attention,DorsAttnB,IT-IT,25,23,0.013–0.067,"(-1, -29, 49)"
+Somatomotor,SomMotA,IT-IT,39,30,0.012–0.034,"(2, -24, 62)"
+Somatomotor,SomMotB,IT-IT,31,30,0.012–0.062,"(0, -14, 17)"
+Temporoparietal,TempPar,IT-IT,16,16,0.019–0.058,"(13, -28, 3)"
+Visual,VisCent,IT-IT,24,17,0.012–0.060,"(-5, -81, -5)"
+Visual,VisPeri,IT-IT,23,18,0.015–0.049,"(1, -67, 12)"
+Limbic,LimbicA,IT-IT,13,12,0.010–0.029,"(1, -4, -32)"
+Limbic,LimbicB,IT-IT,11,6,0.010–0.036,"(0, 27, -20)"
+Default mode,DefaultA,IT-IP,34,0,—,—
+Default mode,DefaultB,IT-IP,32,0,—,—
+Default mode,DefaultC,IT-IP,13,0,—,—
+Frontoparietal control,ContA,IT-IP,24,0,—,—
+Frontoparietal control,ContB,IT-IP,25,0,—,—
+Frontoparietal control,ContC,IT-IP,12,0,—,—
+Salience / ventral attention,SalVentAttnA,IT-IP,34,0,—,—
+Salience / ventral attention,SalVentAttnB,IT-IP,17,0,—,—
+Dorsal attention,DorsAttnA,IT-IP,27,0,—,—
+Dorsal attention,DorsAttnB,IT-IP,25,0,—,—
+Somatomotor,SomMotA,IT-IP,39,0,—,—
+Somatomotor,SomMotB,IT-IP,31,0,—,—
+Temporoparietal,TempPar,IT-IP,16,0,—,—
+Visual,VisCent,IT-IP,24,0,—,—
+Visual,VisPeri,IT-IP,23,0,—,—
+Limbic,LimbicA,IT-IP,13,0,—,—
+Limbic,LimbicB,IT-IP,11,0,—,—

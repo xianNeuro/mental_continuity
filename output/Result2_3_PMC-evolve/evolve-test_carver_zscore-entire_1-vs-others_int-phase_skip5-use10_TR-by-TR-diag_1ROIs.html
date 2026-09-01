@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>Result 2.3: PMC pattern-similarity evolve (interruption)</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:1200px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+h1{border-bottom:2px solid #333;padding-bottom:6px;}
+h2{margin-top:1.8rem;border-bottom:1px solid #aaa;padding-bottom:4px;}
+h3{margin-top:1.2rem;}
+table{border-collapse:collapse;font-size:13px;margin:12px 0;width:100%;}
+th,td{border:1px solid #bbb;padding:5px 8px;text-align:left;}
+th{background:#f4f6f8;}
+.fig{display:block;margin:18px auto;max-width:100%;}
+.note{color:#555;font-size:13px;margin-top:6px;}
+.legend{color:#333;font-size:13px;margin:8px 0 18px 0;padding-left:22px;}
+.legend li{margin-bottom:4px;}
+th.desc, td.desc{background:#f1f3f4;color:#666;}
+</style></head><body>
+<h1>Result 2.3: PMC pattern-similarity evolve (interruption)</h1>
+
+
+
+<h2>Methods</h2>
+<p>We tested whether the shared PMC pattern evolves across the narrative, by asking whether inter-subject pattern correlation (ISPC) between two interruption epochs declines with their forward distance d = |<em>i</em> &minus; <em>j</em>|. ISPC was measured in a 15-second window spanning the ten TRs that began 7.5 s after interruption onset (the first five post-onset TRs were discarded to avoid hemodynamic carry-over from the preceding story segment). For every ordered pair of epochs (<em>i</em>, <em>j</em>) at distance d = 1 through 8, the Pearson correlation between the participant's PMC pattern at epoch <em>i</em> and the across-participant average PMC pattern of the other participants at epoch <em>j</em> was computed at every TR and averaged across the ten TRs; for each participant the mean ISPC at each distance was then taken. The per-participant slope of ISPC regressed on distance summarizes how steeply pattern similarity declines with distance, and the group slope is the across-participants mean. ISPC was evaluated under five inter-subject schemes: three within-condition (IP-IP, SP-SP, IT-IT), one across-condition (IT-IP), and SP-SP-unscr, in which the scrambled-pause epochs were re-ordered into the intact narrative sequence so that epoch distance reflects true narrative distance rather than scrambled presentation order. PMC voxels were defined by the project's anatomical PMC mask and per-voxel timecourses were z-scored across the entire run before analysis.</p><p>To test whether ISPC declines with epoch distance, we reshuffled each participant's per-distance ISPC means across the distance labels d = 1..8, recomputed that participant's slope, and recorded the group mean across participants; 10000 iterations built the null. The two-sided permutation <em>p</em> is (<em>k</em>&nbsp;+&nbsp;1)/(10000&nbsp;+&nbsp;1), where <em>k</em> is the number of null group-mean slopes whose magnitude is at least as large as the observed slope. The table also reports the standard error of the group-mean slope, its 95% confidence interval (a <em>t</em> interval on the per-participant slopes), and a descriptive one-sample <em>t</em>-test on per-participant slopes.</p>
+
+<h2>Results</h2>
+<p style="color:#666;font-size:12.5px;margin:0 0 4px 0;">Primary stats (unshaded) | Descriptive / context (light gray)</p><table>
+<thead><tr><th>Cond</th><th>Slope</th><th>SE</th><th>95% CI</th><th>p (perm)</th><th class="desc">n</th><th class="desc">t</th><th class="desc">df</th><th class="desc">p (t)</th></tr></thead>
+<tbody>
+<tr><td>IP-IP</td><td>-0.00360</td><td>+0.00117</td><td>[-0.00606, -0.00113]</td><td>0.0009</td><td class="desc">19</td><td class="desc">-3.067</td><td class="desc">18</td><td class="desc">0.0066</td></tr>
+<tr><td>SP-SP</td><td>+0.00001</td><td>+0.00132</td><td>[-0.00277, +0.00279]</td><td>0.9886</td><td class="desc">19</td><td class="desc">0.010</td><td class="desc">18</td><td class="desc">0.9924</td></tr>
+<tr><td>SP-SP-unscr</td><td>+0.00007</td><td>+0.00142</td><td>[-0.00292, +0.00305]</td><td>0.9425</td><td class="desc">19</td><td class="desc">0.047</td><td class="desc">18</td><td class="desc">0.9634</td></tr>
+<tr><td>IT-IT</td><td>-0.00140</td><td>+0.00093</td><td>[-0.00336, +0.00056]</td><td>0.0375</td><td class="desc">19</td><td class="desc">-1.504</td><td class="desc">18</td><td class="desc">0.1499</td></tr>
+<tr><td>IT-IP</td><td>-0.00222</td><td>+0.00105</td><td>[-0.00441, -0.00002]</td><td>0.0048</td><td class="desc">19</td><td class="desc">-2.120</td><td class="desc">18</td><td class="desc">0.0482</td></tr>
+</tbody></table>
+<ul class="legend"><li><strong>Slope</strong> &mdash; group-mean per-participant OLS slope of ISPC (r) regressed on forward epoch distance d = 1..8: mean across participants of the within-subject least-squares slope. Negative = ISPC declines with distance.</li><li><strong>SE</strong> &mdash; standard error of the group-mean slope: SD(subject slopes) / &radic;n<sub>subjects</sub>. Bar-plot whisker.</li><li><strong>p (perm)</strong> &mdash; primary inferential test. Within-participant temporal-label permutation on the group-mean slope (10000 iter; two-sided).</li><li><strong>n</strong> (descriptive) &mdash; number of participants in the cell.</li><li><strong>95% CI</strong> &mdash; 95% confidence interval on the group-mean slope: a <em>t</em> interval on the per-participant slopes, mean &plusmn; t<sub>crit</sub>&nbsp;&times;&nbsp;SE (df = n<sub>subjects</sub> &minus; 1); same estimator as the Slope and SE columns.</li><li><strong>t / df / p (t)</strong> (descriptive) &mdash; one-sample <em>t</em>-test on subject slopes against 0 (df = n<sub>subjects</sub> &minus; 1).</li></ul>
+<h3>Pattern similarity by epoch distance (trendline plots)</h3>
+<p>Each plot shows participant-level mean pattern correlation at each forward epoch distance (dots), the group mean across participants at each distance (solid line), and the fitted slope line (dashed).</p>
+<h4>IP-IP</h4>
+<p><img class="fig" src="figures/Result2_3_PMC-evolve_trendline_IP_IP.png" alt="IP-IP trendline"/></p>
+<h4>SP-SP</h4>
+<p><img class="fig" src="figures/Result2_3_PMC-evolve_trendline_SP_SP.png" alt="SP-SP trendline"/></p>
+<h4>SP-SP-unscr</h4>
+<p><img class="fig" src="figures/Result2_3_PMC-evolve_trendline_SP_SP_unscr.png" alt="SP-SP-unscr trendline"/></p>
+<h4>IT-IT</h4>
+<p><img class="fig" src="figures/Result2_3_PMC-evolve_trendline_IT_IT.png" alt="IT-IT trendline"/></p>
+<h4>IT-IP</h4>
+<p><img class="fig" src="figures/Result2_3_PMC-evolve_trendline_IT_IP.png" alt="IT-IP trendline"/></p>
+<p class="note">A negative group-mean slope with p (perm) &lt; 0.05 indicates pattern similarity declines with epoch distance. Condition codes as in Result 2.1.</p>
+</body></html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>Supplementary Section S10 (inversion control 1): HRF undershoot across pre-selected ROIs</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:1400px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+h1{border-bottom:2px solid #333;padding-bottom:6px;}
+h2{margin-top:1.8rem;border-bottom:1px solid #aaa;padding-bottom:4px;}
+h3{margin-top:1.2rem;}
+table{border-collapse:collapse;font-size:13px;margin:12px 0;width:100%;}
+th,td{border:1px solid #bbb;padding:6px 10px;text-align:left;}
+th{background:#f4f6f8;}
+tbody tr:nth-child(4){border-top:3px solid #333;}
+.note{color:#555;font-size:13px;margin-top:6px;}
+.roi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 24px;margin-top:12px;}
+.roi-grid .cell{text-align:center;}
+.roi-grid .cell img{width:100%;height:auto;border:none;}
+ol li{margin-bottom:4px;}
+</style></head>
+<body>
+<h1>Supplementary Section S10 (inversion control 1):
+hemodynamic-undershoot test across pre-selected ROIs</h1>
+
+<p>This report examines whether the story-to-interruption pattern inversion in posterior
+medial cortex (PMC) could be an artifact of the hemodynamic post-stimulus undershoot, in
+three analyses. <strong>Analysis&nbsp;1</strong> asks whether the voxels that invert do so
+in the one-sided, story-positive-only direction a pure undershoot predicts, or whether
+rises and drops are instead comparable in number. <strong>Analysis&nbsp;2</strong> asks
+whether the inversion resolves on the ~10&ndash;20&nbsp;s timescale of a hemodynamic
+undershoot or persists across the whole interruption. <strong>Analysis&nbsp;3</strong>
+follows the most and least story-activated voxels of each participant through the
+interruption, asking in particular whether the story-phase <em>bottom</em>-most voxels
+&mdash; which an undershoot account leaves no reason to change &mdash; rise into sustained
+positive activity.</p>
+
+<p>Analysis&nbsp;1 is applied to three control regions outside the default-mode
+network &mdash; primary auditory cortex (A1+), middle superior temporal gyrus (mSTG), and
+dorsolateral prefrontal cortex (dlPFC) &mdash; and to the five pre-selected default-mode regions
+reported elsewhere in this supplement: angular gyrus (AG), posterior cingulate cortex (PCC),
+dorsomedial prefrontal cortex (dmPFC), ventromedial prefrontal cortex (vmPFC), and PMC.
+Analyses&nbsp;2 and&nbsp;3 focus on PMC. Throughout, one volume of data is one repetition
+time (TR = 1.5&nbsp;s).</p>
+
+<h2>Analysis 1 &mdash; voxels with activity rise are comparable with those with activity
+drop</h2>
+
+<h3>Methods</h3>
+<p>The hemodynamic-undershoot test reported for posterior medial cortex (PMC) in
+Result&nbsp;3.3 is applied here to the broader pre-selected region-of-interest (ROI)
+set: three control regions outside the default-mode network &mdash; primary auditory
+cortex (A1+), middle superior temporal gyrus (mSTG), and dorsolateral prefrontal cortex
+(dlPFC) &mdash; and the five pre-selected default-mode regions reported elsewhere in
+this supplement (angular gyrus, AG; posterior cingulate cortex, PCC; dorsomedial
+prefrontal cortex, dmPFC; ventromedial prefrontal cortex, vmPFC; and PMC). Windows,
+similarity logic, and the inferential statistic are identical to Result&nbsp;3.3.</p>
+
+<p>Around every interruption onset we built two multivoxel patterns (MVPs) per ROI:
+<strong>MVP1</strong>, the mean over the ten repetition times (TRs; TR = 1.5&nbsp;s)
+ending one TR before onset (story window), and <strong>MVP2</strong>, the mean over
+ten TRs starting five TRs after onset (interruption window), both from the
+whole-run z-scored data in which each voxel was z-scored across the entire run. MVP1
+and MVP2 were averaged across all interruption epochs and all pooled participants
+(intact-pause, scrambled-pause, intact theory-of-mind), giving one grand-mean value
+per voxel; each dot in the scatter is one voxel at (grand-mean MVP1, grand-mean
+MVP2), colored by its within-participant story-to-interruption regression slope
+(warm = stays the same sign, cold = inverts). A pure undershoot drives story-positive
+voxels below baseline during the interruption (Q4: MVP1&nbsp;&gt;&nbsp;0,
+MVP2&nbsp;&lt;&nbsp;0) without the converse flip of story-negative voxels (Q2:
+MVP1&nbsp;&lt;&nbsp;0, MVP2&nbsp;&gt;&nbsp;0), so its signature is an excess of Q4
+over Q2 voxels.</p>
+
+<p>Because the grand mean averages over participants, we summarized the asymmetry as
+the <strong>Q4 fraction of inverting voxels</strong>, Q4&thinsp;/&thinsp;(Q2&nbsp;+&nbsp;Q4),
+and tested it with a <strong>participant bootstrap</strong> (5,000 resamples of the
+pooled participants with replacement, which keeps each participant&rsquo;s
+within-subject spatial voxel dependence intact and propagates the subject-level
+sampling variability the grand mean averages over). The pure-undershoot prediction is
+a Q4 fraction reliably above 0.5 (95% bootstrap confidence interval excluding 0.5); a
+confidence interval spanning 0.5 (Q2&nbsp;&asymp;&nbsp;Q4) rejects the pure-undershoot
+account.</p>
+
+
+<h3>Results &mdash; grand-mean Q2/Q4 with participant-bootstrap test, per ROI</h3>
+<table><thead><tr><th>ROI</th><th>voxels</th><th>Q2</th><th>Q4</th><th>pooled Q2:Q4 ratio<br>(reference)</th><th>Q4 fraction of inverting voxels<br>[95% participant-bootstrap CI]</th><th>bootstrap p<br>(Q4 &gt; Q2, one-sided)</th><th>sig</th><th>consistent with undershoot?<br>(CI above 0.5)</th></tr></thead><tbody><tr><td>A1+</td><td>447</td><td>0</td><td>443</td><td>0.000</td><td>1.000 [1.000, 1.000]</td><td>2.00e-04</td><td>***</td><td>yes</td></tr><tr><td>mSTG</td><td>405</td><td>0</td><td>404</td><td>0.000</td><td>1.000 [1.000, 1.000]</td><td>2.00e-04</td><td>***</td><td>yes</td></tr><tr><td>dlPFC</td><td>1163</td><td>685</td><td>277</td><td>2.473</td><td>0.288 [0.145, 0.427]</td><td>0.9994</td><td>n.s.</td><td>no</td></tr><tr><td>AG</td><td>478</td><td>35</td><td>295</td><td>0.119</td><td>0.894 [0.726, 0.985]</td><td>2.00e-04</td><td>***</td><td>yes</td></tr><tr><td>PCC</td><td>599</td><td>379</td><td>133</td><td>2.850</td><td>0.260 [0.186, 0.340]</td><td>1.0000</td><td>n.s.</td><td>no</td></tr><tr><td>dmPFC</td><td>405</td><td>87</td><td>279</td><td>0.312</td><td>0.762 [0.627, 0.861]</td><td>8.00e-04</td><td>***</td><td>yes</td></tr><tr><td>vmPFC</td><td>440</td><td>51</td><td>208</td><td>0.245</td><td>0.803 [0.425, 0.957]</td><td>0.0682</td><td>n.s.</td><td>no</td></tr><tr><td>PMC</td><td>972</td><td>290</td><td>336</td><td>0.863</td><td>0.537 [0.392, 0.761]</td><td>0.3523</td><td>n.s.</td><td>no</td></tr></tbody></table>
+<p class="note">Pre-selected ROIs are split into a control block (A1+, mSTG, dlPFC) and a
+default-mode block (AG, PCC, dmPFC, vmPFC, PMC), separated by a horizontal rule.
+Significance markers follow the standard convention (<strong>*</strong> p &lt; 0.05,
+<strong>**</strong> p &lt; 0.01, <strong>***</strong> p &lt; 0.001, otherwise n.s.). The
+final column reads &ldquo;yes&rdquo; only when the Q4 fraction of inverting voxels is
+reliably above 0.5 (95% bootstrap confidence interval excluding 0.5), the operational
+signature of a pure hemodynamic undershoot. Auditory cortex (A1+) shows this Q4-dominant
+asymmetry, whereas in PMC the confidence interval spans 0.5: the voxels whose activity
+<em>rises</em> from the story to the interruption (Q2) are comparable in number to those
+whose activity <em>drops</em> (Q4), which is the symmetric pattern expected of a pattern
+reconfiguration and not of a one-sided undershoot.</p>
+
+<h3>Per-ROI figures</h3>
+<div class='roi-grid'>
+<div class='cell'><img src='figures/S10-undershoot_A1+.svg' alt='primary auditory cortex (A1+) voxelwise story-vs-interruption scatter'/><div>primary auditory cortex (A1+)</div></div>
+<div class='cell'><img src='figures/S10-undershoot_mSTG.svg' alt='middle superior temporal gyrus (mSTG) voxelwise story-vs-interruption scatter'/><div>middle superior temporal gyrus (mSTG)</div></div>
+<div class='cell'><img src='figures/S10-undershoot_dlPFC.svg' alt='dorsolateral prefrontal cortex (dlPFC) voxelwise story-vs-interruption scatter'/><div>dorsolateral prefrontal cortex (dlPFC)</div></div>
+<div class='cell'><img src='figures/S10-undershoot_AG.svg' alt='angular gyrus (AG) voxelwise story-vs-interruption scatter'/><div>angular gyrus (AG)</div></div>
+<div class='cell'><img src='figures/S10-undershoot_PCC.svg' alt='posterior cingulate cortex (PCC) voxelwise story-vs-interruption scatter'/><div>posterior cingulate cortex (PCC)</div></div>
+<div class='cell'><img src='figures/S10-undershoot_dmPFC.svg' alt='dorsomedial prefrontal cortex (dmPFC) voxelwise story-vs-interruption scatter'/><div>dorsomedial prefrontal cortex (dmPFC)</div></div>
+<div class='cell'><img src='figures/S10-undershoot_vmPFC.svg' alt='ventromedial prefrontal cortex (vmPFC) voxelwise story-vs-interruption scatter'/><div>ventromedial prefrontal cortex (vmPFC)</div></div>
+<div class='cell'><img src='figures/S10-undershoot_PMC.svg' alt='posterior medial cortex (PMC) voxelwise story-vs-interruption scatter'/><div>posterior medial cortex (PMC)</div></div>
+</div>
+<p class="note">Each panel shows one dot per voxel at its grand-mean story-window
+value (MVP1, x) versus interruption-window value (MVP2, y), pooled across all
+epochs and participants and colored by the within-participant story-to-interruption
+slope (warm = stays, cold = inverts). Q2 (upper-left) and Q4 (lower-right) are the
+inversion quadrants; the annotation gives the Q4 fraction of inverting voxels, its
+95% participant-bootstrap confidence interval, and the one-sided bootstrap p that it
+exceeds 0.5.</p>
+
+
+
+<h3>The scatter color variable &mdash; the story-to-interruption slope (&beta;)</h3>
+<p>Where the quadrant counts locate a voxel&rsquo;s grand-mean activity, the dot colors
+track its behavior across epochs: whether a voxel holds its activity level from the story
+window into the interruption window, or reverses it. A voxel that runs high during a story
+stretch and low during the interruption that follows it <strong>flips</strong>; one whose
+interruption activity tracks its story activity <strong>stays</strong>.</p>
+
+<p>Each voxel was assigned a slope <strong>&beta;</strong>, the ordinary-least-squares
+regression of its interruption-window value (MVP2) on its story-window value (MVP1), with
+each (participant, interruption epoch) pair as one observation. Each participant&rsquo;s
+values were first centered on that participant&rsquo;s own mean across epochs, so that
+&beta; reflects epoch-to-epoch fluctuation within a participant; the centered cross-products
+were then pooled over all participants and epochs (intact-pause, scrambled-pause and intact
+theory-of-mind). Voxels with &beta;&nbsp;&lt;&nbsp;0 flip and are colored cold (blue),
+voxels with &beta;&nbsp;&gt;&nbsp;0 stay and are colored warm (red); &beta; sets the color
+scale of the scatters above.</p>
+
+
+
+<h2>Analysis 2 &mdash; the inverted pattern was sustained across the interruption TRs,
+with no tendency to rise back</h2>
+
+<h3>Methods &amp; rationale</h3>
+<p>A pattern change driven by a hemodynamic undershoot would be <strong>transient</strong>.
+The blood-oxygen-level-dependent (BOLD) signal follows a stereotyped hemodynamic
+response function: after an event it rises to a peak around 5&ndash;6&nbsp;s and returns
+toward baseline by about 10&nbsp;s, followed by a slow post-stimulus undershoot that
+resolves within about 15&ndash;30&nbsp;s. If the story-to-interruption inversion were such
+an undershoot it would drop below baseline and rise back within roughly 10&ndash;20&nbsp;s.
+The figure plots, TR by TR around interruption onset, the leave-one-participant-out
+similarity between each participant&rsquo;s PMC pattern and the group story-phase template
+(the ten TRs before onset), separately for the intact-pause (IP), scrambled-pause (SP)
+and intact theory-of-mind (IT) conditions. The beige band marks the 10-TR story window
+(pre-onset) and the light-gray band the 15-TR interruption window.</p>
+
+<h3>Results</h3>
+<p>The similarity is positive during the story window (beige), turns negative right after
+onset (the inversion), and <strong>stays negative across the whole interruption</strong>
+(gray) &mdash; out to the shortest interruption, 15 TRs (~22 s) &mdash; well past the dotted red
+mark at ~10&nbsp;s where a hemodynamic response would have returned to baseline. It only
+rises back toward the story pattern when the story resumes.</p>
+<p style='text-align:center'><img src='figures/S10-analysis2_sustained_PMC.png' style='width:95%;height:auto' alt='sustained story-template similarity in PMC'/></p>
+<div class='takehome' style='background:#eef7ff;border-left:4px solid #2c7fb8;padding:8px 12px;margin-top:10px;'>
+<strong>Take-home.</strong> A hemodynamic undershoot resolves within ~10&ndash;20&nbsp;s;
+the PMC story-to-interruption inversion persists for the entire interruption phase, so it
+reflects a sustained pattern reconfiguration rather than the tail of the hemodynamic
+response.</div>
+<p class="note">Hemodynamic-response timing from the fMRI literature: e.g.
+<a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC3356682/'>the BOLD post-stimulus
+undershoot review (van&nbsp;Zijl et&nbsp;al., 2012, NeuroImage)</a>.</p>
+
+
+
+<h2>Analysis 3 &mdash; the story-phase bottom-most activated voxels&rsquo; timecourses showed
+sustained positive activity across the interruption phase (intact-pause, PMC)</h2>
+
+<h3>Methods</h3>
+<p>This analysis asks whether the voxels a participant drives hardest during a story
+stretch, and those it drives least, reverse their activity during the interruption that
+follows. In the intact-pause condition, we ranked each participant&rsquo;s PMC voxels by
+that participant&rsquo;s own story-phase activity (mean over the ten TRs before onset) at
+each interruption epoch, took the top 20% and bottom 20% (194 of 972 voxels each),
+and followed them in that same participant&rsquo;s timecourse around onset. Each
+participant&rsquo;s timecourse was averaged across epochs, then averaged across
+participants; the shaded band is &plusmn;1 standard error (SE) across participants.</p>
+
+<p>Two selections are overlaid. The <strong>matched</strong> selection (solid) ranks voxels
+on the epoch being plotted. The <strong>mismatched</strong> selection (dotted) ranks them on
+each of 100 epochs drawn at random from that participant&rsquo;s remaining epochs and
+averages the 100 resulting timecourses, so that any separation it shows reflects a stable
+property of those voxels across epochs. The mismatched pool comprises all off-diagonal epoch
+pairs, the convention used for matching versus mismatching in Result&nbsp;2.2 and elsewhere
+in this supplement. Ranking used the voxels with finite values for that participant.</p>
+
+<h3>Results</h3>
+<p style='text-align:center'><img src='figures/S10-analysis3_top-bottom-voxels_PMC.png' style='width:95%;height:auto'
+alt='per-participant matched vs mismatched top/bottom story-activated voxels over time'/></p>
+<p class="note">Red = top voxels, blue = bottom voxels; <strong>solid = matched</strong>
+(dots &#9679; top, crosses &times; bottom), <strong>dotted = mismatched</strong>; shaded bands
+are &plusmn;1 SE across participants. Beige = 10-TR story window (pre-onset), gray = 15-TR
+interruption window. The two sets cross over cleanly at onset: the top voxels start high
+during the story and fall below zero during the interruption, and &mdash; the point that
+bears on the undershoot account &mdash; the <strong>bottom</strong> voxels, deeply negative
+throughout the story, rise above zero and hold a <strong>sustained positive</strong> level
+across the interruption window rather than drifting back toward baseline. A post-stimulus
+undershoot pulls story-<em>positive</em> voxels down and gives no reason for
+story-<em>negative</em> voxels to rise, so this upward, sustained excursion of the
+bottom-most voxels is not something an undershoot can produce. The mismatched selection shows
+a smaller story-window separation (as expected when voxels are not selected on the plotted
+epoch) yet the same-signed interruption crossover persists, indicating the inversion is a
+stable across-epoch property of the same voxels rather than a within-epoch selection
+artifact.</p>
+
+
+</body></html>

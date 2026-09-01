@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Result1_1_beh — comprehension & recall</title>
+  <style>
+    body{font-family:system-ui,sans-serif;max-width:1100px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+    h1{border-bottom:2px solid #333;padding-bottom:6px;}
+    h2{margin-top:1.6rem;}
+    h3{margin-top:1.2rem;}
+    table{border-collapse:collapse;font-size:14px;margin:12px 0;width:100%;}
+    th,td{border:1px solid #bbb;padding:6px 10px;text-align:left;vertical-align:middle;}
+    th{background:#f4f6f8;}
+    table.unified-stats td{text-align:center;}
+    table.unified-stats td:first-child{text-align:left;font-weight:600;}
+    th.desc, td.desc{background:#f1f3f4;color:#666;}
+    .sig{font-weight:600;}
+    .ns{color:#999;}
+    .legend{color:#333;font-size:13px;margin:8px 0 18px 0;padding-left:22px;}
+    .legend li{margin-bottom:4px;}
+    .figure-container{text-align:left;margin:18px 0;}
+    .figure-container img{max-width:440px;width:100%;height:auto;border:1px solid #ddd;}
+    .note{color:#555;font-size:13px;margin-top:6px;}
+    code{background:#f4f4f4;padding:2px 6px;border-radius:4px;}
+  </style>
+</head>
+<body>
+  <h1>Result1_1_beh</h1>
+  
+    <h2>Methods</h2>
+    <p>We tested whether post-scan comprehension and free-recall
+    performance differed across the four between-subjects conditions
+    (continuous, intact-pause, intact-theory-of-mind, scrambled-pause).
+    Each measure was analyzed with a one-way between-subjects ANOVA;
+    pairwise differences were then evaluated with Welch two-sample
+    <em>t</em>-tests (unequal variances), Bonferroni-corrected across the six pairs. Bar
+    plots show condition means with SEM error bars. Sample sizes vary
+    across measures because comprehension and recall responses were not
+    collected from every scanned participant; per-cell <em>n</em> is in
+    the stats tables.</p>
+
+    <h2>Results</h2>
+    <h3>Comprehension score</h3>
+    <p><strong>Omnibus one-way ANOVA:</strong> <i>F</i>(3, 55) = 8.0111, p < .001.</p>
+    <p style="color:#666;font-size:12.5px;margin:0 0 4px 0;">Primary stats (unshaded) | Descriptive / context (light gray)</p><table class='unified-stats'><thead><tr><th rowspan='2'>Cond</th><th rowspan='2' class='desc'><i>n</i></th><th rowspan='2'><i>M</i></th><th rowspan='2' class='desc'><i>SD</i></th><th rowspan='2'>95% CI</th><th colspan='4'>Pairwise <i>t</i>-test (Bonferroni-corrected <i>p</i>)</th></tr><tr><th>vs CT</th><th>vs IP</th><th>vs IT</th><th>vs SP</th></tr></thead><tbody><tr><td>CT</td><td class="desc">7</td><td>5.14</td><td class="desc">0.84</td><td>[4.37, 5.92]</td><td style="text-align:center;color:#bbb">—</td><td class='ns'><i>t</i>(17.7)=1.02<br/><i>p</i>=1.000</td><td class='ns'><i>t</i>(17.1)=1.80<br/><i>p</i>=0.534</td><td class='sig'><i>t</i>(16.5)=5.09<br/><i>p</i>=0.001</td></tr><tr><td>IP</td><td class="desc">18</td><td>4.69</td><td class="desc">1.34</td><td>[4.02, 5.35]</td><td class='ns'><i>t</i>(17.7)=-1.02<br/><i>p</i>=1.000</td><td style="text-align:center;color:#bbb">—</td><td class='ns'><i>t</i>(34.0)=0.76<br/><i>p</i>=1.000</td><td class='sig'><i>t</i>(32.0)=4.05<br/><i>p</i>=0.002</td></tr><tr><td>IT</td><td class="desc">18</td><td>4.35</td><td class="desc">1.29</td><td>[3.71, 4.99]</td><td class='ns'><i>t</i>(17.1)=-1.80<br/><i>p</i>=0.534</td><td class='ns'><i>t</i>(34.0)=-0.76<br/><i>p</i>=1.000</td><td style="text-align:center;color:#bbb">—</td><td class='sig'><i>t</i>(31.9)=3.35<br/><i>p</i>=0.013</td></tr><tr><td>SP</td><td class="desc">16</td><td>2.92</td><td class="desc">1.21</td><td>[2.27, 3.56]</td><td class='sig'><i>t</i>(16.5)=-5.09<br/><i>p</i>=0.001</td><td class='sig'><i>t</i>(32.0)=-4.05<br/><i>p</i>=0.002</td><td class='sig'><i>t</i>(31.9)=-3.35<br/><i>p</i>=0.013</td><td style="text-align:center;color:#bbb">—</td></tr></tbody></table><ul class="legend"><li><strong>Cond</strong> &mdash; condition: CT (continuous), IP (intact-pause), IT (intact-theory-of-mind), SP (scrambled-pause).</li><li><strong><i>M</i> / 95% CI</strong> &mdash; per-condition mean and 95% confidence interval of the mean.</li><li><strong>Pairwise <i>t</i>-test cells</strong> &mdash; Welch two-sample <em>t</em> (unequal variances) and Bonferroni-corrected two-sided <em>p</em> against the column condition; diagonal is &mdash;.</li><li><strong><i>n</i></strong> (descriptive) &mdash; participants contributing to the cell.</li><li><strong><i>SD</i></strong> (descriptive) &mdash; per-condition standard deviation.</li></ul>
+    <div class="figure-container"><img src="figures/Comprehension_score_barplot.png" alt="Comprehension barplot"/></div>
+    <p class="note"><strong>Comprehension score by condition.</strong> Bars
+    show the mean post-scan comprehension score in each condition (CT,
+    continuous; IP, intact-pause; IT, intact-theory-of-mind; SP,
+    scrambled-pause); error bars are &plusmn;1 standard error of the mean
+    across participants. Brackets with asterisks denote Bonferroni-corrected
+    pairwise Welch two-sample <em>t</em>-tests (unequal variances)
+    (* <em>p</em> &lt; 0.05, ** <em>p</em> &lt; 0.01, *** <em>p</em> &lt; 0.001).
+    Per-condition <em>n</em> is listed in the table above.</p>
+
+    <h3>Free recall</h3>
+    <p><strong>Omnibus one-way ANOVA:</strong> <i>F</i>(3, 67) = 5.9538, p = .001.</p>
+    <p style="color:#666;font-size:12.5px;margin:0 0 4px 0;">Primary stats (unshaded) | Descriptive / context (light gray)</p><table class='unified-stats'><thead><tr><th rowspan='2'>Cond</th><th rowspan='2' class='desc'><i>n</i></th><th rowspan='2'><i>M</i></th><th rowspan='2' class='desc'><i>SD</i></th><th rowspan='2'>95% CI</th><th colspan='4'>Pairwise <i>t</i>-test (Bonferroni-corrected <i>p</i>)</th></tr><tr><th>vs CT</th><th>vs IP</th><th>vs IT</th><th>vs SP</th></tr></thead><tbody><tr><td>CT</td><td class="desc">16</td><td>0.23</td><td class="desc">0.09</td><td>[0.18, 0.27]</td><td style="text-align:center;color:#bbb">—</td><td class='ns'><i>t</i>(32.7)=-0.86<br/><i>p</i>=1.000</td><td class='ns'><i>t</i>(31.8)=0.81<br/><i>p</i>=1.000</td><td class='sig'><i>t</i>(25.4)=3.35<br/><i>p</i>=0.015</td></tr><tr><td>IP</td><td class="desc">19</td><td>0.25</td><td class="desc">0.09</td><td>[0.21, 0.30]</td><td class='ns'><i>t</i>(32.7)=0.86<br/><i>p</i>=1.000</td><td style="text-align:center;color:#bbb">—</td><td class='ns'><i>t</i>(35.0)=1.67<br/><i>p</i>=0.619</td><td class='sig'><i>t</i>(29.9)=4.39<br/><i>p</i>=0.001</td></tr><tr><td>IT</td><td class="desc">18</td><td>0.20</td><td class="desc">0.09</td><td>[0.16, 0.25]</td><td class='ns'><i>t</i>(31.8)=-0.81<br/><i>p</i>=1.000</td><td class='ns'><i>t</i>(35.0)=-1.67<br/><i>p</i>=0.619</td><td style="text-align:center;color:#bbb">—</td><td class='ns'><i>t</i>(28.6)=2.42<br/><i>p</i>=0.134</td></tr><tr><td>SP</td><td class="desc">18</td><td>0.14</td><td class="desc">0.06</td><td>[0.12, 0.17]</td><td class='sig'><i>t</i>(25.4)=-3.35<br/><i>p</i>=0.015</td><td class='sig'><i>t</i>(29.9)=-4.39<br/><i>p</i>=0.001</td><td class='ns'><i>t</i>(28.6)=-2.42<br/><i>p</i>=0.134</td><td style="text-align:center;color:#bbb">—</td></tr></tbody></table><ul class="legend"><li><strong>Cond</strong> &mdash; condition: CT (continuous), IP (intact-pause), IT (intact-theory-of-mind), SP (scrambled-pause).</li><li><strong><i>M</i> / 95% CI</strong> &mdash; per-condition mean and 95% confidence interval of the mean.</li><li><strong>Pairwise <i>t</i>-test cells</strong> &mdash; Welch two-sample <em>t</em> (unequal variances) and Bonferroni-corrected two-sided <em>p</em> against the column condition; diagonal is &mdash;.</li><li><strong><i>n</i></strong> (descriptive) &mdash; participants contributing to the cell.</li><li><strong><i>SD</i></strong> (descriptive) &mdash; per-condition standard deviation.</li></ul>
+    <div class="figure-container"><img src="figures/Recall_barplot.png" alt="Recall barplot"/></div>
+    <p class="note"><strong>Free-recall score by condition.</strong> Bars
+    show the mean free-recall score in each condition (CT, continuous; IP,
+    intact-pause; IT, intact-theory-of-mind; SP, scrambled-pause); error bars
+    are &plusmn;1 standard error of the mean across participants. Brackets with
+    asterisks denote Bonferroni-corrected pairwise Welch two-sample
+    <em>t</em>-tests (unequal variances)
+    (* <em>p</em> &lt; 0.05, ** <em>p</em> &lt; 0.01, *** <em>p</em> &lt; 0.001).
+    Per-condition <em>n</em> is listed in the table above.</p>
+
+</body>
+</html>
