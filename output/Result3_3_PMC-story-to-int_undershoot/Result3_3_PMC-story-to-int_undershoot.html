@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>Result 3.3: PMC story-to-interruption inversion, HRF undershoot control</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:1180px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+h1{border-bottom:2px solid #333;padding-bottom:6px;}
+h2{margin-top:1.6rem;}
+h3{margin-top:1.2rem;}
+table{border-collapse:collapse;font-size:13px;margin:6px 0 14px 0;width:100%;}
+th,td{border:1px solid #bbb;padding:6px 10px;text-align:left;}
+th{background:#f4f6f8;}
+.fig{display:block;margin:6px auto;max-width:100%;}
+.figrow{display:flex;gap:2%;flex-wrap:wrap;align-items:flex-start;}
+.figrow figure{flex:1 1 31%;min-width:300px;margin:0;}
+.figrow figcaption{font-weight:bold;font-size:13px;margin-bottom:4px;}
+.note{color:#555;font-size:13px;margin-top:6px;}
+</style></head>
+<body>
+<h1>Result 3.3: PMC story-to-interruption inversion is not explained by
+hemodynamic undershoot</h1>
+
+<h2>Methods</h2>
+<p>Hemodynamic undershoot is a plausible non-pattern explanation for the
+negative story-to-interruption inter-subject pattern correlation reported in
+Results 3.1 and 3.2: voxels with positive blood-oxygenation-level-dependent
+signal during the story phase dip below baseline a few seconds later as the
+response decays, producing an apparent sign flip from the story-phase pattern
+into the early interruption-phase pattern. A pure-undershoot account predicts
+an <em>asymmetric</em> flip, however &mdash; the post-stimulus undershoot acts
+primarily on voxels that were positive during the story window, driving them
+below baseline during the interruption window (a story-positive to
+interruption-negative flip; lower-right quadrant Q4: MVP1 &gt; 0, MVP2 &lt; 0),
+with no matching flip of story-negative voxels into interruption-positive
+(upper-left quadrant Q2: MVP1 &lt; 0, MVP2 &gt; 0). The pure-undershoot
+prediction is therefore an <strong>excess of Q4 over Q2 voxels</strong>.</p>
+
+<p>Around every interruption onset we built two adjacent multivoxel patterns per
+ROI. <strong>MVP1</strong> was the mean pattern across the ten TRs ending one TR
+before onset (the story window); <strong>MVP2</strong> was the mean pattern
+across ten TRs starting five TRs after onset (the interruption window, identical
+to the window used in Results 3.1 and 3.2). Both windows were taken from the
+whole-run z-scored data, in which each voxel had been z-scored across the entire
+run. We then averaged MVP1 and MVP2 across all interruption epochs and all
+participants (pooled across intact-pause, scrambled-pause, and intact-ToM),
+giving one grand-mean value per voxel on each axis. Each dot in the scatter is
+one voxel at (grand-mean MVP1, grand-mean MVP2), colored by its within-participant
+story-to-interruption regression slope (warm = stays the same sign, cold =
+inverts).</p>
+
+<p>On the grand-mean scatter we counted the inverting voxels in Q2 and Q4 and
+summarized the asymmetry as the <strong>Q4 fraction of inverting voxels</strong>,
+Q4 / (Q2 + Q4); 0.5 means a symmetric flip and 1.0 a pure Q4 (undershoot) flip.
+Because the grand mean averages over participants, we tested this fraction with a
+<strong>participant bootstrap</strong> (5,000 resamples): on each resample the
+pooled participants were drawn with replacement, the grand-mean scatter was
+recomputed, and the Q4 fraction re-counted. Resampling whole participants keeps
+each participant&rsquo;s within-subject spatial voxel dependence intact and
+propagates the subject-level sampling variability that a naive voxelwise count
+would ignore. We report the 95% bootstrap confidence interval of the Q4 fraction
+and a one-sided bootstrap p that it exceeds 0.5. The pure-undershoot prediction
+is a Q4 fraction reliably above 0.5 (confidence interval excluding 0.5); a
+confidence interval spanning 0.5 (Q2 &asymp; Q4) rejects the pure-undershoot
+account. The pooled Q2:Q4 ratio is reported alongside as a descriptive
+reference.</p>
+
+
+<h2>Results</h2>
+
+<div class="figrow">
+<figure><figcaption>A1+</figcaption><img class='fig' src='figures/Result3_3_A1+.svg' alt='A1+ voxelwise story-vs-interruption scatter'/></figure>
+<figure><figcaption>dlPFC</figcaption><img class='fig' src='figures/Result3_3_dlPFC.svg' alt='dlPFC voxelwise story-vs-interruption scatter'/></figure>
+<figure><figcaption>PMC</figcaption><img class='fig' src='figures/Result3_3_PMC.svg' alt='PMC voxelwise story-vs-interruption scatter'/></figure>
+</div>
+
+<p class="note">Each panel shows one dot per voxel: its horizontal position is
+the grand-mean story-window pattern value (MVP1) and its vertical position the
+grand-mean interruption-window value (MVP2), averaged across all interruption
+epochs and all pooled participants. Dots are colored by the within-participant
+story-to-interruption regression slope (warm = stays the same sign, cold =
+inverts). The two lightly shaded corners are the inversion quadrants Q2
+(upper-left) and Q4 (lower-right); the annotation reports the one-sided participant
+bootstrap (5,000 resamples) testing that inverting voxels favor Q4 (the
+undershoot direction).
+Auditory cortex (A1+) shows the Q4-dominant asymmetry expected of a hemodynamic
+undershoot, whereas PMC does not.</p>
+
+<h3>Statistics</h3>
+<table><thead><tr><th>ROI</th><th>voxels</th><th>Q2</th><th>Q4</th><th>pooled Q2:Q4 ratio<br>(reference)</th><th>Q4 fraction of inverting voxels<br>[95% participant-bootstrap CI]</th><th>bootstrap p<br>(Q4 &gt; Q2, one-sided)</th><th>sig</th><th>consistent with undershoot?<br>(CI above 0.5)</th></tr></thead><tbody><tr><td>A1+</td><td>447</td><td>0</td><td>443</td><td>0.000</td><td>1.000 [1.000, 1.000]</td><td>2.00e-04</td><td>***</td><td>yes</td></tr><tr><td>dlPFC</td><td>1163</td><td>685</td><td>277</td><td>2.473</td><td>0.288 [0.145, 0.427]</td><td>0.9994</td><td>n.s.</td><td>no</td></tr><tr><td>PMC</td><td>972</td><td>290</td><td>336</td><td>0.863</td><td>0.537 [0.392, 0.761]</td><td>0.3523</td><td>n.s.</td><td>no</td></tr></tbody></table>
+<p class="note">Significance markers: <strong>*</strong> p &lt; 0.05,
+<strong>**</strong> p &lt; 0.01, <strong>***</strong> p &lt; 0.001, otherwise
+n.s. The final column reads &ldquo;yes&rdquo; only when the participant-bootstrap
+95% confidence interval on the Q4 fraction lies entirely above 0.5, the
+operational signature of a pure hemodynamic undershoot.</p>
+</body></html>

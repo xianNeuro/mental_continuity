@@ -1,0 +1,9 @@
+figure1_cond-demo — illustration of the four-condition design,
+intended to sit to the LEFT of figure1_barplot in the assembled
+Figure 1.
+Figure size: 14.5 x 3.6 in @ 300 dpi (height matches
+figure1_barplot 3.6 in for side-by-side composition).
+IP and IT rows share interruption onsets/offsets (matched timing);
+SP row uses different gap positions (scrambled timing).
+Pure illustration script — no data is loaded.
+Output SVG: cond-demo.svg

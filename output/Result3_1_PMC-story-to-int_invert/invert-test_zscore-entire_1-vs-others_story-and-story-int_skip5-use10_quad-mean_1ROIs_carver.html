@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>Result 3.1: PMC story-to-interruption inversion (invert-test)</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:980px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+h1{border-bottom:2px solid #333;padding-bottom:6px;}
+h2{margin-top:1.6rem;}
+table{border-collapse:collapse;font-size:14px;margin:12px 0;width:100%;}
+th,td{border:1px solid #bbb;padding:6px 10px;text-align:left;}
+th{background:#f4f6f8;}
+
+.fig{display:block;margin:18px auto;max-width:100%;}
+.note{color:#555;font-size:13px;margin-top:6px;}
+.legend{color:#333;font-size:13px;margin:8px 0 18px 0;padding-left:22px;}
+.legend li{margin-bottom:4px;}
+</style></head>
+<body>
+<h1>Result 3.1: PMC story-to-interruption inversion across conditions</h1>
+
+<h2>Methods</h2>
+<p>We tested whether the shared multivoxel pattern in posterior medial
+cortex (PMC) inverts from the story phase to the immediately following
+interruption phase, and whether that inversion generalises across
+participant groups. For every interruption epoch we built two 10-TR
+template patterns in PMC: a <strong>story window</strong> spanning the
+ten TRs ending one TR before interruption onset, and an
+<strong>interruption window</strong> spanning the ten TRs that began
+five TRs after onset (the first five post-onset TRs were discarded to
+avoid hemodynamic carry-over from the preceding story segment).
+Inter-subject pattern correlation (ISPC) at each ordered pair of epochs
+was a single Pearson correlation between one participant's window
+template and the across-participant average of the comparison group's
+window template at the matched epoch. For the inversion we correlated the participant's <strong>story window</strong> with the comparison group's <strong>interruption window</strong> at the matched epoch; a reliably negative value is the predicted story-to-interruption inversion. (The story-window stimulus-driven reliability that bounds this inversion is reported in Section S9.) The similarity was
+evaluated under five inter-subject schemes: three within-condition, in
+which each participant was compared with the average pattern of the
+other participants in the same condition (intact-pause, IP-IP;
+scrambled-pause, SP-SP; intact-theory-of-mind, IT-IT), and two
+across-condition, in which each participant in one condition was
+compared with the across-participant average of the other condition's
+group (IP-IT and IT-IP). PMC voxels were defined by the project's
+anatomical PMC mask, and per-voxel timecourses were z-scored across the
+entire run before analysis.</p>
+
+<p>All averaging across subjects was performed in Fisher-z space (each
+per-(subject, epoch) Pearson r was arctanh-transformed before any
+aggregation). The table first reports the descriptive statistics of the
+group ISPC: the number of participants <em>n</em>, the Fisher-z group
+mean &theta;&#770;<sub>z</sub> (each participant's mean arctanh(r) across
+epochs, averaged across participants), its standard error across participants (SD of
+the participant Fisher-z means / &radic;n), and the corresponding 95%
+confidence interval &theta;&#770;<sub>z</sub> &plusmn; 1.96&nbsp;SE.
+Whether the group ISPC departs from zero was then assessed by a
+one-sided sign-flip permutation test carried out on delete-one-subject
+jackknife pseudo-values: deleting one participant at a time and
+recomputing &theta;&#770;<sub>z</sub> on the remaining participants
+yields one pseudo-value per participant, and because each leave-one-out
+ISPC depends on the other participants these pseudo-values, rather than
+the raw participant means, are the exchangeable units the permutation
+acts on. The null distribution was built by randomly flipping the sign
+of each pseudo-value over 10000 iterations and recording the
+mean; the one-sided permutation <em>p</em> is the proportion of null
+means at or beyond the observed mean in the expected direction of the inversion (story-interruption <em>&lt;</em>&nbsp;0). The legend under
+the table defines each column.</p>
+
+<h2>Results</h2>
+<table>
+<thead><tr>
+  <th>Family</th><th>Cond</th>
+  <th>n</th>
+  <th>ISPC mean (r)</th>
+  <th>ISPC mean (Fisher-z, &theta;&#770;<sub>z</sub>)</th><th>SE</th><th>95% CI</th>
+  <th>p (sign-flip)</th>
+</tr></thead>
+<tbody>
+<tr><td>story-interruption</td><td>IP-IP</td><td>19</td><td>-0.2209</td><td>-0.2449</td><td>0.0235</td><td>[-0.2910, -0.1988]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>SP-SP</td><td>19</td><td>-0.1894</td><td>-0.2087</td><td>0.0271</td><td>[-0.2619, -0.1556]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IT-IT</td><td>19</td><td>-0.1552</td><td>-0.1714</td><td>0.0198</td><td>[-0.2101, -0.1327]</td><td>2.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IP-IT</td><td>19</td><td>-0.1249</td><td>-0.1392</td><td>0.0148</td><td>[-0.1682, -0.1101]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IT-IP</td><td>19</td><td>-0.1459</td><td>-0.1631</td><td>0.0281</td><td>[-0.2182, -0.1081]</td><td>2.00e-04</td></tr>
+</tbody></table>
+<ul class="legend">
+  <li><strong>ISPC mean (r)</strong> &mdash; raw arithmetic mean of the
+      Pearson correlations: each participant's mean r across epochs,
+      averaged across participants (no Fisher-z transform).</li>
+  <li><strong>ISPC mean (Fisher-z, &theta;&#770;<sub>z</sub>)</strong>
+      &mdash; <em>group mean ISPC in Fisher-z</em>: each participant's
+      mean arctanh(r) across epochs, averaged across participants (the
+      same participant unit as the SE and 95% CI). Point estimate (the SE
+      and 95% CI are on this value); back-transform to r-space via
+      tanh(&theta;&#770;<sub>z</sub>). Also the bar-plot bar height.</li>
+  <li><strong>SE</strong> &mdash; standard error of
+      &theta;&#770;<sub>z</sub> across participants:
+      SD(participant Fisher-z means) / &radic;n<sub>participants</sub>.
+      Bar-plot whisker.</li>
+  <li><strong>95%&nbsp;CI</strong> &mdash; 95% confidence interval on
+      &theta;&#770;<sub>z</sub>, &theta;&#770;<sub>z</sub> &plusmn;
+      1.96&nbsp;SE (Fisher-z space; same participant unit as the SE
+      column).</li>
+  <li><strong>p&nbsp;(sign-flip)</strong> &mdash; the reported test.
+      One-sided sign-flip permutation p (10000 iter) on the
+      subject pseudo-values from a delete-one-subject jackknife on
+      &theta;&#770;<sub>z</sub>, in the expected direction of the inversion (story-interruption <em>&lt;</em>&nbsp;0).</li>
+  <li><strong>n</strong> &mdash; number of participants
+      contributing to the cell.</li>
+</ul>
+
+<p><img class="fig" src="figures/Result3_1_PMC-story-to-int_invert_combined_carver_skip5-use10.png"
+    alt="PMC story-to-interruption ISPC across five schemes"/></p>
+
+<p class="note">Bars: &theta;&#770;<sub>z</sub> (Fisher-z group mean).
+Whiskers: &plusmn;SE across participants (SD / &radic;n<sub>participants</sub>).
+Dots: subject-mean Fisher-z values. IP-IP, SP-SP, IT-IT compare
+each participant with the average pattern of the other participants in
+the same condition; IP-IT and IT-IP compare each participant with the
+across-participant average of the other condition's group.</p>
+
+</body></html>

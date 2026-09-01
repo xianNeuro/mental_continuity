@@ -1,0 +1,29 @@
+# Dependencies for the mental_continuity analysis bundle.
+# Versions are pinned to the environment that generated the shipped outputs
+# (Python 3.12; in particular nilearn 0.10.4 — newer nilearn removed the
+# `darkness` argument used by the surface-rendering scripts).
+# Install with:  pip install -r requirements.txt
+#
+# Core numerics and statistics (all analysis scripts)
+numpy==2.4.4
+scipy==1.17.1
+pandas==2.3.3
+statsmodels==0.14.6
+# Excel I/O backend for pandas.read_excel — REQUIRED to load the cohort
+# manifests (data/cohort/*.xlsx) and the derived Result-4 inputs
+# (data/derived/*.xlsx). Without it, pandas raises an ImportError, which
+# data_structure.py surfaces as a clear error (the cohort loaders fail
+# loudly rather than yielding an empty cohort).
+openpyxl==3.1.5
+# Plotting and report figures
+matplotlib==3.10.9
+seaborn==0.13.2
+Pillow==10.3.0
+# Neuroimaging I/O and surface rendering (ROI masks, whole-brain maps)
+nibabel==5.3.2
+nilearn==0.10.4
+# Thresholded whole-brain ISC surface plots (Result1_2 / S1) — roi_to_brain
+# and stats.threshold in the vendored global_isc helper
+nltools==0.5.1
+# Excel writer used by the vendored global_isc helper for the ISC workbook
+xlsxwriter==3.2.0

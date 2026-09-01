@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>Supplementary Section S14 (invert correlation): PMC flip index vs. interruption inter-subject pattern similarity</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:920px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+h1{border-bottom:2px solid #333;padding-bottom:6px;}
+h2{margin-top:1.6rem;}
+table{border-collapse:collapse;font-size:14px;margin:12px 0;width:100%;}
+th,td{border:1px solid #bbb;padding:6px 10px;text-align:left;}
+th{background:#f4f6f8;}
+.fig{display:block;margin:18px auto;max-width:100%;}
+.note{color:#555;font-size:13px;margin-top:6px;}
+</style></head>
+<body>
+<h1>Supplementary Section S14 (invert correlation): does the strength of the story-to-interruption inversion
+predict interruption inter-subject pattern similarity?</h1>
+
+<h2>Methods</h2>
+<p>We tested whether participants whose posterior medial cortex (PMC)
+pattern shows a stronger story-to-interruption inversion also show
+greater inter-subject pattern similarity during interruptions. The
+analysis uses the same <strong>template-MVP</strong> similarity engine as
+Result&nbsp;3.1 (the primary inversion test): for every interruption
+epoch the TRs within a window are first averaged into a single
+template multivoxel pattern, and Pearson correlations are computed
+between two such templates. PMC voxels were defined by the project's
+anatomical PMC mask, and per-voxel timecourses were z-scored across the
+entire run prior to analysis.</p>
+
+<p>For every epoch, the analysis used two adjacent fifteen-second
+windows in PMC: a <strong>story window</strong> covering the ten TRs
+immediately before interruption onset (<em>[onset&nbsp;&minus;&nbsp;10,
+onset)</em>, no pre-onset skip), and an <strong>interruption
+window</strong> covering the ten TRs that began seven and a half seconds
+after onset (<em>[onset&nbsp;+&nbsp;5, onset&nbsp;+&nbsp;15)</em>, clipped
+at the epoch offset), with the first five TRs from onset discarded to
+avoid hemodynamic carry-over from the preceding story segment. Two
+quantities were computed per participant.</p>
+
+<p>The <strong>story-to-interruption flip index</strong> is the
+within-participant pattern similarity between that participant's own
+story window and their own interruption window: for each epoch the
+participant's story-window TRs were averaged into a single template
+pattern, their interruption-window TRs were averaged into a second
+template pattern, and one Pearson correlation was computed between the
+two templates; the flip index is the mean of those per-epoch
+correlations across the participant's epochs. A more negative value
+indicates a stronger inversion from story to interruption.</p>
+
+<p>The <strong>interruption inter-subject similarity</strong> is the
+participant's own interruption-window template correlated against the
+average of the other participants' epoch-matched interruption-window
+templates (leave-one-out): for each epoch we computed each participant's
+own interruption-window template, took the across-other-participant
+mean of those templates, and computed one Pearson correlation between
+the participant's template and the others-mean template; the
+interruption similarity is the mean of those per-epoch correlations.</p>
+
+<p>Within each condition (intact-pause, IP; scrambled-pause, SP;
+intact-theory-of-mind, IT) the flip index was correlated across
+participants with the interruption inter-subject similarity using
+Pearson correlation (two-sided p). A 95% confidence interval for the
+correlation was obtained by resampling participants with replacement
+(10000 iterations). The slope of the least-squares line is also
+reported in the table and drawn per condition in the scatter plot.</p>
+
+<h2>Results</h2>
+<table>
+<thead><tr>
+  <th>Condition</th><th>n</th>
+  <th>Mean flip index</th>
+  <th>Mean interruption similarity</th>
+  <th>Pearson r</th>
+  <th>95% CI (bootstrap)</th>
+  <th>p</th><th>Slope</th>
+</tr></thead>
+<tbody>
+<tr><td>IP</td><td>19</td><td>-0.2114</td><td>0.2456</td><td>-0.732</td><td>[-0.894, -0.588]</td><td>3.65e-04</td><td>-0.622</td></tr>
+<tr><td>SP</td><td>19</td><td>-0.2652</td><td>0.1893</td><td>-0.434</td><td>[-0.686, -0.116]</td><td>0.0634</td><td>-0.491</td></tr>
+<tr><td>IT</td><td>19</td><td>-0.2017</td><td>0.2836</td><td>-0.640</td><td>[-0.866, -0.272]</td><td>0.0032</td><td>-0.485</td></tr>
+</tbody></table>
+
+<p><img class="fig" src="figures/S14_invert-correlations_carver_skip5-use10.png"
+    alt="Per-condition scatter of flip index vs interruption similarity with trend lines"/></p>
+
+<p class="note">Each dot is one participant. The x-axis is the
+within-participant story-to-interruption flip index (more negative means
+a stronger inversion); the y-axis is the participant's interruption
+pattern similarity to the averaged other participants. Lines are the
+per-condition least-squares fits. Condition codes: intact-pause (IP),
+scrambled-pause (SP), intact-theory-of-mind (IT).</p>
+
+</body></html>

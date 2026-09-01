@@ -1,0 +1,9 @@
+figure1_entire-demo — IP story-listening paradigm illustration.
+Shows the first two and last two story segments (Story segment 1, 2,
+N, N+1) with interruption epochs between, the middle elided as '...'
+and a trailing '...'. Each story block carries the REAL IP audio
+envelope (soundwave) for that segment beneath it; interruption epochs
+are gray, red-bordered, silent. Bottom arrow: 'Context grows as the
+narrative unfolds'. Colors match figure1_cond-demo.
+Envelope: results/1_data/audenv/audenv_carver_intact_pause.xlsx.
+Output SVG: entire-demo_IP.svg

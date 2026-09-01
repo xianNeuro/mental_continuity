@@ -1,0 +1,2 @@
+test,n_participants,mean_diff,sd_diff,sem_diff,ci95_lo,ci95_hi,t_statistic,df,p_two_sided,cohen_d
+"one-sample two-sided t-test on post - pre, pooled across IP+IT+SP cohorts",57,0.13918930786716932,0.19969031353552266,0.026449628167026343,0.08620433572459654,0.1921742800097421,5.262429663971264,56.0,2.322574429383062e-06,0.6970258366708865

@@ -1,0 +1,73 @@
+Section S17 — Story-phase PMC pattern persistence predicting neural
+resumption (DMN realignment, excl. PMC) and later narrative recall.
+
+Pooled IP+IT+SP OLS; condition fixed effect; per-participant observations.
+Story-phase persistence:        the ten TRs ending one TR before interruption onset.
+Interruption-phase persistence: the ten TRs beginning five TRs after onset (Result 4).
+Across participants, story-phase and interruption-phase persistence correlate at r = 0.711 (n = 57).
+
+=== Neural resumption ~ PMC story-phase persistence ===
+  Model: DMN realignment ~ PMC story-phase persistence + condition   |   n = 57
+  R2 = 0.2600   adj R2 = 0.2181   F(3,53) = 6.208  p(F) = 0.0011
+  Predictor                                            b          SE         t           p                  95% CI
+  ------------------------------------------  ----------  ----------  --------  ----------  ----------------------
+  Intercept (baseline)                          0.008867     0.01124     0.789      0.4336      [-0.01367, 0.0314]
+  Condition intact_tom (vs. baseline)            0.02374    0.008596     2.762      0.0079     [0.006501, 0.04099]
+  Condition scram_pause (vs. baseline)           0.01617    0.009207     1.756      0.0848    [-0.002296, 0.03464]
+  PMC story-phase pattern persistence              0.301     0.07761     3.878    2.93e-04        [0.1453, 0.4566]
+
+=== Neural resumption ~ PMC story-phase + interruption-phase persistence ===
+  Model: DMN realignment ~ PMC story-phase persistence + PMC interruption-phase persistence + condition   |   n = 57
+  R2 = 0.3670   adj R2 = 0.3183   F(4,52) = 7.538  p(F) = 7.23e-05
+  Predictor                                            b          SE         t           p                  95% CI
+  ------------------------------------------  ----------  ----------  --------  ----------  ----------------------
+  Intercept (baseline)                          0.001679     0.01077     0.156      0.8767     [-0.01993, 0.02329]
+  Condition intact_tom (vs. baseline)            0.01981    0.008136     2.435      0.0183     [0.003488, 0.03614]
+  Condition scram_pause (vs. baseline)           0.01596    0.008598     1.856      0.0691    [-0.001293, 0.03321]
+  PMC story-phase pattern persistence             0.1023     0.09871     1.036      0.3051      [-0.09583, 0.3003]
+  PMC interruption-phase pattern persistence      0.3117      0.1052     2.965      0.0046        [0.1007, 0.5228]
+
+=== Neural resumption ~ PMC story-phase + interruption-phase persistence + hippocampal boundary activity ===
+  Model: DMN realignment ~ PMC story-phase persistence + PMC interruption-phase persistence + hippocampal boundary activity + condition   |   n = 57
+  R2 = 0.4256   adj R2 = 0.3693   F(5,51) = 7.558  p(F) = 2.25e-05
+  Predictor                                            b          SE         t           p                  95% CI
+  ------------------------------------------  ----------  ----------  --------  ----------  ----------------------
+  Intercept (baseline)                          0.001181     0.01036     0.114      0.9097     [-0.01962, 0.02198]
+  Condition intact_tom (vs. baseline)            0.02306    0.007954     2.899      0.0055      [0.00709, 0.03902]
+  Condition scram_pause (vs. baseline)           0.01847    0.008342     2.213      0.0314     [0.001717, 0.03521]
+  PMC story-phase pattern persistence             0.0466     0.09803     0.475      0.6366       [-0.1502, 0.2434]
+  PMC interruption-phase pattern persistence      0.3184      0.1012     3.146      0.0028        [0.1152, 0.5215]
+  Hippocampal boundary activity (post − pre      0.06553     0.02873     2.281      0.0267      [0.007861, 0.1232]
+
+=== Story recall ~ PMC story-phase persistence ===
+  Model: recall ~ PMC story-phase persistence + condition   |   n = 55
+  R2 = 0.3506   adj R2 = 0.3124   F(3,51) = 9.179  p(F) = 5.85e-05
+  Predictor                                            b          SE         t           p                  95% CI
+  ------------------------------------------  ----------  ----------  --------  ----------  ----------------------
+  Intercept (baseline)                            0.1665     0.03476     4.791    1.47e-05       [0.09675, 0.2363]
+  Condition intact_tom (vs. baseline)           -0.02283     0.02667    -0.856      0.3959     [-0.07637, 0.03071]
+  Condition scram_pause (vs. baseline)          -0.06952     0.02859    -2.432      0.0186     [-0.1269, -0.01213]
+  PMC story-phase pattern persistence             0.6944      0.2421     2.868      0.0060          [0.2083, 1.18]
+
+=== Story recall ~ PMC story-phase + interruption-phase persistence ===
+  Model: recall ~ PMC story-phase persistence + PMC interruption-phase persistence + condition   |   n = 55
+  R2 = 0.3725   adj R2 = 0.3223   F(4,50) = 7.421  p(F) = 8.98e-05
+  Predictor                                            b          SE         t           p                  95% CI
+  ------------------------------------------  ----------  ----------  --------  ----------  ----------------------
+  Intercept (baseline)                            0.1581      0.0351     4.503    4.03e-05       [0.08756, 0.2286]
+  Condition intact_tom (vs. baseline)           -0.03001     0.02703    -1.110      0.2722     [-0.08429, 0.02428]
+  Condition scram_pause (vs. baseline)          -0.07343     0.02854    -2.573      0.0131     [-0.1307, -0.01612]
+  PMC story-phase pattern persistence             0.3624      0.3479     1.042      0.3025        [-0.3363, 1.061]
+  PMC interruption-phase pattern persistence      0.4863      0.3683     1.321      0.1927        [-0.2534, 1.226]
+
+=== Story recall ~ PMC story-phase + interruption-phase persistence + hippocampal boundary activity ===
+  Model: recall ~ PMC story-phase persistence + PMC interruption-phase persistence + hippocampal boundary activity + condition   |   n = 55
+  R2 = 0.4128   adj R2 = 0.3529   F(5,49) = 6.889  p(F) = 6.13e-05
+  Predictor                                            b          SE         t           p                  95% CI
+  ------------------------------------------  ----------  ----------  --------  ----------  ----------------------
+  Intercept (baseline)                            0.1565     0.03431     4.561    3.42e-05       [0.08755, 0.2255]
+  Condition intact_tom (vs. baseline)           -0.02121     0.02684    -0.790      0.4332     [-0.07515, 0.03273]
+  Condition scram_pause (vs. baseline)          -0.06664     0.02813    -2.369      0.0218     [-0.1232, -0.01012]
+  PMC story-phase pattern persistence             0.2208      0.3486     0.634      0.5293       [-0.4796, 0.9213]
+  PMC interruption-phase pattern persistence      0.5008        0.36     1.391      0.1705        [-0.2226, 1.224]
+  Hippocampal boundary activity (post − pre       0.1718     0.09373     1.833      0.0728       [-0.0165, 0.3602]

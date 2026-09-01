@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>Supplementary Section S11 (inversion control 2, separate-phase z-score)</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:1020px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+h1{border-bottom:2px solid #333;padding-bottom:6px;}
+h2{margin-top:1.6rem;}
+table{border-collapse:collapse;font-size:14px;margin:12px 0;width:100%;}
+th,td{border:1px solid #bbb;padding:6px 10px;text-align:left;}
+th{background:#f4f6f8;}
+tbody tr:nth-child(6){border-top:3px solid #333;}
+.fig{display:block;margin:18px auto;max-width:100%;}
+.note{color:#555;font-size:13px;margin-top:6px;}
+.legend{color:#333;font-size:13px;margin:8px 0 18px 0;padding-left:22px;}
+.legend li{margin-bottom:4px;}
+th.desc, td.desc{background:#f1f3f4;color:#666;}
+</style></head>
+<body>
+<h1>Supplementary Section S11 (inversion control 2): story-to-interruption inversion, separate-phase z-score control
+(separate-phase z-score)</h1>
+
+<h2>Methods</h2>
+<p>This is a preprocessing control for Result&nbsp;3.1 and
+Result&nbsp;3.2: the analysis windows, the pattern-similarity measure,
+the five inter-subject schemes, the statistics, and the report layout
+are identical to those used there; the only change is how each
+posterior-medial-cortex voxel is standardized. Instead of z-scoring
+each voxel over the entire run, the raw multivoxel patterns were
+loaded and each voxel was z-scored separately for the story phase and
+the interruption phase. The story-phase mean and standard deviation
+were estimated from every story segment after dropping its first five
+TRs (those returning from the preceding interruption, or from story
+onset), concatenated across segments; the interruption-phase mean and
+standard deviation were estimated from every interruption epoch after
+dropping the first five TRs from interruption onset, concatenated
+across the seventeen epochs. Story-phase TRs were then z-scored with
+the story-phase statistics and interruption-phase TRs with the
+interruption-phase statistics. If the inversion is an artifact of
+whole-run standardization it should weaken or disappear here; if it
+survives, it is robust to phase-specific standardization.</p>
+
+<p>The inversion table reports the same statistics as Result&nbsp;3.1:
+the group ISPC (&theta;&#770;<sub>z</sub>) with its standard error and
+the corresponding 95% confidence interval (&theta;&#770;<sub>z</sub>
+&plusmn; 1.96&nbsp;SE), the primary sign-flip-on-jackknife permutation
+<em>p</em>, and n. The selectivity table reports the group selectivity,
+SE, bootstrap 95% CI, and the primary matching-vs-mismatching
+permutation <em>p</em> (with descriptive paired <em>t</em>, df, and
+Cohen's <em>dz</em>). Each table's legend defines its columns.</p>
+
+<h2>Results &mdash; inversion (story-story and story-interruption similarity)</h2>
+<table>
+<thead><tr>
+  <th>Family</th><th>Cond</th>
+  <th>n</th>
+  <th>ISPC mean (r)</th>
+  <th>ISPC mean (Fisher-z, &theta;&#770;<sub>z</sub>)</th><th>SE</th><th>95% CI</th>
+  <th>p (sign-flip)</th>
+</tr></thead>
+<tbody>
+<tr><td>story-story</td><td>IP-IP</td><td>19</td><td>0.2407</td><td>0.2777</td><td>0.0300</td><td>[0.2190, 0.3365]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>SP-SP</td><td>19</td><td>0.1351</td><td>0.1478</td><td>0.0226</td><td>[0.1036, 0.1920]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IT-IT</td><td>19</td><td>0.1973</td><td>0.2244</td><td>0.0286</td><td>[0.1684, 0.2805]</td><td>2.00e-04</td></tr>
+<tr><td>story-story</td><td>IP-IT</td><td>19</td><td>0.2332</td><td>0.2642</td><td>0.0208</td><td>[0.2234, 0.3051]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IT-IP</td><td>19</td><td>0.2114</td><td>0.2415</td><td>0.0296</td><td>[0.1834, 0.2996]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IP-IP</td><td>19</td><td>-0.1125</td><td>-0.1217</td><td>0.0150</td><td>[-0.1510, -0.0924]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>SP-SP</td><td>19</td><td>-0.0661</td><td>-0.0727</td><td>0.0167</td><td>[-0.1054, -0.0400]</td><td>0.0040</td></tr>
+<tr><td>story-interruption</td><td>IT-IT</td><td>19</td><td>-0.0990</td><td>-0.1075</td><td>0.0192</td><td>[-0.1451, -0.0699]</td><td>2.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IP-IT</td><td>19</td><td>-0.0928</td><td>-0.1027</td><td>0.0112</td><td>[-0.1246, -0.0808]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IT-IP</td><td>19</td><td>-0.0694</td><td>-0.0763</td><td>0.0186</td><td>[-0.1127, -0.0398]</td><td>0.0011</td></tr>
+</tbody></table>
+<ul class="legend">
+  <li><strong>ISPC mean (r)</strong> &mdash; raw arithmetic mean of the
+      Pearson correlations (per-participant mean r, averaged across
+      participants; no Fisher-z transform).</li>
+  <li><strong>&theta;&#770;<sub>z</sub></strong> &mdash; <em>group mean
+      ISPC in Fisher-z</em>: the mean of arctanh(r) across all valid
+      (subject, epoch) pairs. Point estimate; back-transform to r-space
+      via tanh(&theta;&#770;<sub>z</sub>). Also the bar-plot bar height.</li>
+  <li><strong>SE</strong> &mdash; standard error of
+      &theta;&#770;<sub>z</sub> across participants:
+      SD(participant Fisher-z means) / &radic;n<sub>participants</sub>.
+      Bar-plot whisker.</li>
+  <li><strong>95%&nbsp;CI</strong> &mdash; 95% confidence interval on
+      &theta;&#770;<sub>z</sub>, &theta;&#770;<sub>z</sub> &plusmn;
+      1.96&nbsp;SE (Fisher-z space; same participant unit as the SE
+      column).</li>
+  <li><strong>p&nbsp;(sign-flip)</strong> &mdash; the reported test.
+      One-sided sign-flip permutation p (10000 iter) on the subject
+      pseudo-values from a delete-one-subject jackknife on
+      &theta;&#770;<sub>z</sub>, in the family&rsquo;s expected direction
+      (story-story <em>&gt;</em>&nbsp;0; story-interruption
+      <em>&lt;</em>&nbsp;0).</li>
+  <li><strong>n</strong> &mdash; number of participants
+      contributing to the cell.</li>
+</ul>
+<p><img class="fig" src="figures/S11_invert-control-2_inversion_separate-zscore_carver_skip5-use10.png" alt="Inversion bar plot (separate-phase z-score)"/></p>
+
+<h2>Results -- selectivity (matching vs mismatching)</h2>
+<table>
+<thead><tr>
+  <th>Family</th><th>Condition</th><th>n</th>
+  <th>Mean matching r</th><th>SE<sub>match</sub></th>
+  <th>Mean mismatching r</th><th>SE<sub>mismatch</sub></th>
+  <th>Selectivity (match &minus; mismatch)</th>
+  <th>95% CI (bootstrap)</th>
+  <th>Tested direction</th>
+  <th>Permutation p (one-tailed, expected direction)</th>
+  <th>Paired t</th><th>df</th><th>Cohen's dz</th>
+</tr></thead>
+<tbody>
+<tr><td>story-story</td><td>IP-IP</td><td>19</td><td>0.2407</td><td>0.0265</td><td>0.0030</td><td>0.0022</td><td>0.2377</td><td>[0.1850, 0.2879]</td><td>selectivity > 0</td><td>1.00e-04</td><td>8.812</td><td>18</td><td>2.022</td></tr>
+<tr><td>story-story</td><td>SP-SP</td><td>19</td><td>0.1351</td><td>0.0199</td><td>0.0155</td><td>0.0055</td><td>0.1197</td><td>[0.0842, 0.1539]</td><td>selectivity > 0</td><td>1.00e-04</td><td>6.499</td><td>18</td><td>1.491</td></tr>
+<tr><td>story-story</td><td>IT-IT</td><td>19</td><td>0.1973</td><td>0.0253</td><td>0.0158</td><td>0.0038</td><td>0.1815</td><td>[0.1353, 0.2258]</td><td>selectivity > 0</td><td>1.00e-04</td><td>7.541</td><td>18</td><td>1.730</td></tr>
+<tr><td>story-story</td><td>IP-IT</td><td>19</td><td>0.2332</td><td>0.0179</td><td>0.0118</td><td>0.0036</td><td>0.2214</td><td>[0.1880, 0.2534]</td><td>selectivity > 0</td><td>1.00e-04</td><td>12.827</td><td>18</td><td>2.943</td></tr>
+<tr><td>story-story</td><td>IT-IP</td><td>19</td><td>0.2114</td><td>0.0260</td><td>0.0093</td><td>0.0028</td><td>0.2021</td><td>[0.1529, 0.2483]</td><td>selectivity > 0</td><td>1.00e-04</td><td>7.971</td><td>18</td><td>1.829</td></tr>
+<tr><td>story-interruption</td><td>IP-IP</td><td>19</td><td>-0.1125</td><td>0.0136</td><td>0.0037</td><td>0.0010</td><td>-0.1162</td><td>[-0.1427, -0.0878]</td><td>selectivity < 0</td><td>1.00e-04</td><td>-8.134</td><td>18</td><td>-1.866</td></tr>
+<tr><td>story-interruption</td><td>SP-SP</td><td>19</td><td>-0.0661</td><td>0.0155</td><td>0.0068</td><td>0.0024</td><td>-0.0730</td><td>[-0.1044, -0.0418]</td><td>selectivity < 0</td><td>1.00e-04</td><td>-4.446</td><td>18</td><td>-1.020</td></tr>
+<tr><td>story-interruption</td><td>IT-IT</td><td>19</td><td>-0.0990</td><td>0.0178</td><td>-0.0025</td><td>0.0019</td><td>-0.0965</td><td>[-0.1303, -0.0619]</td><td>selectivity < 0</td><td>1.00e-04</td><td>-5.358</td><td>18</td><td>-1.229</td></tr>
+<tr><td>story-interruption</td><td>IP-IT</td><td>19</td><td>-0.0928</td><td>0.0104</td><td>-0.0040</td><td>0.0015</td><td>-0.0888</td><td>[-0.1095, -0.0675]</td><td>selectivity < 0</td><td>1.00e-04</td><td>-8.145</td><td>18</td><td>-1.869</td></tr>
+<tr><td>story-interruption</td><td>IT-IP</td><td>19</td><td>-0.0694</td><td>0.0169</td><td>0.0001</td><td>0.0014</td><td>-0.0695</td><td>[-0.1027, -0.0346]</td><td>selectivity < 0</td><td>1.00e-04</td><td>-3.922</td><td>18</td><td>-0.900</td></tr>
+</tbody></table>
+<p><img class="fig" src="figures/S11_invert-control-2_selectivity_separate-zscore_carver_skip5-use10.png" alt="Selectivity bar plot (separate-phase z-score)"/></p>
+
+<p class="note">Bars show the group-mean selectivity (mean matching minus
+mean mismatching <em>r</em>) across participants; whiskers are &plusmn;1
+standard error of the mean across participants (SD of the participant
+selectivity values / &radic;<i>n</i>); dots are individual participant
+selectivity values. Solid bars are the story-story family; hatched bars are
+the story-interruption (inversion) family. Condition codes: intact-pause
+within group (IP-IP), scrambled-pause within group (SP-SP),
+intact-theory-of-mind within group (IT-IT), each intact-pause participant
+versus the intact-theory-of-mind group mean (IP-IT), each
+intact-theory-of-mind participant versus the intact-pause group mean
+(IT-IP).</p>
+
+</body></html>

@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+.DS_Store
+.ipynb_checkpoints/
+*~
+*.swp
+.venv/
+
+# Large imaging inputs (contain every file over GitHub's 100 MB limit).
+# Not tracked on GitHub — shipped in the archived full-bundle record instead
+# (see README "Quick start", step "Get the imaging inputs"). The small audio
+# envelopes under data/1_data/audenv/ ARE tracked.
+data/1_data/*
+!data/1_data/audenv/
+!data/1_data/README.md
+
+# User re-derivations (never overwrite the shipped canonical files)
+data/derived/rederived/

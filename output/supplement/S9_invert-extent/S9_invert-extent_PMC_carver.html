@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>Supplement S9: extent of the PMC story-to-interruption inversion</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:980px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+h1{border-bottom:2px solid #333;padding-bottom:6px;}
+h2{margin-top:1.6rem;}
+table{border-collapse:collapse;font-size:14px;margin:12px 0;width:100%;}
+th,td{border:1px solid #bbb;padding:6px 10px;text-align:left;}
+th{background:#f4f6f8;}
+.fig{display:block;margin:18px auto;max-width:100%;}
+.note{color:#555;font-size:13px;margin-top:6px;}
+.legend{color:#333;font-size:13px;margin:8px 0 18px 0;padding-left:22px;}
+.legend li{margin-bottom:4px;}
+th.desc, td.desc{background:#f1f3f4;color:#666;}
+figure{margin:18px 0;}
+figcaption{color:#444;font-size:13px;margin-top:6px;}
+</style></head><body>
+<h1>Supplement S9 &mdash; the extent of the PMC story-to-interruption inversion</h1>
+<p class="note">Posterior medial cortex (PMC); inter-subject pattern
+correlation (ISPC); main narrative; PMC voxels from the project's
+anatomical PMC mask, per-voxel timecourses z-scored across the entire run.
+Generated 2026-08-31 04:14.</p>
+
+<h2>Overview</h2>
+<p>Result 3.1 shows that the PMC multivoxel pattern during interruption is
+inverted relative to the preceding story: the story-to-interruption ISPC is
+reliably negative. This section asks <em>how far</em> that inversion goes. We
+report two complementary views. First, the story-to-interruption ISPC is
+placed next to the story-story ISPC &mdash; the stimulus-driven reliability
+of the story pattern across participants &mdash; so the inversion can be read
+on the same scale as the reliability that bounds it. Second, the inversion is
+compared with the cross-phase reliability ceiling, the strongest
+anti-correlation two participants' patterns could show given how reliably
+each phase is measured; correcting for that ceiling gives a disattenuated,
+noise-free estimate of how completely the underlying pattern inverts.</p>
+
+<h2>1. Story-story and story-interruption ISPC, side by side</h2>
+<p>For every interruption epoch we built two 10-TR template patterns in PMC:
+a <strong>story window</strong> (the ten TRs ending one TR before onset) and
+an <strong>interruption window</strong> (the ten TRs beginning five TRs after
+onset; the first five post-onset TRs were discarded to avoid hemodynamic
+carry-over from the preceding story segment). ISPC at each epoch is a single
+Pearson correlation between one participant's window template and the
+across-participant average of the comparison group's window template at the
+matched epoch. The <strong>story-story</strong> family uses the story window
+on both sides (the stimulus-driven reliability of the story pattern); the
+<strong>story-interruption</strong> family uses the participant's story
+window and the comparison group's interruption window (the inversion). Both
+were evaluated under five inter-subject schemes: three within-condition
+(intact-pause, IP-IP; scrambled-pause, SP-SP; intact-theory-of-mind, IT-IT)
+and two across-condition (IP-IT and IT-IP). All averaging is in Fisher-z
+space; the group ISPC is the Fisher-z group mean
+&theta;&#770;<sub>z</sub>, its uncertainty the standard error across
+participants and the 95% confidence interval
+&theta;&#770;<sub>z</sub> &plusmn; 1.96&nbsp;SE, and the reported test a
+one-sided sign-flip permutation test on delete-one-subject jackknife
+pseudo-values (story-story expected &gt; 0; story-interruption expected
+&lt; 0).</p>
+<table>
+<thead><tr><th>Family</th><th>Cond</th><th>n</th><th>ISPC mean (r)</th><th>ISPC mean (Fisher-z, &theta;&#770;<sub>z</sub>)</th><th>SE</th><th>95% CI</th><th>p (sign-flip)</th></tr></thead>
+<tbody>
+<tr><td>story-story</td><td>IP-IP</td><td>19</td><td>0.2992</td><td>0.3473</td><td>0.0301</td><td>[0.2883, 0.4063]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>SP-SP</td><td>19</td><td>0.2098</td><td>0.2324</td><td>0.0310</td><td>[0.1716, 0.2931]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IT-IT</td><td>19</td><td>0.2373</td><td>0.2724</td><td>0.0302</td><td>[0.2132, 0.3316]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IP-IT</td><td>19</td><td>0.2674</td><td>0.3037</td><td>0.0206</td><td>[0.2634, 0.3440]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IT-IP</td><td>19</td><td>0.2359</td><td>0.2732</td><td>0.0344</td><td>[0.2059, 0.3405]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IP-IP</td><td>19</td><td>-0.2209</td><td>-0.2449</td><td>0.0235</td><td>[-0.2910, -0.1988]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>SP-SP</td><td>19</td><td>-0.1894</td><td>-0.2087</td><td>0.0271</td><td>[-0.2619, -0.1556]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IT-IT</td><td>19</td><td>-0.1552</td><td>-0.1714</td><td>0.0198</td><td>[-0.2101, -0.1327]</td><td>2.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IP-IT</td><td>19</td><td>-0.1249</td><td>-0.1392</td><td>0.0148</td><td>[-0.1682, -0.1101]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IT-IP</td><td>19</td><td>-0.1459</td><td>-0.1631</td><td>0.0281</td><td>[-0.2182, -0.1081]</td><td>2.00e-04</td></tr>
+</tbody></table>
+<p class="note">The negative story-interruption ISPC is smaller than, but on
+the same scale as, the positive story-story ISPC in every scheme &mdash; the
+interruption pattern is a substantial, reliable inversion of the story
+pattern, not a faint residue.</p>
+<p><img class="fig" src="figures/S9_invert-extent_sidebyside_carver_skip5-use10.png"
+    alt="PMC story-story vs story-to-interruption ISPC across five schemes"/></p>
+<p class="note"><strong>Stimulus:</strong> the main narrative, PMC;
+<strong>n = 19 per scheme.</strong> Solid = story-story (stimulus-driven
+reliability), hatched = story-interruption (inversion).
+Bars: &theta;&#770;<sub>z</sub> (Fisher-z group mean).
+Whiskers: &plusmn;SE across participants. Dots: subject-mean Fisher-z values.
+Solid = story-story; hatched = story-interruption.</p>
+
+<h2>2. The inversion against its cross-phase noise ceiling</h2>
+<p>A raw inter-subject correlation understates how completely two patterns
+invert, because each phase is measured with noise. The most negative the
+story-to-interruption inter-subject correlation could be is set by the two
+within-phase reliabilities: the <strong>reliability ceiling</strong> is
+&minus;&radic;(r<sub>story-story</sub> &times; r<sub>int-int</sub>), the
+negative geometric mean of the story-phase and interruption-phase ISPC. A
+complete underlying flip would reach that ceiling; a pure orthogonalization
+would sit at zero. Dividing the observed story-interruption correlation by
+&radic;(r<sub>story-story</sub> &times; r<sub>int-int</sub>) removes the
+measurement attenuation and yields a disattenuated correlation
+&rho;<sub>true</sub> between the underlying story and interruption patterns
+&mdash; the "true" extent of the inversion (with a delete-one-participant
+jackknife 95% confidence interval). Here r<sub>int-int</sub> is the
+interruption-phase ISPC computed with the same windows and the same
+inter-subject scheme as the story-phase ISPC, so the ceiling combines both
+within-phase reliabilities rather than the story-phase reliability alone.</p>
+<table>
+<thead><tr><th>Condition</th><th>r<sub>story-story</sub></th><th>r<sub>int-int</sub></th><th>r<sub>story-int</sub></th><th>reliability ceiling</th><th>% toward ceiling</th><th>disattenuated r<br>(&rho;<sub>true</sub>, 95% CI)</th><th>pattern angle<br>(arccos &rho;<sub>true</sub>)</th></tr></thead>
+<tbody>
+<tr><td><b>IP</b> (intact-pause)</td><td>0.334</td><td>0.264</td><td>-0.240</td><td>-0.297</td><td>81%</td><td>-0.809 [-0.942, -0.692]</td><td>144.0&deg;</td></tr>
+<tr><td><b>SP</b> (scrambled-pause)</td><td>0.228</td><td>0.204</td><td>-0.206</td><td>-0.216</td><td>95%</td><td>-0.953 [-1.000, -0.792]&dagger;</td><td>162.4&deg;</td></tr>
+<tr><td><b>IT</b> (intact-theory-of-mind)</td><td>0.266</td><td>0.302</td><td>-0.170</td><td>-0.284</td><td>60%</td><td>-0.599 [-0.698, -0.462]</td><td>126.8&deg;</td></tr>
+</tbody></table>
+<p class="note">&dagger; confidence interval truncated at the &minus;1 boundary (a correlation cannot exceed magnitude 1).</p>
+<figure><img class="fig" src="figures/S9_invert-extent_noise-ceiling.png"
+    alt="PMC inversion relative to the cross-phase reliability ceiling"/>
+<figcaption>Each bar runs from 0 (orthogonal) to the cross-phase
+reliability ceiling, &minus;&radic;(r<sub>story-story</sub> &times;
+r<sub>int-int</sub>) &mdash; the strongest anti-correlation two
+participants' patterns could show given how reliably each phase is measured.
+The colored segment and marker show the observed story-to-interruption
+correlation; the percentage is how far it travels toward the ceiling. A
+complete flip would reach the ceiling (100%); a pure orthogonalization would
+sit at 0.</figcaption></figure>
+<p class="note">The observed inversion reaches a large fraction of the
+cross-phase ceiling in every condition, and the disattenuated
+&rho;<sub>true</sub> is reliably negative, so the interruption pattern is a
+near-complete reflection of the story pattern rather than an
+orthogonalization of it.</p>
+
+</body></html>

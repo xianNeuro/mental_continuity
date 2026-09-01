@@ -1,0 +1,4 @@
+condition,n_filtered,n_unfiltered,filtered_trough_TR,filtered_trough_r,unfiltered_trough_TR,unfiltered_trough_r,earliest_story_return_TR,shape_corr_filtered_vs_unfiltered,validation_r_vs_published_figure3
+intact-pause,19,19,12,-0.197,13,-0.0527,15,0.9964,1.0
+scrambled-pause,19,19,13,-0.154,13,-0.0673,15,0.9935,1.0
+intact-ToM,19,19,18,-0.1465,7,-0.0568,15,0.982,1.0

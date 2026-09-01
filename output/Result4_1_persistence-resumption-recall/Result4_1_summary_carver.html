@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html><head><meta charset='utf-8'>
+<title>Result 4 — PMC persistence + hipp boundary → resumption & recall</title>
+<style>
+        body{font-family:system-ui,sans-serif;max-width:1100px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+        h1{border-bottom:2px solid #333;padding-bottom:6px;font-size:1.4rem;}
+        h2{font-size:1.1rem;margin-top:1.8rem;border-bottom:1px solid #ccc;padding-bottom:4px;}
+        h3{margin-top:1.2rem;font-size:1rem;}
+        table{border-collapse:collapse;margin:8px 0 12px;font-size:14px;width:100%;}
+        th,td{border:1px solid #bbb;padding:6px 10px;text-align:left;}
+        th{background:#f4f6f8;}
+        th.desc, td.desc{background:#f1f3f4;color:#666;}
+        td.num{text-align:right;font-variant-numeric:tabular-nums;}
+        .sig{font-weight:600;}
+        .legend{color:#333;font-size:13px;margin:8px 0 18px 0;padding-left:22px;}
+        .legend li{margin-bottom:4px;}
+        figure{margin:6px 0 16px;max-width:560px;}
+        figcaption{font-size:0.82rem;color:#555;line-height:1.4;margin-top:4px;}
+        img{max-width:100%;height:auto;border:1px solid #ddd;}
+    </style>
+</head><body>
+<h1>Result 4 — Shared PMC pattern persistence and hippocampal boundary activity</h1>
+<h2>Methods</h2>
+<p>We tested whether two neural signatures measured during the interruption phase predict downstream behavior at the immediately following story segment: the persistence of the shared posterior medial cortex (PMC) multivoxel pattern across the interruption (interruption-phase inter-subject pattern correlation in a fifteen-second window beginning seven and a half seconds after interruption onset, with the first five TRs from onset discarded to avoid hemodynamic carry-over from the preceding story), and hippocampal boundary activity at the interruption-to-story transition (post-minus-pre mean signal over a five-TR window, with one TR skipped at the boundary to avoid hemodynamic carry-over). The downstream behavioral measures were default-mode-network (DMN) realignment at story resumption (a five-TR realignment score over the skip-three-use-five window immediately after the story resumes) and subsequent free-recall accuracy.</p>
+<p>For each predictor and each outcome, an ordinary-least-squares model was fit to the pooled intact-pause (IP), intact-theory-of-mind (IT), and scrambled-pause (SP) participants, with condition entered as a categorical fixed effect and one observation per participant. Because IP, IT, and SP are between-subjects, the condition fixed effect absorbs between-condition mean shifts in both the predictor and the outcome, so the predictor coefficient &beta; reflects the within-condition relationship that remains after the three condition means have been aligned. The reported &beta;, standard error, t-statistic, and two-sided <em>p</em> in each table are this within-condition coefficient; <em>n</em>, R<sup>2</sup>, and adjusted R<sup>2</sup> appear in the model header.</p>
+<p>The scatter accompanying each single-predictor model visualizes the same within-condition relationship. Each axis is residualised against the condition fixed effect: the predictor on the x-axis is the raw predictor minus its condition mean, and the outcome on the y-axis is the raw outcome minus its condition mean. The slope of a line through these residuals equals the within-condition &beta; reported in the matched table, and that slope is drawn as the dashed fit line in each panel. Each participant retains their condition color (CT, IP, IT, SP) so the per-condition spread is still visible. The joint two-predictor models (PMC + Hipp) are reported in table form only; their partial relationships are visualized by the corresponding single-predictor scatters.</p>
+<h2>Resumption: DMN realignment ~ PMC persistence (+ condition)</h2>
+<p><code>DMN realignment ~ PMC interruption-phase persistence + condition</code></p>
+<p style='color:#666;font-size:12.5px;margin:0 0 4px 0;'>Predictors of interest (unshaded) | Condition fixed-effect contrasts and intercept (light gray)</p>
+<table><thead><tr><th>Term</th><th>&beta;</th><th>SE</th><th><i>t</i></th><th><i>p</i></th></tr></thead><tbody>
+<tr class='sig'><td>PMC interruption-phase pattern persistence</td><td class='num'>0.3857</td><td class='num'>0.07725</td><td class='num'>4.993</td><td class='num'>6.80e-06</td></tr>
+<tr class='sig desc'><td>Condition intact_tom (vs. baseline)</td><td class='num'>0.01694</td><td class='num'>0.007653</td><td class='num'>2.213</td><td class='num'>0.0312</td></tr>
+<tr class='desc'><td>Condition scram_pause (vs. baseline)</td><td class='num'>0.01287</td><td class='num'>0.008068</td><td class='num'>1.595</td><td class='num'>0.1167</td></tr>
+<tr class='desc'><td>Intercept (baseline)</td><td class='num'>0.006824</td><td class='num'>0.009562</td><td class='num'>0.714</td><td class='num'>0.4786</td></tr>
+</tbody></table>
+<h3>Overall model fit</h3>
+<table><thead><tr><th><i>n</i></th><th>R<sup>2</sup></th><th>Adj R<sup>2</sup></th><th><i>F</i></th><th>df<sub>model</sub></th><th>df<sub>resid</sub></th><th><i>p</i> (<i>F</i>)</th><th class='desc'>AIC</th><th class='desc'>BIC</th><th class='desc'>log <i>L</i></th></tr></thead><tbody><tr><td class='num'>57</td><td class='num'>0.3540</td><td class='num'>0.3174</td><td class='num'>9.679</td><td class='num'>3</td><td class='num'>53</td><td class='num'>3.39e-05</td><td class='num desc'>-262.12</td><td class='num desc'>-253.94</td><td class='num desc'>135.06</td></tr></tbody></table>
+<figure><img src='figures/Result4_1_scatter_resumption_vs_interruption-phase-persistence.png' alt='Condition-adjusted scatter: DMN realignment (four DMN ROIs, excluding PMC) vs PMC interruption-phase pattern persistence'/><figcaption>Condition-adjusted scatter for the model above. <strong>x-axis (predictor &mdash; PMC interruption-phase pattern persistence)</strong> is residualised against the categorical condition fixed effect: each value is the predictor minus its within-condition mean. <strong>y-axis (outcome &mdash; DMN realignment (four DMN ROIs, excluding PMC))</strong> is similarly the outcome minus its within-condition mean. The slope of an OLS line through these residualised values equals the within-condition partial regression coefficient &beta; reported in the table above; the dashed line is that fit. Marker colors label the three interrupted conditions (IP intact-pause, IT intact-theory-of-mind, SP scrambled-pause), so the per-condition spread remains visible after the shift.</figcaption></figure>
+<h2>Resumption: DMN realignment ~ Hipp boundary activity (+ condition)</h2>
+<p><code>DMN realignment ~ hippocampal boundary activity + condition</code></p>
+<p style='color:#666;font-size:12.5px;margin:0 0 4px 0;'>Predictors of interest (unshaded) | Condition fixed-effect contrasts and intercept (light gray)</p>
+<table><thead><tr><th>Term</th><th>&beta;</th><th>SE</th><th><i>t</i></th><th><i>p</i></th></tr></thead><tbody>
+<tr class='sig'><td>Hippocampal boundary activity (post − pre onset)</td><td class='num'>0.09328</td><td class='num'>0.032</td><td class='num'>2.915</td><td class='num'>0.0052</td></tr>
+<tr class='sig desc'><td>Condition intact_tom (vs. baseline)</td><td class='num'>0.02045</td><td class='num'>0.008932</td><td class='num'>2.290</td><td class='num'>0.0260</td></tr>
+<tr class='desc'><td>Condition scram_pause (vs. baseline)</td><td class='num'>0.007169</td><td class='num'>0.008961</td><td class='num'>0.800</td><td class='num'>0.4273</td></tr>
+<tr class='sig desc'><td>Intercept (baseline)</td><td class='num'>0.03669</td><td class='num'>0.006897</td><td class='num'>5.319</td><td class='num'>2.14e-06</td></tr>
+</tbody></table>
+<h3>Overall model fit</h3>
+<table><thead><tr><th><i>n</i></th><th>R<sup>2</sup></th><th>Adj R<sup>2</sup></th><th><i>F</i></th><th>df<sub>model</sub></th><th>df<sub>resid</sub></th><th><i>p</i> (<i>F</i>)</th><th class='desc'>AIC</th><th class='desc'>BIC</th><th class='desc'>log <i>L</i></th></tr></thead><tbody><tr><td class='num'>57</td><td class='num'>0.1813</td><td class='num'>0.1350</td><td class='num'>3.912</td><td class='num'>3</td><td class='num'>53</td><td class='num'>0.0135</td><td class='num desc'>-248.62</td><td class='num desc'>-240.44</td><td class='num desc'>128.31</td></tr></tbody></table>
+<figure><img src='figures/Result4_1_scatter_resumption_vs_hippocampal-boundary.png' alt='Condition-adjusted scatter: DMN realignment (four DMN ROIs, excluding PMC) vs Hippocampal boundary activity (post − pre onset)'/><figcaption>Condition-adjusted scatter for the model above. <strong>x-axis (predictor &mdash; Hippocampal boundary activity (post − pre onset))</strong> is residualised against the categorical condition fixed effect: each value is the predictor minus its within-condition mean. <strong>y-axis (outcome &mdash; DMN realignment (four DMN ROIs, excluding PMC))</strong> is similarly the outcome minus its within-condition mean. The slope of an OLS line through these residualised values equals the within-condition partial regression coefficient &beta; reported in the table above; the dashed line is that fit. Marker colors label the three interrupted conditions (IP intact-pause, IT intact-theory-of-mind, SP scrambled-pause), so the per-condition spread remains visible after the shift.</figcaption></figure>
+<h2>Resumption: DMN realignment ~ PMC + Hipp (+ condition)</h2>
+<p><code>DMN realignment ~ PMC interruption-phase persistence + hippocampal boundary activity + condition</code></p>
+<p style='color:#666;font-size:12.5px;margin:0 0 4px 0;'>Predictors of interest (unshaded) | Condition fixed-effect contrasts and intercept (light gray)</p>
+<table><thead><tr><th>Term</th><th>&beta;</th><th>SE</th><th><i>t</i></th><th><i>p</i></th></tr></thead><tbody>
+<tr class='sig'><td>PMC interruption-phase pattern persistence</td><td class='num'>0.3503</td><td class='num'>0.07505</td><td class='num'>4.668</td><td class='num'>2.17e-05</td></tr>
+<tr class='sig'><td>Hippocampal boundary activity (post − pre onset)</td><td class='num'>0.06893</td><td class='num'>0.02762</td><td class='num'>2.496</td><td class='num'>0.0158</td></tr>
+<tr class='sig desc'><td>Condition intact_tom (vs. baseline)</td><td class='num'>0.022</td><td class='num'>0.007577</td><td class='num'>2.903</td><td class='num'>0.0054</td></tr>
+<tr class='sig desc'><td>Condition scram_pause (vs. baseline)</td><td class='num'>0.01727</td><td class='num'>0.007897</td><td class='num'>2.187</td><td class='num'>0.0332</td></tr>
+<tr class='desc'><td>Intercept (baseline)</td><td class='num'>0.003354</td><td class='num'>0.009227</td><td class='num'>0.364</td><td class='num'>0.7177</td></tr>
+</tbody></table>
+<h3>Overall model fit</h3>
+<table><thead><tr><th><i>n</i></th><th>R<sup>2</sup></th><th>Adj R<sup>2</sup></th><th><i>F</i></th><th>df<sub>model</sub></th><th>df<sub>resid</sub></th><th><i>p</i> (<i>F</i>)</th><th class='desc'>AIC</th><th class='desc'>BIC</th><th class='desc'>log <i>L</i></th></tr></thead><tbody><tr><td class='num'>57</td><td class='num'>0.4231</td><td class='num'>0.3787</td><td class='num'>9.533</td><td class='num'>4</td><td class='num'>52</td><td class='num'>7.38e-06</td><td class='num desc'>-266.57</td><td class='num desc'>-256.35</td><td class='num desc'>138.28</td></tr></tbody></table>
+<h2>Recall: recall ~ PMC persistence (+ condition)</h2>
+<p><code>recall ~ PMC interruption-phase persistence + condition</code></p>
+<p style='color:#666;font-size:12.5px;margin:0 0 4px 0;'>Predictors of interest (unshaded) | Condition fixed-effect contrasts and intercept (light gray)</p>
+<table><thead><tr><th>Term</th><th>&beta;</th><th>SE</th><th><i>t</i></th><th><i>p</i></th></tr></thead><tbody>
+<tr class='sig'><td>PMC interruption-phase pattern persistence</td><td class='num'>0.7636</td><td class='num'>0.2547</td><td class='num'>2.998</td><td class='num'>0.0042</td></tr>
+<tr class='desc'><td>Condition intact_tom (vs. baseline)</td><td class='num'>-0.04083</td><td class='num'>0.02497</td><td class='num'>-1.635</td><td class='num'>0.1082</td></tr>
+<tr class='sig desc'><td>Condition scram_pause (vs. baseline)</td><td class='num'>-0.08564</td><td class='num'>0.02604</td><td class='num'>-3.289</td><td class='num'>0.0018</td></tr>
+<tr class='sig desc'><td>Intercept (baseline)</td><td class='num'>0.1747</td><td class='num'>0.03127</td><td class='num'>5.589</td><td class='num'>8.97e-07</td></tr>
+</tbody></table>
+<h3>Overall model fit</h3>
+<table><thead><tr><th><i>n</i></th><th>R<sup>2</sup></th><th>Adj R<sup>2</sup></th><th><i>F</i></th><th>df<sub>model</sub></th><th>df<sub>resid</sub></th><th><i>p</i> (<i>F</i>)</th><th class='desc'>AIC</th><th class='desc'>BIC</th><th class='desc'>log <i>L</i></th></tr></thead><tbody><tr><td class='num'>55</td><td class='num'>0.3589</td><td class='num'>0.3212</td><td class='num'>9.517</td><td class='num'>3</td><td class='num'>51</td><td class='num'>4.27e-05</td><td class='num desc'>-124.47</td><td class='num desc'>-116.44</td><td class='num desc'>66.23</td></tr></tbody></table>
+<figure><img src='figures/Result4_1_scatter_recall_vs_interruption-phase-persistence.png' alt='Condition-adjusted scatter: Story recall vs PMC interruption-phase pattern persistence'/><figcaption>Condition-adjusted scatter for the model above. <strong>x-axis (predictor &mdash; PMC interruption-phase pattern persistence)</strong> is residualised against the categorical condition fixed effect: each value is the predictor minus its within-condition mean. <strong>y-axis (outcome &mdash; Story recall)</strong> is similarly the outcome minus its within-condition mean. The slope of an OLS line through these residualised values equals the within-condition partial regression coefficient &beta; reported in the table above; the dashed line is that fit. Marker colors label the three interrupted conditions (IP intact-pause, IT intact-theory-of-mind, SP scrambled-pause), so the per-condition spread remains visible after the shift.</figcaption></figure>
+<h2>Recall: recall ~ Hipp boundary activity (+ condition)</h2>
+<p><code>recall ~ hippocampal boundary activity + condition</code></p>
+<p style='color:#666;font-size:12.5px;margin:0 0 4px 0;'>Predictors of interest (unshaded) | Condition fixed-effect contrasts and intercept (light gray)</p>
+<table><thead><tr><th>Term</th><th>&beta;</th><th>SE</th><th><i>t</i></th><th><i>p</i></th></tr></thead><tbody>
+<tr class='sig'><td>Hippocampal boundary activity (post − pre onset)</td><td class='num'>0.232</td><td class='num'>0.09409</td><td class='num'>2.466</td><td class='num'>0.0171</td></tr>
+<tr class='desc'><td>Condition intact_tom (vs. baseline)</td><td class='num'>-0.03077</td><td class='num'>0.02656</td><td class='num'>-1.158</td><td class='num'>0.2522</td></tr>
+<tr class='sig desc'><td>Condition scram_pause (vs. baseline)</td><td class='num'>-0.09</td><td class='num'>0.02662</td><td class='num'>-3.380</td><td class='num'>0.0014</td></tr>
+<tr class='sig desc'><td>Intercept (baseline)</td><td class='num'>0.229</td><td class='num'>0.02019</td><td class='num'>11.340</td><td class='num'>1.49e-15</td></tr>
+</tbody></table>
+<h3>Overall model fit</h3>
+<table><thead><tr><th><i>n</i></th><th>R<sup>2</sup></th><th>Adj R<sup>2</sup></th><th><i>F</i></th><th>df<sub>model</sub></th><th>df<sub>resid</sub></th><th><i>p</i> (<i>F</i>)</th><th class='desc'>AIC</th><th class='desc'>BIC</th><th class='desc'>log <i>L</i></th></tr></thead><tbody><tr><td class='num'>55</td><td class='num'>0.3262</td><td class='num'>0.2866</td><td class='num'>8.230</td><td class='num'>3</td><td class='num'>51</td><td class='num'>1.45e-04</td><td class='num desc'>-121.73</td><td class='num desc'>-113.70</td><td class='num desc'>64.87</td></tr></tbody></table>
+<figure><img src='figures/Result4_1_scatter_recall_vs_hippocampal-boundary.png' alt='Condition-adjusted scatter: Story recall vs Hippocampal boundary activity (post − pre onset)'/><figcaption>Condition-adjusted scatter for the model above. <strong>x-axis (predictor &mdash; Hippocampal boundary activity (post − pre onset))</strong> is residualised against the categorical condition fixed effect: each value is the predictor minus its within-condition mean. <strong>y-axis (outcome &mdash; Story recall)</strong> is similarly the outcome minus its within-condition mean. The slope of an OLS line through these residualised values equals the within-condition partial regression coefficient &beta; reported in the table above; the dashed line is that fit. Marker colors label the three interrupted conditions (IP intact-pause, IT intact-theory-of-mind, SP scrambled-pause), so the per-condition spread remains visible after the shift.</figcaption></figure>
+<h2>Recall: recall ~ PMC + Hipp (+ condition)</h2>
+<p><code>recall ~ PMC interruption-phase persistence + hippocampal boundary activity + condition</code></p>
+<p style='color:#666;font-size:12.5px;margin:0 0 4px 0;'>Predictors of interest (unshaded) | Condition fixed-effect contrasts and intercept (light gray)</p>
+<table><thead><tr><th>Term</th><th>&beta;</th><th>SE</th><th><i>t</i></th><th><i>p</i></th></tr></thead><tbody>
+<tr class='sig'><td>PMC interruption-phase pattern persistence</td><td class='num'>0.6626</td><td class='num'>0.2521</td><td class='num'>2.628</td><td class='num'>0.0114</td></tr>
+<tr class='sig'><td>Hippocampal boundary activity (post − pre onset)</td><td class='num'>0.185</td><td class='num'>0.09085</td><td class='num'>2.036</td><td class='num'>0.0470</td></tr>
+<tr class='desc'><td>Condition intact_tom (vs. baseline)</td><td class='num'>-0.02681</td><td class='num'>0.02519</td><td class='num'>-1.064</td><td class='num'>0.2924</td></tr>
+<tr class='sig desc'><td>Condition scram_pause (vs. baseline)</td><td class='num'>-0.0732</td><td class='num'>0.026</td><td class='num'>-2.815</td><td class='num'>0.0070</td></tr>
+<tr class='sig desc'><td>Intercept (baseline)</td><td class='num'>0.1661</td><td class='num'>0.03064</td><td class='num'>5.419</td><td class='num'>1.72e-06</td></tr>
+</tbody></table>
+<h3>Overall model fit</h3>
+<table><thead><tr><th><i>n</i></th><th>R<sup>2</sup></th><th>Adj R<sup>2</sup></th><th><i>F</i></th><th>df<sub>model</sub></th><th>df<sub>resid</sub></th><th><i>p</i> (<i>F</i>)</th><th class='desc'>AIC</th><th class='desc'>BIC</th><th class='desc'>log <i>L</i></th></tr></thead><tbody><tr><td class='num'>55</td><td class='num'>0.4080</td><td class='num'>0.3606</td><td class='num'>8.614</td><td class='num'>4</td><td class='num'>50</td><td class='num'>2.28e-05</td><td class='num desc'>-126.85</td><td class='num desc'>-116.81</td><td class='num desc'>68.42</td></tr></tbody></table>
+<ul class="legend"><li><strong>&beta; / SE / <i>t</i> / <i>p</i></strong> &mdash; estimated coefficient, standard error, <em>t</em>-statistic, and two-sided <em>p</em>-value from the ordinary-least-squares fit. For predictors of interest, &beta; is the within-condition partial slope after the condition fixed effect absorbs between-condition mean shifts.</li><li><strong>Condition <em>X</em> (vs. baseline)</strong> (descriptive) &mdash; the C(cond) fixed-effect contrast: mean shift of condition <em>X</em> relative to the alphabetically first condition (the omitted baseline), holding the predictors of interest fixed.</li><li><strong>Intercept (baseline)</strong> (descriptive) &mdash; predicted outcome when every predictor of interest is zero in the baseline condition.</li><li><strong>R<sup>2</sup> / Adj R<sup>2</sup></strong> &mdash; proportion of variance in the outcome explained by the full model (and the degrees-of-freedom-adjusted version).</li><li><strong><i>F</i> / df<sub>model</sub> / df<sub>resid</sub> / <i>p</i> (<i>F</i>)</strong> &mdash; omnibus test that all non-intercept coefficients are jointly zero, as reported by statsmodels for the ordinary-least-squares fit.</li><li><strong>AIC / BIC / log <i>L</i></strong> (descriptive) &mdash; information criteria and log-likelihood for the fitted model.</li></ul>
+</body></html>

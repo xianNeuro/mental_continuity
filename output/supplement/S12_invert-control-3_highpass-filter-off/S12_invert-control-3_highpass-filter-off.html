@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>Supplementary Section S12 (inversion control 3): no high-pass filter (3 mm space, 4 mm smoothing)</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:1020px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+h1{border-bottom:2px solid #333;padding-bottom:6px;}
+h2{margin-top:1.8rem;border-bottom:1px solid #aaa;padding-bottom:4px;}
+h3{margin-top:1.2rem;color:#222;}
+h4{margin-top:1rem;color:#333;}
+.legend{color:#333;font-size:13px;margin:8px 0 18px 0;padding-left:22px;}
+.legend li{margin-bottom:4px;}
+th.desc, td.desc{background:#f1f3f4;color:#666;}
+table{border-collapse:collapse;font-size:14px;margin:12px 0;width:100%;}
+th,td{border:1px solid #bbb;padding:6px 10px;text-align:left;}
+th{background:#f4f6f8;}
+tbody tr:nth-child(6){border-top:3px solid #333;}
+.fig{display:block;margin:18px auto;max-width:100%;}
+.note{color:#555;font-size:13px;margin-top:6px;}
+</style></head>
+<body>
+<h1>Supplementary Section S12 (inversion control 3):
+story-to-interruption inversion without high-pass filtering
+(3&nbsp;mm-resampled space, 4&nbsp;mm smoothing)</h1>
+
+<h2>Methods</h2>
+<p>This is a preprocessing control for Result&nbsp;3.1: the analysis
+windows, the pattern-similarity measure, the five inter-subject
+schemes, the statistics, and the report layout are identical to those
+used there; the only preprocessing change is that no temporal
+high-pass filter is applied to the multivoxel timecourses. Specifically,
+the multivoxel patterns were read from the fMRIPrep preprocessed output
+resampled to 3&nbsp;mm isotropic space with spatial smoothing
+(4&nbsp;mm Gaussian kernel) but without any high-pass filtering (no DCT,
+no linear detrending), matching the resampling and smoothing of the main
+analysis preprocessing pipeline.</p>
+
+<p>Because no high-pass filter is applied, the appropriate per-voxel
+standardization is not obvious, so this report shows <strong>two</strong>
+standardization recipes in the order below. Within each recipe section,
+results are reported for two pre-selected regions: A1+ first (the
+strongest test case for losing the high-pass filter; its high-frequency
+stimulus-driven response is most exposed to low-frequency drift), and
+PMC second (the focal region of Result&nbsp;3.1).</p>
+
+<ol>
+  <li><strong>Recipe&nbsp;1 &mdash; whole-timecourse z-score</strong>:
+      each voxel's timecourse is z-scored across the entire run (whole-timecourse mean and standard deviation, per voxel and per participant) &mdash; the same standardization Result&nbsp;3.1 applies to its own (filtered) input.</li>
+  <li><strong>Recipe&nbsp;2 &mdash; separate-phase z-score (skip&nbsp;5
+      TRs)</strong>: every story segment drops its first five TRs (those returning from the preceding interruption or from story onset) and every interruption epoch drops its first five TRs from onset; the concatenated story TRs estimate the story-phase mean and standard deviation, the concatenated interruption TRs estimate the interruption-phase mean and standard deviation, and each phase is standardized with its own statistics (per participant, per voxel).</li>
+</ol>
+
+<p>Each (recipe, ROI) cell reports the same statistics as Result&nbsp;3.1:
+the group ISPC &theta;&#770;<sub>z</sub> with its standard error and the
+corresponding 95% confidence interval (&theta;&#770;<sub>z</sub>
+&plusmn; 1.96&nbsp;SE), the primary sign-flip-on-jackknife permutation
+<em>p</em>, and n. Each table's legend defines its columns.</p>
+
+
+<h2>Epoch selectivity during the interruption</h2>
+
+<p>Before asking whether the story-to-interruption correlation is still
+negative without a high-pass filter, this section asks the prior question:
+does the interruption pattern still carry epoch-specific information at all?
+This is the Result&nbsp;2.2 test, run on exactly the data used in the rest of
+this report. For every ordered pair of interruption epochs
+(<em>i</em>,&nbsp;<em>j</em>) we correlated the participant's pattern at epoch
+<em>i</em> with the across-participant average pattern at epoch <em>j</em>,
+over the ten TRs beginning 7.5&nbsp;s after interruption onset. Participant
+selectivity is mean(matching, <em>i</em>&nbsp;=&nbsp;<em>j</em>) minus
+mean(mismatching, <em>i</em>&nbsp;&ne;&nbsp;<em>j</em>); the reported
+<em>p</em> is the one-sided within-participant label-shuffle permutation test
+(10000 iterations) and the 95% CI is a participant bootstrap (10000
+iterations), matching Result&nbsp;2.2 exactly. The two standardization recipes
+and the two regions are reported in the same order as the inversion sections
+below.</p>
+
+<p>Schemes: IP-IP, SP-SP and IT-IT compare each participant with the average
+pattern of the other participants in the same condition. SP-IP and IT-IP
+compare each scrambled-pause or intact-theory-of-mind participant with the
+across-participant average of the intact-pause group at the interruption in
+the same serial position; intact-pause and intact-theory-of-mind share a
+timing table so that position is also the same point in the narrative, whereas
+the scrambled-pause story order differs, so a matching SP-IP entry pairs
+interruptions that follow different story segments. SP-IP-unscr repeats the
+SP-IP comparison after re-ordering the scrambled-pause epochs into the intact
+narrative sequence, so matching entries pair interruptions that follow the
+same story segment.</p>
+<h3>Recipe 1 — whole-timecourse z-score (matches Result 3.1)</h3>
+<h4>A1+</h4>
+<table>
+<thead><tr>
+  <th>Cond</th><th>Selectivity</th><th>SE</th><th>95% CI</th><th>p (perm)</th>
+  <th class="desc">n</th>
+  <th class="desc">Mean&nbsp;matching&nbsp;r</th>
+  <th class="desc">Mean&nbsp;mismatching&nbsp;r</th>
+  <th class="desc">d</th>
+</tr></thead>
+<tbody>
+<tr><td>IP-IP</td><td>0.0037</td><td>0.0024</td><td>[-0.0009, 0.0082]</td><td>0.2019</td><td class="desc">19</td><td class="desc">0.1773</td><td class="desc">0.1736</td><td class="desc">0.357</td></tr>
+<tr><td>SP-SP</td><td>0.0068</td><td>0.0020</td><td>[0.0029, 0.0104]</td><td>0.0797</td><td class="desc">19</td><td class="desc">0.1756</td><td class="desc">0.1688</td><td class="desc">0.790</td></tr>
+<tr><td>SP-IP</td><td>0.0041</td><td>0.0026</td><td>[-0.0012, 0.0088]</td><td>0.1966</td><td class="desc">19</td><td class="desc">0.1753</td><td class="desc">0.1712</td><td class="desc">0.361</td></tr>
+<tr><td>SP-IP-unscr</td><td>0.0009</td><td>0.0015</td><td>[-0.0019, 0.0037]</td><td>0.4176</td><td class="desc">19</td><td class="desc">0.1723</td><td class="desc">0.1714</td><td class="desc">0.146</td></tr>
+<tr><td>IT-IT</td><td>0.0367</td><td>0.0033</td><td>[0.0304, 0.0431]</td><td>1.00e-04</td><td class="desc">19</td><td class="desc">0.0734</td><td class="desc">0.0367</td><td class="desc">2.530</td></tr>
+<tr><td>IT-IP</td><td>0.0076</td><td>0.0023</td><td>[0.0032, 0.0118]</td><td>0.0893</td><td class="desc">19</td><td class="desc">-0.0554</td><td class="desc">-0.0630</td><td class="desc">0.771</td></tr>
+</tbody></table>
+<p><img class="fig" src="figures/S12_invert-control-3_highpass-filter-off_selectivity_zscore-entire_A1+_carver_skip5-use10.png" alt="A1+ epoch selectivity during the interruption, no high-pass filter (zscore-entire)"/></p>
+
+<h4>PMC</h4>
+<table>
+<thead><tr>
+  <th>Cond</th><th>Selectivity</th><th>SE</th><th>95% CI</th><th>p (perm)</th>
+  <th class="desc">n</th>
+  <th class="desc">Mean&nbsp;matching&nbsp;r</th>
+  <th class="desc">Mean&nbsp;mismatching&nbsp;r</th>
+  <th class="desc">d</th>
+</tr></thead>
+<tbody>
+<tr><td>IP-IP</td><td>0.0161</td><td>0.0033</td><td>[0.0099, 0.0225]</td><td>1.00e-04</td><td class="desc">19</td><td class="desc">0.0370</td><td class="desc">0.0209</td><td class="desc">1.135</td></tr>
+<tr><td>SP-SP</td><td>0.0081</td><td>0.0041</td><td>[-0.0006, 0.0152]</td><td>0.0229</td><td class="desc">19</td><td class="desc">0.0342</td><td class="desc">0.0261</td><td class="desc">0.457</td></tr>
+<tr><td>SP-IP</td><td>0.0054</td><td>0.0046</td><td>[-0.0036, 0.0140]</td><td>0.0696</td><td class="desc">19</td><td class="desc">0.0306</td><td class="desc">0.0252</td><td class="desc">0.273</td></tr>
+<tr><td>SP-IP-unscr</td><td>-0.0022</td><td>0.0031</td><td>[-0.0078, 0.0037]</td><td>0.6935</td><td class="desc">19</td><td class="desc">0.0235</td><td class="desc">0.0256</td><td class="desc">-0.159</td></tr>
+<tr><td>IT-IT</td><td>0.0275</td><td>0.0034</td><td>[0.0209, 0.0339]</td><td>1.00e-04</td><td class="desc">19</td><td class="desc">0.0678</td><td class="desc">0.0403</td><td class="desc">1.841</td></tr>
+<tr><td>IT-IP</td><td>0.0057</td><td>0.0029</td><td>[-0.0003, 0.0107]</td><td>0.0394</td><td class="desc">19</td><td class="desc">0.0084</td><td class="desc">0.0028</td><td class="desc">0.452</td></tr>
+</tbody></table>
+<p><img class="fig" src="figures/S12_invert-control-3_highpass-filter-off_selectivity_zscore-entire_PMC_carver_skip5-use10.png" alt="PMC epoch selectivity during the interruption, no high-pass filter (zscore-entire)"/></p>
+<h3>Recipe 2 — separate-phase z-score, skip 5 TRs (matches S11_invert-control-2)</h3>
+<h4>A1+</h4>
+<table>
+<thead><tr>
+  <th>Cond</th><th>Selectivity</th><th>SE</th><th>95% CI</th><th>p (perm)</th>
+  <th class="desc">n</th>
+  <th class="desc">Mean&nbsp;matching&nbsp;r</th>
+  <th class="desc">Mean&nbsp;mismatching&nbsp;r</th>
+  <th class="desc">d</th>
+</tr></thead>
+<tbody>
+<tr><td>IP-IP</td><td>0.0074</td><td>0.0039</td><td>[-0.0001, 0.0146]</td><td>0.0013</td><td class="desc">19</td><td class="desc">0.0170</td><td class="desc">0.0096</td><td class="desc">0.440</td></tr>
+<tr><td>SP-SP</td><td>0.0106</td><td>0.0035</td><td>[0.0038, 0.0169]</td><td>1.00e-04</td><td class="desc">19</td><td class="desc">0.0225</td><td class="desc">0.0118</td><td class="desc">0.705</td></tr>
+<tr><td>SP-IP</td><td>0.0077</td><td>0.0044</td><td>[-0.0011, 0.0159]</td><td>0.0008</td><td class="desc">19</td><td class="desc">0.0192</td><td class="desc">0.0114</td><td class="desc">0.403</td></tr>
+<tr><td>SP-IP-unscr</td><td>0.0001</td><td>0.0022</td><td>[-0.0042, 0.0042]</td><td>0.4786</td><td class="desc">19</td><td class="desc">0.0120</td><td class="desc">0.0119</td><td class="desc">0.009</td></tr>
+<tr><td>IT-IT</td><td>0.0360</td><td>0.0036</td><td>[0.0291, 0.0430]</td><td>1.00e-04</td><td class="desc">19</td><td class="desc">0.0528</td><td class="desc">0.0168</td><td class="desc">2.269</td></tr>
+<tr><td>IT-IP</td><td>0.0120</td><td>0.0034</td><td>[0.0054, 0.0184]</td><td>1.00e-04</td><td class="desc">19</td><td class="desc">0.0051</td><td class="desc">-0.0068</td><td class="desc">0.811</td></tr>
+</tbody></table>
+<p><img class="fig" src="figures/S12_invert-control-3_highpass-filter-off_selectivity_zscore-split-skip5_A1+_carver_skip5-use10.png" alt="A1+ epoch selectivity during the interruption, no high-pass filter (zscore-split-skip5)"/></p>
+
+<h4>PMC</h4>
+<table>
+<thead><tr>
+  <th>Cond</th><th>Selectivity</th><th>SE</th><th>95% CI</th><th>p (perm)</th>
+  <th class="desc">n</th>
+  <th class="desc">Mean&nbsp;matching&nbsp;r</th>
+  <th class="desc">Mean&nbsp;mismatching&nbsp;r</th>
+  <th class="desc">d</th>
+</tr></thead>
+<tbody>
+<tr><td>IP-IP</td><td>0.0165</td><td>0.0037</td><td>[0.0096, 0.0239]</td><td>1.00e-04</td><td class="desc">19</td><td class="desc">0.0187</td><td class="desc">0.0022</td><td class="desc">1.022</td></tr>
+<tr><td>SP-SP</td><td>0.0079</td><td>0.0041</td><td>[-0.0008, 0.0152]</td><td>0.0043</td><td class="desc">19</td><td class="desc">0.0120</td><td class="desc">0.0040</td><td class="desc">0.440</td></tr>
+<tr><td>SP-IP</td><td>0.0055</td><td>0.0048</td><td>[-0.0040, 0.0146]</td><td>0.0320</td><td class="desc">19</td><td class="desc">0.0089</td><td class="desc">0.0035</td><td class="desc">0.260</td></tr>
+<tr><td>SP-IP-unscr</td><td>-0.0029</td><td>0.0032</td><td>[-0.0089, 0.0032]</td><td>0.8013</td><td class="desc">19</td><td class="desc">0.0011</td><td class="desc">0.0039</td><td class="desc">-0.204</td></tr>
+<tr><td>IT-IT</td><td>0.0299</td><td>0.0038</td><td>[0.0226, 0.0369]</td><td>1.00e-04</td><td class="desc">19</td><td class="desc">0.0566</td><td class="desc">0.0267</td><td class="desc">1.801</td></tr>
+<tr><td>IT-IP</td><td>0.0064</td><td>0.0031</td><td>[-0.0001, 0.0119]</td><td>0.0054</td><td class="desc">19</td><td class="desc">0.0044</td><td class="desc">-0.0020</td><td class="desc">0.468</td></tr>
+</tbody></table>
+<p><img class="fig" src="figures/S12_invert-control-3_highpass-filter-off_selectivity_zscore-split-skip5_PMC_carver_skip5-use10.png" alt="PMC epoch selectivity during the interruption, no high-pass filter (zscore-split-skip5)"/></p>
+
+<p class="note">Bars: group-mean selectivity (matching minus mismatching r).
+Whiskers: &plusmn;SE across participants. Dots: participant selectivity
+values.</p>
+
+<h2>Story-to-interruption inversion</h2>
+<h2>Recipe 1 — whole-timecourse z-score (matches Result 3.1)</h2>
+<h3>A1+</h3>
+<table>
+<thead><tr>
+  <th>Family</th><th>Cond</th>
+  <th>n</th>
+  <th>ISPC mean (r)</th>
+  <th>ISPC mean (Fisher-z, &theta;&#770;<sub>z</sub>)</th><th>SE</th><th>95% CI</th>
+  <th>p (sign-flip)</th>
+</tr></thead>
+<tbody>
+<tr><td>story-story</td><td>IP-IP</td><td>19</td><td>0.1019</td><td>0.1037</td><td>0.0125</td><td>[0.0792, 0.1282]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>SP-SP</td><td>19</td><td>0.1433</td><td>0.1460</td><td>0.0129</td><td>[0.1208, 0.1712]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IT-IT</td><td>19</td><td>0.0570</td><td>0.0576</td><td>0.0079</td><td>[0.0420, 0.0731]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IP-IT</td><td>19</td><td>0.0684</td><td>0.0694</td><td>0.0084</td><td>[0.0528, 0.0860]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IT-IP</td><td>19</td><td>0.0651</td><td>0.0660</td><td>0.0122</td><td>[0.0421, 0.0900]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IP-IP</td><td>19</td><td>-0.1311</td><td>-0.1344</td><td>0.0166</td><td>[-0.1669, -0.1018]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>SP-SP</td><td>19</td><td>-0.1443</td><td>-0.1476</td><td>0.0152</td><td>[-0.1775, -0.1178]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IT-IT</td><td>19</td><td>0.0538</td><td>0.0544</td><td>0.0087</td><td>[0.0373, 0.0715]</td><td>1.0000</td></tr>
+<tr><td>story-interruption</td><td>IP-IT</td><td>19</td><td>0.0896</td><td>0.0914</td><td>0.0112</td><td>[0.0695, 0.1133]</td><td>1.0000</td></tr>
+<tr><td>story-interruption</td><td>IT-IP</td><td>19</td><td>-0.0435</td><td>-0.0445</td><td>0.0136</td><td>[-0.0712, -0.0178]</td><td>0.0014</td></tr>
+</tbody></table>
+<ul class="legend">
+  <li><strong>ISPC mean (r)</strong> &mdash; raw arithmetic mean of the
+      Pearson correlations (per-participant mean r, averaged across
+      participants; no Fisher-z transform).</li>
+  <li><strong>&theta;&#770;<sub>z</sub></strong> &mdash; <em>group mean
+      ISPC in Fisher-z</em>: the mean of arctanh(r) across all valid
+      (subject, epoch) pairs. Point estimate; back-transform to r-space
+      via tanh(&theta;&#770;<sub>z</sub>). Also the bar-plot bar height.</li>
+  <li><strong>SE</strong> &mdash; standard error of
+      &theta;&#770;<sub>z</sub> across participants:
+      SD(participant Fisher-z means) / &radic;n<sub>participants</sub>.
+      Bar-plot whisker.</li>
+  <li><strong>95%&nbsp;CI</strong> &mdash; 95% confidence interval on
+      &theta;&#770;<sub>z</sub>, &theta;&#770;<sub>z</sub> &plusmn;
+      1.96&nbsp;SE (Fisher-z space; same participant unit as the SE
+      column).</li>
+  <li><strong>p&nbsp;(sign-flip)</strong> &mdash; the reported test.
+      One-sided sign-flip permutation p (10000 iter) on the subject
+      pseudo-values from a delete-one-subject jackknife on
+      &theta;&#770;<sub>z</sub>, in the family&rsquo;s expected direction
+      (story-story <em>&gt;</em>&nbsp;0; story-interruption
+      <em>&lt;</em>&nbsp;0).</li>
+  <li><strong>n</strong> &mdash; number of participants
+      contributing to the cell.</li>
+</ul>
+<p><img class="fig" src="figures/S12_invert-control-3_highpass-filter-off_zscore-entire_A1+_carver_skip5-use10.png" alt="A1+ story-story vs story-to-interruption ISPC, no high-pass filter (zscore-entire)"/></p>
+
+<h3>PMC</h3>
+<table>
+<thead><tr>
+  <th>Family</th><th>Cond</th>
+  <th>n</th>
+  <th>ISPC mean (r)</th>
+  <th>ISPC mean (Fisher-z, &theta;&#770;<sub>z</sub>)</th><th>SE</th><th>95% CI</th>
+  <th>p (sign-flip)</th>
+</tr></thead>
+<tbody>
+<tr><td>story-story</td><td>IP-IP</td><td>19</td><td>0.1537</td><td>0.1601</td><td>0.0136</td><td>[0.1335, 0.1868]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>SP-SP</td><td>19</td><td>0.1135</td><td>0.1169</td><td>0.0154</td><td>[0.0867, 0.1471]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IT-IT</td><td>19</td><td>0.1148</td><td>0.1204</td><td>0.0137</td><td>[0.0935, 0.1473]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IP-IT</td><td>19</td><td>0.1428</td><td>0.1488</td><td>0.0114</td><td>[0.1264, 0.1712]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IT-IP</td><td>19</td><td>0.1315</td><td>0.1385</td><td>0.0191</td><td>[0.1011, 0.1759]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IP-IP</td><td>19</td><td>-0.0495</td><td>-0.0503</td><td>0.0067</td><td>[-0.0635, -0.0372]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>SP-SP</td><td>19</td><td>-0.0783</td><td>-0.0801</td><td>0.0141</td><td>[-0.1079, -0.0524]</td><td>5.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IT-IT</td><td>19</td><td>-0.0549</td><td>-0.0560</td><td>0.0089</td><td>[-0.0734, -0.0386]</td><td>4.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IP-IT</td><td>19</td><td>-0.0415</td><td>-0.0425</td><td>0.0081</td><td>[-0.0583, -0.0267]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IT-IP</td><td>19</td><td>-0.0341</td><td>-0.0347</td><td>0.0117</td><td>[-0.0575, -0.0118]</td><td>0.0040</td></tr>
+</tbody></table>
+<ul class="legend">
+  <li><strong>ISPC mean (r)</strong> &mdash; raw arithmetic mean of the
+      Pearson correlations (per-participant mean r, averaged across
+      participants; no Fisher-z transform).</li>
+  <li><strong>&theta;&#770;<sub>z</sub></strong> &mdash; <em>group mean
+      ISPC in Fisher-z</em>: the mean of arctanh(r) across all valid
+      (subject, epoch) pairs. Point estimate; back-transform to r-space
+      via tanh(&theta;&#770;<sub>z</sub>). Also the bar-plot bar height.</li>
+  <li><strong>SE</strong> &mdash; standard error of
+      &theta;&#770;<sub>z</sub> across participants:
+      SD(participant Fisher-z means) / &radic;n<sub>participants</sub>.
+      Bar-plot whisker.</li>
+  <li><strong>95%&nbsp;CI</strong> &mdash; 95% confidence interval on
+      &theta;&#770;<sub>z</sub>, &theta;&#770;<sub>z</sub> &plusmn;
+      1.96&nbsp;SE (Fisher-z space; same participant unit as the SE
+      column).</li>
+  <li><strong>p&nbsp;(sign-flip)</strong> &mdash; the reported test.
+      One-sided sign-flip permutation p (10000 iter) on the subject
+      pseudo-values from a delete-one-subject jackknife on
+      &theta;&#770;<sub>z</sub>, in the family&rsquo;s expected direction
+      (story-story <em>&gt;</em>&nbsp;0; story-interruption
+      <em>&lt;</em>&nbsp;0).</li>
+  <li><strong>n</strong> &mdash; number of participants
+      contributing to the cell.</li>
+</ul>
+<p><img class="fig" src="figures/S12_invert-control-3_highpass-filter-off_zscore-entire_PMC_carver_skip5-use10.png" alt="PMC story-story vs story-to-interruption ISPC, no high-pass filter (zscore-entire)"/></p>
+<h2>Recipe 2 — separate-phase z-score, skip 5 TRs (matches S11_invert-control-2)</h2>
+<h3>A1+</h3>
+<table>
+<thead><tr>
+  <th>Family</th><th>Cond</th>
+  <th>n</th>
+  <th>ISPC mean (r)</th>
+  <th>ISPC mean (Fisher-z, &theta;&#770;<sub>z</sub>)</th><th>SE</th><th>95% CI</th>
+  <th>p (sign-flip)</th>
+</tr></thead>
+<tbody>
+<tr><td>story-story</td><td>IP-IP</td><td>19</td><td>0.0336</td><td>0.0340</td><td>0.0090</td><td>[0.0163, 0.0517]</td><td>0.0067</td></tr>
+<tr><td>story-story</td><td>SP-SP</td><td>19</td><td>0.0686</td><td>0.0695</td><td>0.0090</td><td>[0.0519, 0.0870]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IT-IT</td><td>19</td><td>0.0453</td><td>0.0457</td><td>0.0069</td><td>[0.0321, 0.0593]</td><td>3.00e-04</td></tr>
+<tr><td>story-story</td><td>IP-IT</td><td>19</td><td>0.0418</td><td>0.0422</td><td>0.0082</td><td>[0.0261, 0.0583]</td><td>2.00e-04</td></tr>
+<tr><td>story-story</td><td>IT-IP</td><td>19</td><td>0.0417</td><td>0.0422</td><td>0.0097</td><td>[0.0232, 0.0612]</td><td>3.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IP-IP</td><td>19</td><td>0.0123</td><td>0.0124</td><td>0.0076</td><td>[-0.0024, 0.0272]</td><td>0.8471</td></tr>
+<tr><td>story-interruption</td><td>SP-SP</td><td>19</td><td>0.0277</td><td>0.0279</td><td>0.0090</td><td>[0.0102, 0.0457]</td><td>0.9942</td></tr>
+<tr><td>story-interruption</td><td>IT-IT</td><td>19</td><td>0.0269</td><td>0.0271</td><td>0.0068</td><td>[0.0139, 0.0404]</td><td>0.9974</td></tr>
+<tr><td>story-interruption</td><td>IP-IT</td><td>19</td><td>0.0046</td><td>0.0046</td><td>0.0079</td><td>[-0.0108, 0.0200]</td><td>0.7207</td></tr>
+<tr><td>story-interruption</td><td>IT-IP</td><td>19</td><td>0.0191</td><td>0.0192</td><td>0.0082</td><td>[0.0031, 0.0353]</td><td>0.9839</td></tr>
+</tbody></table>
+<ul class="legend">
+  <li><strong>ISPC mean (r)</strong> &mdash; raw arithmetic mean of the
+      Pearson correlations (per-participant mean r, averaged across
+      participants; no Fisher-z transform).</li>
+  <li><strong>&theta;&#770;<sub>z</sub></strong> &mdash; <em>group mean
+      ISPC in Fisher-z</em>: the mean of arctanh(r) across all valid
+      (subject, epoch) pairs. Point estimate; back-transform to r-space
+      via tanh(&theta;&#770;<sub>z</sub>). Also the bar-plot bar height.</li>
+  <li><strong>SE</strong> &mdash; standard error of
+      &theta;&#770;<sub>z</sub> across participants:
+      SD(participant Fisher-z means) / &radic;n<sub>participants</sub>.
+      Bar-plot whisker.</li>
+  <li><strong>95%&nbsp;CI</strong> &mdash; 95% confidence interval on
+      &theta;&#770;<sub>z</sub>, &theta;&#770;<sub>z</sub> &plusmn;
+      1.96&nbsp;SE (Fisher-z space; same participant unit as the SE
+      column).</li>
+  <li><strong>p&nbsp;(sign-flip)</strong> &mdash; the reported test.
+      One-sided sign-flip permutation p (10000 iter) on the subject
+      pseudo-values from a delete-one-subject jackknife on
+      &theta;&#770;<sub>z</sub>, in the family&rsquo;s expected direction
+      (story-story <em>&gt;</em>&nbsp;0; story-interruption
+      <em>&lt;</em>&nbsp;0).</li>
+  <li><strong>n</strong> &mdash; number of participants
+      contributing to the cell.</li>
+</ul>
+<p><img class="fig" src="figures/S12_invert-control-3_highpass-filter-off_zscore-split-skip5_A1+_carver_skip5-use10.png" alt="A1+ story-story vs story-to-interruption ISPC, no high-pass filter (zscore-split-skip5)"/></p>
+
+<h3>PMC</h3>
+<table>
+<thead><tr>
+  <th>Family</th><th>Cond</th>
+  <th>n</th>
+  <th>ISPC mean (r)</th>
+  <th>ISPC mean (Fisher-z, &theta;&#770;<sub>z</sub>)</th><th>SE</th><th>95% CI</th>
+  <th>p (sign-flip)</th>
+</tr></thead>
+<tbody>
+<tr><td>story-story</td><td>IP-IP</td><td>19</td><td>0.1268</td><td>0.1311</td><td>0.0110</td><td>[0.1095, 0.1527]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>SP-SP</td><td>19</td><td>0.0682</td><td>0.0698</td><td>0.0115</td><td>[0.0472, 0.0924]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IT-IT</td><td>19</td><td>0.0937</td><td>0.0977</td><td>0.0124</td><td>[0.0734, 0.1220]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IP-IT</td><td>19</td><td>0.1215</td><td>0.1258</td><td>0.0106</td><td>[0.1050, 0.1466]</td><td>1.00e-04</td></tr>
+<tr><td>story-story</td><td>IT-IP</td><td>19</td><td>0.1131</td><td>0.1186</td><td>0.0172</td><td>[0.0849, 0.1524]</td><td>1.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IP-IP</td><td>19</td><td>-0.0129</td><td>-0.0131</td><td>0.0061</td><td>[-0.0249, -0.0012]</td><td>0.0346</td></tr>
+<tr><td>story-interruption</td><td>SP-SP</td><td>19</td><td>-0.0174</td><td>-0.0177</td><td>0.0124</td><td>[-0.0421, 0.0067]</td><td>0.1470</td></tr>
+<tr><td>story-interruption</td><td>IT-IT</td><td>19</td><td>-0.0291</td><td>-0.0295</td><td>0.0063</td><td>[-0.0419, -0.0172]</td><td>0.0038</td></tr>
+<tr><td>story-interruption</td><td>IP-IT</td><td>19</td><td>-0.0288</td><td>-0.0295</td><td>0.0065</td><td>[-0.0423, -0.0167]</td><td>2.00e-04</td></tr>
+<tr><td>story-interruption</td><td>IT-IP</td><td>19</td><td>-0.0057</td><td>-0.0056</td><td>0.0069</td><td>[-0.0192, 0.0081]</td><td>0.2168</td></tr>
+</tbody></table>
+<ul class="legend">
+  <li><strong>ISPC mean (r)</strong> &mdash; raw arithmetic mean of the
+      Pearson correlations (per-participant mean r, averaged across
+      participants; no Fisher-z transform).</li>
+  <li><strong>&theta;&#770;<sub>z</sub></strong> &mdash; <em>group mean
+      ISPC in Fisher-z</em>: the mean of arctanh(r) across all valid
+      (subject, epoch) pairs. Point estimate; back-transform to r-space
+      via tanh(&theta;&#770;<sub>z</sub>). Also the bar-plot bar height.</li>
+  <li><strong>SE</strong> &mdash; standard error of
+      &theta;&#770;<sub>z</sub> across participants:
+      SD(participant Fisher-z means) / &radic;n<sub>participants</sub>.
+      Bar-plot whisker.</li>
+  <li><strong>95%&nbsp;CI</strong> &mdash; 95% confidence interval on
+      &theta;&#770;<sub>z</sub>, &theta;&#770;<sub>z</sub> &plusmn;
+      1.96&nbsp;SE (Fisher-z space; same participant unit as the SE
+      column).</li>
+  <li><strong>p&nbsp;(sign-flip)</strong> &mdash; the reported test.
+      One-sided sign-flip permutation p (10000 iter) on the subject
+      pseudo-values from a delete-one-subject jackknife on
+      &theta;&#770;<sub>z</sub>, in the family&rsquo;s expected direction
+      (story-story <em>&gt;</em>&nbsp;0; story-interruption
+      <em>&lt;</em>&nbsp;0).</li>
+  <li><strong>n</strong> &mdash; number of participants
+      contributing to the cell.</li>
+</ul>
+<p><img class="fig" src="figures/S12_invert-control-3_highpass-filter-off_zscore-split-skip5_PMC_carver_skip5-use10.png" alt="PMC story-story vs story-to-interruption ISPC, no high-pass filter (zscore-split-skip5)"/></p>
+
+
+<p class="note">Bars: &theta;&#770;<sub>z</sub> (Fisher-z group mean).
+Whiskers: &plusmn;SE. Dots: subject-mean Fisher-z values. Solid =
+story-story; hatched = story-interruption. IP-IP, SP-SP, IT-IT compare
+each participant with the average pattern of the other participants in
+the same condition; IP-IT and IT-IP compare each participant with the
+across-participant average of the other condition's group.</p>
+
+</body></html>

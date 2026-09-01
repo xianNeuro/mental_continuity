@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Result1_3_hipp-boundary-activity</title>
+  <style>
+    body{font-family:system-ui,sans-serif;max-width:1020px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+    h1{border-bottom:2px solid #333;padding-bottom:6px;}
+    h2{margin-top:1.6rem;}
+    h3{margin-top:1.2rem;}
+    img{max-width:100%;height:auto;}
+    table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px;}
+    th,td{border:1px solid #bbb;padding:6px 10px;text-align:left;}
+    th{background:#f4f6f8;}
+    th.desc, td.desc{background:#f1f3f4;color:#666;}
+    .legend{color:#333;font-size:13px;margin:8px 0 18px 0;padding-left:22px;}
+    .legend li{margin-bottom:4px;}
+    .note{color:#555;font-size:13px;margin-top:6px;}
+  </style>
+</head>
+<body>
+  <h1>Result1_3_hipp-boundary-activity</h1>
+
+  <h2>Methods</h2>
+  <p>We tested whether mean hippocampal BOLD signal rises at the boundary
+  between an interruption and the immediately following story segment.
+  Per-voxel timecourses in the bilateral hippocampus mask were z-scored
+  across the entire run and averaged across voxels to give one hippocampal
+  timecourse per participant. For every interruption epoch this timecourse
+  was extracted in a &plusmn;20-TR window centered on
+  interruption onset, and the boundary-activity statistic was the
+  post-onset minus pre-onset difference, with each window the
+  5 TRs immediately before / after onset. Per-participant
+  differences from the three interrupted conditions (intact-pause,
+  intact-theory-of-mind, scrambled-pause) were pooled across participants
+  and tested against zero with a one-sample two-sided <em>t</em>-test,
+  the only inferential test reported here.</p>
+
+  <h2>Results</h2>
+  <p style="color:#666;font-size:12.5px;margin:0 0 4px 0;">Primary stats (unshaded) | Descriptive / context (light gray)</p><table><thead><tr><th>Statistic</th><th><i>M</i><sub>diff</sub></th><th>SE</th><th>95% CI</th><th><i>t</i></th><th>df</th><th><i>p</i></th><th class='desc'><i>n</i></th><th class='desc'>SD<sub>diff</sub></th><th class='desc'>Cohen&rsquo;s <i>d</i></th></tr></thead><tbody><tr><td>Post &minus; pre</td><td>0.0495</td><td>0.0155</td><td>[0.0185, 0.0804]</td><td>3.199</td><td>56</td><td>0.0023</td><td class="desc">57</td><td class="desc">0.1167</td><td class="desc">0.424</td></tr></tbody></table><ul class="legend"><li><strong><i>M</i><sub>diff</sub></strong> &mdash; group-mean per-subject difference (post-onset window minus pre-onset window of the bilateral hippocampus mean signal); main point estimate.</li><li><strong>SE</strong> &mdash; standard error of <i>M</i><sub>diff</sub>: SD(subject differences) / &radic;<i>n</i>.</li><li><strong>95% CI</strong> &mdash; 95% confidence interval of <i>M</i><sub>diff</sub> from the one-sample <em>t</em> distribution.</li><li><strong><i>t</i> / df / <i>p</i></strong> &mdash; one-sample two-sided <em>t</em>-test against 0 on the <i>n</i> = 57 pooled subject-level differences (intact-pause + intact-theory-of-mind + scrambled-pause).</li><li><strong><i>n</i></strong> (descriptive) &mdash; participants contributing to the pooled test.</li><li><strong>SD<sub>diff</sub></strong> (descriptive) &mdash; standard deviation of the subject-level differences.</li><li><strong>Cohen&rsquo;s <i>d</i></strong> (descriptive) &mdash; <i>M</i><sub>diff</sub> / SD<sub>diff</sub>.</li></ul>
+  <p>Lines show the across-epoch mean hippocampal signal at each TR
+  relative to interruption onset, per condition (IP = blue, SP = green,
+  IT = orange), with the shaded band of the matching color giving
+  &plusmn;1 standard error of the mean across participants. The two gray
+  vertical bands mark the 5-TR pre-onset and 5-TR
+  post-onset windows used for the boundary-activity statistic.</p>
+  <p><img src="figures/trigger_onset_overlay_hipp.png" alt="onset overlay"/></p>
+  <p class="note">Per-subject pooled differences:
+  <code>data/pooled_per_subject_diffs.csv</code> &nbsp;|&nbsp; Summary
+  statistic: <code>data/pooled_one_sample_t_stats.csv</code></p>
+
+</body>
+</html>

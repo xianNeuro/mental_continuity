@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>Supplementary Methods: theory-of-mind probe accuracy (IT condition)</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:1000px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+h1{border-bottom:2px solid #333;padding-bottom:6px;}
+h2{margin-top:1.8rem;border-bottom:1px solid #333;padding-bottom:4px;}
+table{border-collapse:collapse;font-size:13px;margin:12px 0;}
+th,td{border:1px solid #bbb;padding:6px 9px;text-align:left;}
+th{background:#f4f6f8;}
+.note{color:#555;font-size:13px;margin-top:6px;}
+</style></head>
+<body>
+<h1>Supplementary Methods: accuracy on the theory-of-mind probe questions (intact-ToM condition)</h1>
+
+<p>During the interruption epochs of the intact-theory-of-mind (IT) condition,
+participants heard short false-belief vignettes unrelated to the narrative,
+each followed by one yes/no comprehension question answered by button press:
+17 questions in the main narrative and 11 in the second narrative. This report
+computes each participant's accuracy on those probe questions from the scored
+responses shipped in <code>data/beh/tom_probe_scores.csv</code>, restricted to
+the intact-ToM fMRI cohort of each narrative (<code>data/cohort/</code>).
+High accuracy confirms that participants directed their attention to the
+vignettes during the interruptions.</p>
+
+<h2>Methods</h2>
+<p>Each question was scored 1 if the button-press response matched the answer
+key and 0 otherwise. Per-participant accuracy is the proportion of that
+narrative's questions answered correctly. The group summary reports the mean
+across participants, the standard error of the mean (sample standard deviation
+/ &radic;n), and the range as the minimum and maximum number of questions
+correct. Only participants in the narrative's intact-ToM fMRI cohort with a
+complete set of scored responses are included.</p>
+
+<h2>Main narrative (Carver) &mdash; 17 questions</h2>
+<p><strong>mean accuracy = 0.916, SE = 0.020,
+range = [11/17, 17/17],
+n = 19</strong></p>
+<table><tr><th>Participant</th><th>Questions correct</th><th>Proportion correct</th></tr>
+<tr><td>sub-026</td><td>14/17</td><td>0.824</td></tr>
+<tr><td>sub-032</td><td>17/17</td><td>1.000</td></tr>
+<tr><td>sub-034</td><td>16/17</td><td>0.941</td></tr>
+<tr><td>sub-036</td><td>16/17</td><td>0.941</td></tr>
+<tr><td>sub-038</td><td>17/17</td><td>1.000</td></tr>
+<tr><td>sub-048</td><td>17/17</td><td>1.000</td></tr>
+<tr><td>sub-049</td><td>16/17</td><td>0.941</td></tr>
+<tr><td>sub-057</td><td>11/17</td><td>0.647</td></tr>
+<tr><td>sub-058</td><td>16/17</td><td>0.941</td></tr>
+<tr><td>sub-059</td><td>16/17</td><td>0.941</td></tr>
+<tr><td>sub-060</td><td>16/17</td><td>0.941</td></tr>
+<tr><td>sub-061</td><td>16/17</td><td>0.941</td></tr>
+<tr><td>sub-062</td><td>14/17</td><td>0.824</td></tr>
+<tr><td>sub-075</td><td>16/17</td><td>0.941</td></tr>
+<tr><td>sub-091</td><td>15/17</td><td>0.882</td></tr>
+<tr><td>sub-092</td><td>17/17</td><td>1.000</td></tr>
+<tr><td>sub-093</td><td>14/17</td><td>0.824</td></tr>
+<tr><td>sub-095</td><td>15/17</td><td>0.882</td></tr>
+<tr><td>sub-101</td><td>17/17</td><td>1.000</td></tr>
+</table>
+<p class="note">Scored participants outside the fMRI cohort (excluded scans), not analyzed: sub-074, sub-094.</p>
+<h2>Second narrative (live storytelling) &mdash; 11 questions</h2>
+<p><strong>mean accuracy = 0.884, SE = 0.021,
+range = [8/11, 11/11],
+n = 18</strong></p>
+<table><tr><th>Participant</th><th>Questions correct</th><th>Proportion correct</th></tr>
+<tr><td>sub-027</td><td>11/11</td><td>1.000</td></tr>
+<tr><td>sub-037</td><td>11/11</td><td>1.000</td></tr>
+<tr><td>sub-039</td><td>10/11</td><td>0.909</td></tr>
+<tr><td>sub-045</td><td>11/11</td><td>1.000</td></tr>
+<tr><td>sub-055</td><td>9/11</td><td>0.818</td></tr>
+<tr><td>sub-063</td><td>11/11</td><td>1.000</td></tr>
+<tr><td>sub-065</td><td>8/11</td><td>0.727</td></tr>
+<tr><td>sub-069</td><td>9/11</td><td>0.818</td></tr>
+<tr><td>sub-070</td><td>10/11</td><td>0.909</td></tr>
+<tr><td>sub-072</td><td>10/11</td><td>0.909</td></tr>
+<tr><td>sub-073</td><td>8/11</td><td>0.727</td></tr>
+<tr><td>sub-086</td><td>10/11</td><td>0.909</td></tr>
+<tr><td>sub-088</td><td>9/11</td><td>0.818</td></tr>
+<tr><td>sub-089</td><td>10/11</td><td>0.909</td></tr>
+<tr><td>sub-090</td><td>10/11</td><td>0.909</td></tr>
+<tr><td>sub-099</td><td>10/11</td><td>0.909</td></tr>
+<tr><td>sub-100</td><td>9/11</td><td>0.818</td></tr>
+<tr><td>sub-103</td><td>9/11</td><td>0.818</td></tr>
+</table>
+<p class="note">Scored participants outside the fMRI cohort (excluded scans), not analyzed: sub-028, sub-029, sub-030, sub-054, sub-087. fMRI-cohort participants without scored responses: sub-046.</p>
+</body></html>

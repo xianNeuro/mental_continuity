@@ -1,0 +1,8 @@
+figure1_brain-plot — four-view t-stat brain plot, single tight row
+(1x4): Left Lateral, Left Medial, Right Lateral, Right Medial, with a
+horizontal colorbar centered at the bottom.
+The brains are NOT re-rendered: the four-view raster is taken from
+the existing montage SVG and split into its four panels, which are
+then laid out in the 1-row layout (the colorbar is redrawn as vector).
+Stats CSV:  output/Result1_2_global-ISC/data/parcel_isc_t_fdr_fwe_intact_pause.csv
+Output SVG: fourview_intact_pause_tstat_1row_cbar-bottom.svg

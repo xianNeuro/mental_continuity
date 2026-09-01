@@ -1,0 +1,21 @@
+figure4_full-panel — full Figure 4 composite, NATIVE matplotlib
+rebuild (one landscape figure, one shared type scale; svg text
+editable via svg.fonttype=none). Design reference: a hand-made
+draft of the panel (not distributed).
+  a  dual-pathway schematic: interrupted train (figure2/3 train
+     colors) with (1) the hippocampal (HC) boundary response over
+     the onset and (2) the sustained PMC trace under the epoch;
+     post-return patterns correlated TR-by-TR (r1..r3) with the
+     continuous (CT) group's patterns
+  b  pre-selected DMN areas (AG lateral; PCC/dmPFC/vmPFC medial;
+     cached in data/) + TR-by-TR DMN re-alignment to the CT group
+     (canonical derive helper, cached in data/; gray band =
+     realignment window); bottom-left under a
+  c  2x2 brain-behavior scatters (Result4_1 merged table): columns
+     (1) HC boundary activity / (2) shared PMC trace; rows DMN
+     realignment / narrative recall; all variables z-scored within
+     condition; Pearson r + three-tier p above each panel; one
+     shared condition legend below
+Analysis results are cached in data/*.npz + data/dmn_*.png — delete
+that folder to force a recompute. Type scale: titles 8 bold /
+labels 6.5 / ticks 5.5 / letters 13 bold (same as figure2/3).

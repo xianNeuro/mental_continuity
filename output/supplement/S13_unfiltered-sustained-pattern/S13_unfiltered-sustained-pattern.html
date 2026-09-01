@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>Supplement — Sustained-pattern time course survives without temporal filtering</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:1400px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
+h1{border-bottom:2px solid #333;padding-bottom:6px;}
+h2{margin-top:1.8rem;border-bottom:1px solid #aaa;padding-bottom:4px;}
+h3{margin-top:1.2rem;}
+table{border-collapse:collapse;font-size:13px;margin:12px 0;width:100%;}
+th,td{border:1px solid #bbb;padding:6px 10px;text-align:left;}
+th{background:#f4f6f8;}
+.note{color:#555;font-size:13px;margin-top:6px;}
+.figure{text-align:center;margin:12px 0;}
+.figure img{width:100%;max-width:1050px;height:auto;border:none;}
+</style></head>
+<body>
+<h1>Sustained-pattern time course survives without temporal filtering</h1>
+
+<p>The story-to-interruption inversion has a characteristic <em>time course</em>:
+the posterior medial cortex (PMC) similarity to the preceding story pattern falls
+from positive, through zero, to a negative trough within the interruption and
+then recovers (the &ldquo;sustained pattern&rdquo; line of Figure&nbsp;3). A
+post-stimulus hemodynamic undershoot combined with the temporal high-pass filter
+has been raised as an alternative source of such an anticorrelation. If that
+combination were responsible, removing the high-pass filter should change the
+time course. This report shows that it does not.</p>
+
+<h2>Methods</h2>
+<p>We recomputed the Figure&nbsp;3 template-similarity time course on the
+unfiltered fMRIPrep derivative (no high-pass filter, 3&nbsp;mm space,
+4&nbsp;mm smoothing; each voxel z-scored across the whole run, the same
+normalization as the main data), using the identical procedure: for each
+participant, the 10-TR pre-onset story template was correlated, TR by TR, with
+the across-participant average pattern of the other participants at each TR
+offset around interruption onset (a 1-vs-others inter-subject pattern
+correlation). Offsets beyond +20 TRs are re-anchored to each epoch's own
+story-resumption point (the Figure&nbsp;3 convention), so the right half of
+each curve is resumption-locked. The filtered time course reproduces the
+published Figure&nbsp;3 curve (validation correlations in the last column of
+the table, r &ge; 1.00 in every condition).</p>
+
+<h2>Results</h2>
+<div class="figure">
+  <img src="figures/S13_unfiltered-sustained-pattern_PMC.svg"
+       alt="PMC filtered vs unfiltered similarity time course">
+</div>
+
+<p class="note">Rows, top to bottom: (1) the filtered main-pipeline
+inter-subject pattern correlation (ISPC) time course; (2) the unfiltered
+(no high-pass) ISPC time course, computed and plotted the same way (note the
+smaller y-range, the unfiltered correlations are weaker in absolute terms);
+(3) the two curves z-scored over the plotted window so only shape is compared.
+In every panel the gray band marks the pre-onset story-phase template window
+(TRs &minus;10 to &minus;1), the black dotted line marks interruption onset
+(TR 0), and the purple dashed line marks the earliest story return
+(TR 15, the shortest interruption epoch), beyond which the window
+starts to re-enter the story for that epoch.</p>
+
+<table>
+<thead><tr>
+  <th>Condition</th>
+  <th>Filtered trough<br>(TR offset)</th>
+  <th>Unfiltered trough<br>(TR offset)</th>
+  <th>Shape correlation<br>(filtered vs unfiltered)</th>
+  <th>Validation r<br>(vs published Fig. 3)</th>
+  <th>n (filt / unfilt)</th>
+</tr></thead>
+<tbody>
+<tr><td>intact-pause</td><td>12 (r = -0.197)</td><td>13 (r = -0.053)</td><td>1.00</td><td>1.000</td><td>19 / 19</td></tr>
+<tr><td>scrambled-pause</td><td>13 (r = -0.154)</td><td>13 (r = -0.067)</td><td>0.99</td><td>1.000</td><td>19 / 19</td></tr>
+<tr><td>intact-ToM</td><td>18 (r = -0.147)</td><td>7 (r = -0.057)</td><td>0.98</td><td>1.000</td><td>19 / 19</td></tr>
+</tbody></table>
+
+<p class="note">Across conditions the two time courses are highly correlated in
+shape (r = 0.98 to 1.00 over the plotted window) even though
+the unfiltered correlations are several times weaker in absolute terms (troughs
+near r = -0.06 to -0.07 unfiltered versus -0.20
+to -0.15 filtered). In intact-pause and scrambled-pause the
+anticorrelation reaches its trough at the same time offset with or without the
+high-pass filter (TR 12 vs 13, and TR 13 vs
+13). In intact-ToM the interruption is filled by an active task and
+the trough is broad and shallow, so its single lowest point is less stable
+across the two pipelines (TR 18 vs 7), yet the whole
+rise-and-fall still tracks closely (shape r = 0.98; see the
+normalized overlay). Two conclusions follow. First, because the effect is
+present with no temporal filtering, the high-pass filter cannot produce the
+inversion. Second, the dynamics are a fast dip and recovery locked to the
+interruption, not the slow monotonic return of a post-stimulus hemodynamic
+undershoot, so a combination of undershoot and filtering is also incompatible
+with the observed time course.</p>
+</body></html>

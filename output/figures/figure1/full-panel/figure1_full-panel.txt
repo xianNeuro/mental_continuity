@@ -1,0 +1,29 @@
+figure1_full-panel — full Figure 1 composite, NATIVE matplotlib
+rebuild (one figure, one shared type scale; svg text editable via
+svg.fonttype=none). Design reference: a hand-made draft of the
+panel (not distributed). Replaces the earlier scale-and-paste
+SVG assembly.
+  a  narrative context graph: glowing per-segment event networks
+     (network_reference/example_1a donor; hulls, degree-sized
+     nodes, degraded interruption trace), listener icons + thought
+     bubble, over the IP story-listening paradigm with REAL audio
+     envelopes (figure1_entire-demo geometry) — one panel/letter
+  b  one-epoch zoom: HC boundary response (double-gamma HRF) +
+     sustained neural trace (native schematic)
+  c  8 pre-selected cortical ROIs on the inflated surface (lateral:
+     dlPFC/A1+/mSTG/AG; medial: PMC/PCC/dmPFC/vmPFC; cached in data/)
+  d  design of conditions (sibling figure1_cond-demo geometry) +
+     comprehension bars with Bonferroni-corrected pairwise stars
+     (scripts/Result1_1_beh — the manuscript numbers)
+  e  A1+ full-run mean BOLD (CT/IP/IT) + shared 4-condition legend;
+     rounded zoom box marks the epoch-1 window shown in f
+  f  A1+ single-epoch (epoch 1) window, rounded zoom frame
+  g  whole-brain ISC t map (Result1_2), 4 views from the sibling
+     figure1_brain-plot render, native labels/colorbar (cold_hot,
+     +/-18)
+  h  hippocampal trigger-averaged onset response, 4 conditions
+Quantitative panels use canonical data (mvp_zscore-entire matrices,
+Result1_1 tally, Result1_2 t map); the a/d trains and networks are
+labeled illustrations. Caches in data/*.npz + data/*.png — delete to force
+recompute. Type scale: titles 8 bold / labels 6.5 / ticks 5.5 /
+letters 13 bold (same as figure2-4 full panels).

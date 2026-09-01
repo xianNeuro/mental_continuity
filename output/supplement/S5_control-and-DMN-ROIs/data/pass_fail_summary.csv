@@ -1,0 +1,9 @@
+roi,reliable_IP-IP,reliable_SP-SP,reliable_IT-IT,reliable_IT-IP,selective_IP-IP,selective_SP-SP,selective_IT-IT,selective_IT-IP,evolve_IP-IP,evolve_SP-SP,evolve_IT-IT,evolve_IT-IP
+A1+,True,True,True,False,False,False,True,False,True,False,False,True
+mSTG,True,True,True,False,False,False,True,False,False,False,True,True
+dlPFC,True,True,True,False,False,False,True,False,False,False,True,True
+AG,True,True,True,False,False,False,True,False,True,False,False,True
+PCC,True,True,True,True,True,True,True,True,False,False,False,False
+dmPFC,True,True,True,True,True,False,True,False,False,False,False,False
+vmPFC,True,True,True,False,True,True,True,True,False,False,False,False
+PMC,True,True,True,True,True,True,True,True,True,False,True,True

@@ -1,0 +1,34 @@
+figure3_full-panel — full Figure 3 composite, NATIVE matplotlib rebuild
+(one figure, one shared type scale; svg text editable via
+svg.fonttype=none). Design reference: a hand-made draft of the panel
+(not distributed).
+  a  interruption schematic (figure2 train colors; red onset/offset
+     ticks aligned over TR 0 / TR 15 of the plot below) + PMC
+     format-template similarity timecourse with a <-> 'template'
+     marker over -10..0 TR (sustained_timecourse helper, canonical
+     format-analysis JSONs)
+  b  IP-group epoch-1 story-phase PMC pattern on the R/L medial
+     surfaces (rendered by figure3c.py; boxed on R; no colorbar —
+     panel d's ±0.4 colorbar serves it)
+  c  story vs interruption 3D topography, IP group epoch 9
+     (PMC-sheet topography, WITHOUT the 2D floor projection)
+  d  group-mean MVP wall (IP/IT x story/intrpt x 17 epochs, ±0.4),
+     tiles reused from figure3_mvp-wall/_render_group-mean/; ONE
+     dotted connector each: ep1 label -> the 25°-rotated square on
+     b's R hemisphere; ep9 label -> a point ON c's story-surface
+     axis-1 frame edge (via proj3d transform)
+  e  single-participant MVP wall (IP sub-027, IT sub-026, ±1.0),
+     tiles reused from figure3_mvp-wall/_render_single-subject/
+  f  voxelwise story vs interruption scatters (A1+/dlPFC/PMC), colored
+     by the within-participant story→interruption slope; Q4>Q2
+     participant-bootstrap p (undershoot_beta helper, seed 0)
+Row labels 'story'/'intrpt' = story-phase / interruption-phase pattern;
+'one IP/IT subj' = single participant (tight montage labels; define in
+the manuscript caption). Walls carry no panel titles, as in the hand
+template. Layout is packed to the template's band proportions (~8.6 in
+tall at 6.5 in width); 3D Axes use set_box_aspect zoom to remove
+mplot3d's internal padding.
+Analysis results are cached in data/*.npz (+ staged JSONs and brain
+PNGs) — delete that folder to force a recompute. Type scale: titles 8
+bold / labels 6.5 / ticks 5.5 / letters 13 bold (panel d/e density
+caps ticks below the _figstyle 8pt, as in figure2_full-panel).
