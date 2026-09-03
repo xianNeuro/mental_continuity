@@ -146,8 +146,9 @@ figures land in `output/figures/figure{1-4}/`.
   reconstruct the full ready-to-run project from the record alone: unzip the
   repository zip, then unzip the data zip inside its `data/` directory — see
   `data/1_data/README.md`. GitHub cloners need only the data zip.
-- **Raw and preprocessed fMRI data**: deposited on OpenNeuro (accession in the
-  paper's availability statement).
+- **Raw and preprocessed fMRI data**: will be deposited on OpenNeuro upon
+  publication of the paper; the accession will be added here and in the paper's
+  availability statement at that time.
 
 ## Code availability
 
