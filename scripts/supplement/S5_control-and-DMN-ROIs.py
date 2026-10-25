@@ -39,6 +39,10 @@ live-storytelling replication (S7_replicate-live-storytelling):
                 negative group-mean slope. The one-sample t-test on the
                 per-participant slopes is a descriptive companion only.
 
+Each table also gives the primary p Bonferroni-corrected across the eight
+pre-selected regions (p x 8, capped at 1); the pass criteria use the
+uncorrected p.
+
 For each of the three tests we report the same comprehensive descriptive
 statistics that appear in the main-text PMC outputs, for all four
 conditions arranged consistently as IP-IP (within intact-pause), SP-SP
@@ -99,6 +103,7 @@ ROI_GROUPS = [
     ("DMN ROIs", DMN_ROIS),
 ]
 ALL_ROIS = CONTROL_ROIS + DMN_ROIS
+N_REGIONS = len(ALL_ROIS)   # Bonferroni family: the eight pre-selected regions
 ROI_FILENAME_TOKEN = {
     "A1+": "A1+", "mSTG": "mSTG", "dlPFC": "dlPFC",
     "AG": "AG", "PCC": "PCC",
@@ -118,6 +123,13 @@ SEED = 42
 OUT_ROOT = (MENTAL_CONTINUITY_ROOT / "output" / "supplement" / "S5_control-and-DMN-ROIs").resolve()
 
 CONDS = ["IP-IP", "SP-SP", "IT-IT", "IT-IP"]
+
+
+def bonferroni(p) -> float:
+    """Bonferroni-corrected p across the N_REGIONS pre-selected regions, capped at 1."""
+    if p is None or not np.isfinite(p):
+        return float("nan")
+    return min(1.0, float(p) * N_REGIONS)
 
 
 # -----------------------------------------------------------------------------
@@ -268,6 +280,7 @@ def main() -> None:
                 se_group_mean_z=r.get("se_group_mean_z"),
                 ci_lo=r["ci"][0], ci_hi=r["ci"][1],
                 sign_flip_p=r.get("sign_flip_p"),
+                sign_flip_p_bonf8=bonferroni(r.get("sign_flip_p")),
                 direction=r.get("direction", ""),
                 mean_r_raw=r.get("mean_r_raw"),
                 mean_r_back_tx=r["mean"],
@@ -283,6 +296,7 @@ def main() -> None:
                                  mean_diff=s["mean_diff"], sd_diff=s["sd_diff"],
                                  t=s["t"], df=s["df"], p_paired=s["p_paired"],
                                  p_perm=s["p_perm"],
+                                 p_perm_bonf8=bonferroni(s["p_perm"]),
                                  ci_lo=s["ci"][0], ci_hi=s["ci"][1],
                                  cohens_d=s["cohen_d"], passes=s["passes"]))
             sm[f"selective_{c}"] = s["passes"]
@@ -296,6 +310,7 @@ def main() -> None:
                                 ci_hi_group_mean=e["ci_group_mean"][1],
                                 t=e["t"], df=e["df"], p_t=e["p_t"],
                                 cohens_d=e["cohen_d"], p_perm=e["p_perm"],
+                                p_perm_bonf8=bonferroni(e["p_perm"]),
                                 passes=e["passes"]))
             sm[f"evolve_{c}"] = e["passes"]
         sm["roi"] = roi
@@ -359,6 +374,7 @@ def write_html(all_results: Dict[str, Dict[str, dict]]) -> None:
             f"<td>{_fv(r.get('se_group_mean_z'))}</td>"
             f"<td>[{_fv(r['ci'][0])}, {_fv(r['ci'][1])}]</td>"
             f"<td>{_fmt_p(r.get('sign_flip_p'))}</td>"
+            f"<td>{_fmt_p(bonferroni(r.get('sign_flip_p')))}</td>"
             + _bool_cell(r['passes']) + "</tr>"
         )
 
@@ -378,6 +394,7 @@ def write_html(all_results: Dict[str, Dict[str, dict]]) -> None:
             f"<td>{s['mean_diff']:+.4f}</td><td>{s['sd_diff']:.4f}</td>"
             f"<td>{s['t']:.3f}</td><td>{s['df']}</td>"
             f"<td>{_fmt_p(s['p_paired'])}</td><td>{_fmt_p(s['p_perm'])}</td>"
+            f"<td>{_fmt_p(bonferroni(s['p_perm']))}</td>"
             f"<td>[{s['ci'][0]:+.4f}, {s['ci'][1]:+.4f}]</td>"
             f"<td>{s['cohen_d']:.3f}</td>"
             + (NA_CELL if not rel_passed else _bool_cell(s['passes']))
@@ -407,6 +424,7 @@ def write_html(all_results: Dict[str, Dict[str, dict]]) -> None:
             f"<td>{e['t']:.3f}</td><td>{e['df']}</td>"
             f"<td>{_fmt_p(e['p_t'])}</td><td>{e['cohen_d']:.3f}</td>"
             f"<td>{_fmt_p(e['p_perm'])}</td>"
+            f"<td>{_fmt_p(bonferroni(e['p_perm']))}</td>"
             + (NA_CELL if gate_na else _bool_cell(ev_pass))
             + "</tr>"
         )
@@ -490,6 +508,7 @@ def write_html(all_results: Dict[str, Dict[str, dict]]) -> None:
   <th>ISPC mean (r)</th>
   <th>ISPC mean (Fisher-z, &theta;&#770;<sub>z</sub>)</th><th>SE</th><th>95% CI</th>
   <th>p (sign-flip)</th>
+  <th>p (sign-flip), Bonferroni &times;8 regions</th>
   <th>Pass<br>(p (sign-flip) &lt; 0.05)</th>
 </tr></thead>
 <tbody>
@@ -504,6 +523,7 @@ def write_html(all_results: Dict[str, Dict[str, dict]]) -> None:
   <th>Mean mismatching r</th><th>SE<sub>mismatch</sub></th>
   <th>Mean diff</th><th>SD of diff</th>
   <th>t</th><th>df</th><th>p (paired)</th><th>p (permutation)</th>
+  <th>p (permutation), Bonferroni &times;8 regions</th>
   <th>95% CI (bootstrap, participants)</th><th>Cohen's d</th>
   <th>Pass<br>(p_perm &lt; 0.05, one-sided,<br>mean diff &gt; 0)</th>
 </tr></thead>
@@ -520,6 +540,7 @@ def write_html(all_results: Dict[str, Dict[str, dict]]) -> None:
   <th>SE</th><th>95% CI (t interval on participant slopes)</th>
   <th>t</th><th>df</th><th>p (one-sample on slopes)</th>
   <th>Cohen's d</th><th>p (perm, PRIMARY)</th>
+  <th>p (perm), Bonferroni &times;8 regions</th>
   <th>Pass<br>(SP-SP: not evolve;<br>others: perm p &lt; 0.05, slope &lt; 0)</th>
 </tr></thead>
 <tbody>
@@ -610,6 +631,10 @@ pass for that ROI in that condition). The per-test detail tables show gray
 n.a. in their Pass column for the same gated cells. PMC voxels were defined by
 the project's anatomical masks and per-voxel timecourses were z-scored across
 the entire run before analysis.</p>
+<p>Each detail table also gives the primary p Bonferroni-corrected across the
+eight pre-selected regions (p&nbsp;&times;&nbsp;8, capped at 1; equivalent to
+testing the uncorrected p at 0.05/8&nbsp;=&nbsp;0.00625). The pass / fail
+criteria above use the uncorrected p.</p>
 
 {group_sections}
 

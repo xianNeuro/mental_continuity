@@ -21,6 +21,10 @@ and tested by a one-sided sign-flip permutation test on the subject pseudo-
 values from a delete-one-subject jackknife on the group mean. The engine is the
 shared clean_report_engine used by Result 2.1.
 
+The table also gives the sign-flip p Bonferroni-corrected across the eight
+pre-selected regions (p x 8, capped at 1); the pass criterion uses the
+uncorrected p.
+
 Output (under output/supplement/S3_reliability-test-ROIs/):
   S3_reliability-test-ROIs.html
   reliability_full.csv
@@ -53,12 +57,20 @@ ROI_GROUPS = [
     ("DMN ROIs", DMN_ROIS),
 ]
 ALL_ROIS = CONTROL_ROIS + DMN_ROIS
+N_REGIONS = len(ALL_ROIS)   # Bonferroni family: the eight pre-selected regions
 ROI_FILENAME_TOKEN = {
     "A1+": "A1+", "mSTG": "mSTG", "dlPFC": "dlPFC",
     "AG": "AG", "PCC": "PCC",
     "dmPFC": "dmPFC", "vmPFC": "vmPFC", "PMC": "PMC",
 }
 CONDS = ["IP-IP", "SP-SP", "IT-IT", "IT-IP"]
+
+
+def bonferroni(p) -> float:
+    """Bonferroni-corrected p across the N_REGIONS pre-selected regions, capped at 1."""
+    if p is None or not np.isfinite(p):
+        return float("nan")
+    return min(1.0, float(p) * N_REGIONS)
 
 OUT_ROOT = (MENTAL_CONTINUITY_ROOT / "output" / "supplement" / "S3_reliability-test-ROIs").resolve()
 
@@ -143,6 +155,7 @@ def _rel_row(roi: str, c: str, r: dict) -> str:
         f"<td>{_fmt(r.get('se_group_mean_z'))}</td>"
         f"<td>[{_fmt(r['ci'][0])}, {_fmt(r['ci'][1])}]</td>"
         f"<td>{_fmt_p(r.get('sign_flip_p'))}</td>"
+        f"<td>{_fmt_p(bonferroni(r.get('sign_flip_p')))}</td>"
         + _bool_cell(r['passes']) + "</tr>"
     )
 
@@ -158,6 +171,7 @@ def _group_table(all_results: Dict[str, Dict[str, dict]], roi_list) -> str:
   <th>ISPC mean (r)</th>
   <th>ISPC mean (Fisher-z, &theta;&#770;<sub>z</sub>)</th><th>SE</th><th>95% CI</th>
   <th>p (sign-flip)</th>
+  <th>p (sign-flip), Bonferroni &times;8 regions</th>
   <th>Pass<br>(p (sign-flip) &lt; 0.05)</th>
 </tr></thead>
 <tbody>
@@ -217,6 +231,10 @@ group ISPC exceeds zero was assessed by a delete-one-subject jackknife on
 &theta;&#770;<sub>z</sub> followed by a one-sided sign-flip permutation test
 (10000 iterations) on the subject pseudo-values in the expected direction
 (&gt;&nbsp;0); a condition passes when p&nbsp;(sign-flip)&nbsp;&lt;&nbsp;0.05.
+The table also gives the sign-flip p Bonferroni-corrected across the eight
+pre-selected regions (p&nbsp;&times;&nbsp;8, capped at 1; equivalent to testing
+the uncorrected p at 0.05/8&nbsp;=&nbsp;0.00625); the pass criterion uses the
+uncorrected p.
 PMC voxels and the other ROIs were defined by the project's anatomical masks and
 per-voxel timecourses were z-scored across the entire run before analysis.</p>
 
@@ -248,6 +266,7 @@ def main() -> None:
                 se_group_mean_z=r.get("se_group_mean_z"),
                 ci_lo=r["ci"][0], ci_hi=r["ci"][1],
                 sign_flip_p=r.get("sign_flip_p"),
+                sign_flip_p_bonf8=bonferroni(r.get("sign_flip_p")),
                 direction=r.get("direction", ""),
                 mean_r_raw=r.get("mean_r_raw"),
                 mean_r_back_tx=r["mean"],
