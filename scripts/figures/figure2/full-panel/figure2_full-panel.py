@@ -584,7 +584,7 @@ def main():
     x_strip = (M_L + B_ROI_W + 3 * map_w + 2 * B_MAP_GAP + B_CB_W + B_STRIP_GAP)
     for letter, x_in, y_in in (("a", 0.10, y_a), ("b", 0.10, y_b),
                                ("c", x_strip - 0.36, y_b), ("d", 0.10, y_c)):
-        fig.text(x_in / PAGE_W, 1 - (y_in - 0.05) / fig_h, letter.upper(),
+        fig.text(x_in / PAGE_W, 1 - (y_in - 0.05) / fig_h, letter,
                  fontsize=LETTER_FS, fontweight="bold", color=INK,
                  ha="left", va="bottom")
 

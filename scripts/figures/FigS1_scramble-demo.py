@@ -280,7 +280,7 @@ def _place_letters(fig, axes_letters):
     dx = F(_fs.GAP_LETTER_LEFT_PT) / 72 / fig.get_figwidth()
     cx = min(l for l, _, _ in entries) - dx
     for _left, top, lt in entries:
-        fig.text(cx, top + dy, lt.upper(), fontsize=F(_fs.LETTER), fontweight="bold",
+        fig.text(cx, top + dy, lt, fontsize=F(_fs.LETTER), fontweight="bold",
                  va="bottom", ha="right", color=INK)
 
 

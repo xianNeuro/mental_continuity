@@ -1147,7 +1147,7 @@ def main():
                                ("d", 0.10, y_e), ("e", 0.10, y_f + 0.05),
                                ("f", 0.10, y_ghi), ("g", h_x - 0.16, y_ghi),
                                ("h", i_x - 0.02, y_ghi)):
-        fig.text(x_in / PAGE_W, 1 - (y_in - 0.05) / fig_h, letter.upper(),
+        fig.text(x_in / PAGE_W, 1 - (y_in - 0.05) / fig_h, letter,
                  fontsize=LETTER_FS, fontweight="bold", color=INK,
                  ha="left", va="bottom")
 

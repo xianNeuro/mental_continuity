@@ -85,7 +85,7 @@ def place_letter(fig, ax, letter):
     left = inv.transform((left_disp, 0))[0]
     dy = GAP_LETTER_TITLE_PT / 72 / fig.get_figheight()
     dx = GAP_LETTER_LEFT_PT / 72 / fig.get_figwidth()
-    fig.text(left - dx, top + dy, letter.upper(), fontsize=LETTER, fontweight="bold",
+    fig.text(left - dx, top + dy, letter, fontsize=LETTER, fontweight="bold",
              va="bottom", ha="right", color=INK)
     return left - dx, top + dy
 
@@ -118,7 +118,7 @@ def place_letters(fig, entries, col_split=0.42):
     for items in cols.values():
         cx = min(l for l, _, _ in items) - dx
         for _left, top, lt in items:
-            fig.text(cx, top + dy, lt.upper(), fontsize=LETTER, fontweight="bold",
+            fig.text(cx, top + dy, lt, fontsize=LETTER, fontweight="bold",
                      va="bottom", ha="right", color=INK)
 
 

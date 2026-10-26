@@ -201,7 +201,7 @@ def build():
         bleft = inv.transform((bleft_px, 0))[0]
         n0 = len(fig.texts)
         S.place_letters(fig, [(aleft, atop, "a"), (bleft, btop, "b")])
-        letter_b = next(t for t in fig.texts[n0:] if t.get_text() == "B")
+        letter_b = next(t for t in fig.texts[n0:] if t.get_text() == "b")
 
         # measured, in inches
         cb_bb = cb.ax.get_tightbbox(rr)

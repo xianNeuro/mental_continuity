@@ -774,7 +774,7 @@ def main():
                                ("c", X_S0 - 0.20, y_cd + 0.04),
                                ("d", 0.10, y_w1), ("e", 0.10, y_w2),
                                ("f", 0.10, y_g)):
-        fig.text(x_in / PAGE_W, 1 - (y_in - 0.05) / fig_h, letter.upper(),
+        fig.text(x_in / PAGE_W, 1 - (y_in - 0.05) / fig_h, letter,
                  fontsize=LETTER_FS, fontweight="bold", color=INK,
                  ha="left", va="bottom")
 

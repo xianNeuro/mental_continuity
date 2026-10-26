@@ -232,8 +232,8 @@ def main():
     import _figstyle as _fs
     gap = F(_fs.GAP_LETTER_TITLE_PT) / 72 / fig.get_figheight()
     t_h = F(10) * 1.35 / 72 / fig.get_figheight()      # approx title height
-    for letter, ty, title in [("A", 0.938, "Pre-selected cortical ROIs"),
-                              ("B", 0.485, "Schaefer 400-parcel, 17-network atlas")]:
+    for letter, ty, title in [("a", 0.938, "Pre-selected cortical ROIs"),
+                              ("b", 0.485, "Schaefer 400-parcel, 17-network atlas")]:
         fig.text(0.02, ty, title, fontsize=F(10), fontweight="bold", color=INK,
                  ha="left", va="baseline")
         fig.text(0.005, ty + t_h + gap, letter, fontsize=F(_fs.LETTER),

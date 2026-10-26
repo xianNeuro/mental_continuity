@@ -130,7 +130,7 @@ def build():
         cy = 1 - (y + cell_h + cbar_gap + cbar_strip * 0.42) / H
         S.add_colorbar(fig, [0.34, cy, 0.34, 0.016], vmax, cmap="RdBu_r",
                        label=cbar_lab, ticks=[-vmax, -vmax / 2, 0, vmax / 2, vmax])
-        ax.text(0.012, 1 - (y - 700) / H, "A" if ri == 0 else "B", transform=ax.transAxes,
+        ax.text(0.012, 1 - (y - 700) / H, "a" if ri == 0 else "b", transform=ax.transAxes,
                 fontsize=13, fontweight="bold", va="bottom", ha="left")
     for ext in ("png", "svg", "pdf"):
         fig.savefig(OUT_DIR / f"FigS6_wholebrain-pmc-profile-search.{ext}", dpi=dpi,

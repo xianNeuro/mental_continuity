@@ -611,7 +611,7 @@ def main():
     y_c_letter = Y0 + A_H + C_GAP + LETTER_H
     for letter, x_in, y_in in (("a", 0.10, Y0), ("c", B_X - 0.16, Y0),
                                ("b", 0.10, y_c_letter)):
-        fig.text(x_in / PAGE_W, 1 - (y_in - 0.05) / fig_h, letter.upper(),
+        fig.text(x_in / PAGE_W, 1 - (y_in - 0.05) / fig_h, letter,
                  fontsize=LETTER_FS, fontweight="bold", color=INK,
                  ha="left", va="bottom")
 
