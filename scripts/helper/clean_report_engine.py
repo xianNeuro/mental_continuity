@@ -72,6 +72,12 @@ CONDS = ["IP-IP", "SP-SP", "IT-IT", "IT-IP"]
 # distance. It is evolve-only (the shared _bar_plot / reliability / selectivity
 # paths keep the four-scheme CONDS above).
 EVOLVE_CONDS = ["IP-IP", "SP-SP", "SP-SP-unscr", "IT-IT", "IT-IP"]
+# Result 2.3 also reports IT-SP: each intact-theory-of-mind participant against the
+# across-participant average pattern of the scrambled-pause group (SP epochs in
+# presentation order), and IT-SP-unscr, with the SP epochs re-ordered into the intact
+# narrative sequence. They test whether the IT pattern evolves along the narrative
+# order of a group that heard the same story segments scrambled.
+EVOLVE_CONDS_IT_SP = ["IT-SP", "IT-SP-unscr"]
 # The selectivity report additionally includes SP-IP: each scrambled-pause
 # participant is compared with the across-participant average pattern of the
 # intact-pause group at the interruption epoch in the same SERIAL POSITION.
@@ -92,7 +98,9 @@ COLORS = {"IP-IP": "#3498db", "SP-SP": "#2ecc71",
           "IT-IT": "#f39c12", "IT-IP": "#9b59b6",
           "SP-SP-unscr": "#0b6b34",          # darker green than SP-SP
           "SP-IP": "#16a085",                # teal: scrambled subject, intact group
-          "SP-IP-unscr": "#0e6251"}          # darker teal than SP-IP
+          "SP-IP-unscr": "#0e6251",          # darker teal than SP-IP
+          "IT-SP": "#ca6f1e",                # brown: intact-ToM subject, scrambled group
+          "IT-SP-unscr": "#7e5109"}          # darker brown than IT-SP
 
 CSS = """<style>
 body{font-family:system-ui,sans-serif;max-width:1200px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}
@@ -811,11 +819,14 @@ def evolve_methods(n_ep, max_d):
         f"per-participant slope of ISPC regressed on distance summarizes "
         f"how steeply pattern similarity declines with distance, and the "
         f"group slope is the across-participants mean. ISPC was evaluated "
-        f"under five inter-subject schemes: three within-condition (IP-IP, "
-        f"SP-SP, IT-IT), one across-condition (IT-IP), and SP-SP-unscr, in "
-        f"which the scrambled-pause epochs were re-ordered into the intact "
-        f"narrative sequence so that epoch distance reflects true narrative "
-        f"distance rather than scrambled presentation order. PMC voxels were "
+        f"under seven inter-subject schemes: three within-condition (IP-IP, "
+        f"SP-SP, IT-IT), three across-condition (IT-IP; IT-SP, each "
+        f"intact-theory-of-mind participant against the across-participant "
+        f"average pattern of the scrambled-pause group; and IT-SP-unscr), and "
+        f"SP-SP-unscr. In SP-SP-unscr and IT-SP-unscr the scrambled-pause "
+        f"epochs were re-ordered into the intact narrative sequence, so that "
+        f"epoch distance reflects true narrative distance rather than "
+        f"scrambled presentation order. PMC voxels were "
         f"defined by the project's anatomical PMC mask and per-voxel "
         f"timecourses were z-scored across the entire run before "
         f"analysis.</p>"
@@ -1501,9 +1512,15 @@ def run_evolve(task, roi_token, narrative, max_d, out_html, out_csv, fig_dir):
         "IT-IP": per_subj_pair_ispc_cross(mvp["intact_tom"], mvp["intact_pause"],
                                           ep["intact_pause"]),
     }
+    # IT-SP: IT participants against the scrambled-pause group (its own timing
+    # table); IT-SP-unscr re-orders the SP columns into the intact narrative.
+    it_sp = per_subj_pair_ispc_cross(mvp["intact_tom"], mvp["scram_pause"],
+                                     ep["scram_pause"], subj_epochs=ep["intact_tom"])
+    pairs["IT-SP"] = it_sp
+    pairs["IT-SP-unscr"] = it_sp[:, :, perm]
     ev = {c: compute_evolve(p, max_d) for c, p in pairs.items()}
     ev_pngs = {}
-    for c in EVOLVE_CONDS:
+    for c in EVOLVE_CONDS + EVOLVE_CONDS_IT_SP:
         nm = f"Result2_3_PMC-evolve_trendline_{c.replace('-', '_')}.png"
         _evolve_trendline(ev[c], c, COLORS[c], max_d, fig_dir / nm)
         ev_pngs[c] = nm

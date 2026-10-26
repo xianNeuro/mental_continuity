@@ -11,7 +11,8 @@ recomputes the statistics and writes:
         TR-by-TR-diag_1ROIs.html                (clean paper-style report)
     data/Result2_3_PMC-evolve_results.csv       (one row per condition;
         rebuilds the HTML table without re-running the analysis)
-    figures/Result2_3_PMC-evolve_trendline_{IP_IP,SP_SP,SP_SP_unscr,IT_IT,IT_IP}.png
+    figures/Result2_3_PMC-evolve_trendline_{IP_IP,SP_SP,SP_SP_unscr,IT_IT,IT_IP,
+                                            IT_SP,IT_SP_unscr}.png
 
 PRIMARY inference: within-participant temporal-label permutation on the
 group-mean slope (two-sided, ten thousand iterations). The permutation
@@ -19,6 +20,10 @@ null preserves the leave-one-out dependence structure and carries no
 across-participant independence assumption; this is THE primary evolve
 test. The per-participant slope one-sample t-test is a descriptive
 companion only. No IP-vs-SP / between-condition comparison.
+
+IT-SP / IT-SP-unscr: each intact-theory-of-mind participant against the
+scrambled-pause group average, SP epochs in presentation order / re-ordered
+into the intact narrative (manuscript, competing-task paragraph).
 
 Forward epoch pairs at distance d = 1..8 across the 17 interruption epochs. All computation/prose lives in
 ``clean_report_engine``.
