@@ -139,7 +139,7 @@ def load_schaefer400_label_lookup() -> Optional[pd.DataFrame]:
     return df
 
 
-# Yeo 17 → broader system grouping (for the Science-style supplement table).
+# Yeo 17 → broader system grouping (for the supplement table).
 NETWORK_TO_SYSTEM = {
     "VisCent":      "Visual",
     "VisPeri":      "Visual",
@@ -459,7 +459,7 @@ def _write_html_report(per_cond: List[Dict[str, Any]]) -> Path:
                  f"th,td{{border:1px solid #ccc;padding:4px 6px;text-align:left;}}"
                  f".box{{background:#f4f6f8;padding:10px 14px;border-radius:6px;margin:10px 0;}}"
                  f"</style></head><body>")
-    parts.append(f"<h1>Story-phase global ISC — intact_pause (main-text Fig 1h)</h1>")
+    parts.append(f"<h1>Story-phase global ISC — intact_pause (main-text Fig. 1g)</h1>")
     parts.append(
         "<h2>Methods</h2>"
         f"<p>We computed global inter-subject correlation (ISC) during the "
@@ -567,7 +567,7 @@ def _write_html_report(per_cond: List[Dict[str, Any]]) -> Path:
 def main() -> None:
     import argparse
 
-    ap = argparse.ArgumentParser(description="Story-phase global ISC — intact_pause only (main-text Fig 1h)")
+    ap = argparse.ArgumentParser(description="Story-phase global ISC — intact_pause only (main-text Fig. 1g)")
     ap.add_argument("--permute", type=int, default=0, help="ISC permutation count (default 0; the per-parcel one-sample t against zero is the primary inference)")
     args = ap.parse_args()
     permute = max(0, int(args.permute))

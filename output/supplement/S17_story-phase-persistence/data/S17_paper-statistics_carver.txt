@@ -1,4 +1,4 @@
-Section S17 — Story-phase PMC pattern persistence predicting neural
+Supplementary Note 17 — Story-phase PMC pattern persistence predicting neural
 resumption (DMN realignment, excl. PMC) and later narrative recall.
 
 Pooled IP+IT+SP OLS; condition fixed effect; per-participant observations.

@@ -451,7 +451,7 @@ def write_html(rel_stats, sel_stats, ev_stats, rel_bar_name, sel_bar_name, ev_pn
 
     html = f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"/>
-<title>Supplementary Section S7 live-storytelling replication: PMC reliability, selectivity, and evolve</title>
+<title>Supplementary Note 7 live-storytelling replication: PMC reliability, selectivity, and evolve</title>
 <style>
 body{{font-family:system-ui,sans-serif;max-width:1200px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}}
 h1{{border-bottom:2px solid #333;padding-bottom:6px;}}
@@ -467,7 +467,7 @@ th.desc, td.desc{{background:#f1f3f4;color:#666;}}
 .legend li{{margin-bottom:4px;}}
 </style></head>
 <body>
-<h1>Supplementary Section S7 live-storytelling replication: PMC reliability, selectivity, and evolve</h1>
+<h1>Supplementary Note 7 live-storytelling replication: PMC reliability, selectivity, and evolve</h1>
 
 <p>The same three pattern tests reported for the main narrative on PMC
 are replicated here on the live-storytelling narrative. The live-storytelling narrative

@@ -5,7 +5,7 @@ S8_invert-replicate-live-storytelling.py (GitHub paper supplement bundle)
 Live-storytelling-narrative replication of the PMC story-to-interruption inversion
 (Result 3). The three Result 3 analyses are re-run on the second
 (live-storytelling) narrative, which the main analyses ran only for the
-interruption-phase pattern tests (Result 2, Section S7), not for the
+interruption-phase pattern tests (Result 2, Supplementary Note 7), not for the
 inversion. This closes that gap:
 
   * Result 3.1  story-to-interruption inversion             (PMC inversion)
@@ -285,7 +285,7 @@ a{{color:#1a5fb4;}}
 <h2>Methods</h2>
 <p>The three story-to-interruption analyses of Result&nbsp;3 are repeated on
 the second ({_TASK_LABEL}), which the main analyses examined only for the
-interruption-phase pattern tests of Result&nbsp;2 (Section&nbsp;S7). The
+interruption-phase pattern tests of Result&nbsp;2 (Supplementary Note&nbsp;7). The
 narrative is the only change: the analysis windows (a 10-TR story-phase
 template ending one TR before interruption onset, and a skip-5 / use-10
 interruption-phase template), the template-pattern Pearson similarity, the

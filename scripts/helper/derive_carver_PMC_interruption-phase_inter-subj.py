@@ -9,7 +9,7 @@ from the PMC MVP files only.
 The "interruption-phase" inter-subject pattern correlation is the post×post
 quadrant of the inter-subject TTC matrix around each interruption onset.
 For each (subject, epoch) we take the 10×10 sub-block whose rows and
-columns both correspond to TRs +6 through +15 after onset (skip 5, use 10)
+columns both correspond to TRs +5 through +14 after onset (onset = 0) (skip 5, use 10)
 and average it. This quantity is named "interruption-phase" PMC pattern
 persistence throughout the outputs.
 

@@ -5,7 +5,7 @@ brainbeh_regression.py  —  shared core for the PMC-pattern → behavior models
 Loaders and the pooled, condition-adjusted OLS fit (plain standard errors; one
 observation per participant) used by the
 main-text Result 4 (interruption-phase "quad5" persistence + hippocampal
-boundary activity) and by the supplementary quad1 control (Section S17). Both
+boundary activity) and by the supplementary quad1 control (Supplementary Note 17). Both
 scripts import from here so that neither depends on the other's module; the
 per-subject inputs live under ``mental_continuity/data/derived/`` and
 ``mental_continuity/data/beh/``.

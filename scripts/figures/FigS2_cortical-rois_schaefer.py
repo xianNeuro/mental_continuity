@@ -243,11 +243,11 @@ def main():
     plt.close(fig)
 
     caption = (
-        "Fig. S2. Regions of interest and the whole-brain parcellation, on the fsaverage inflated "
+        "Supplementary Fig. 2. Regions of interest and the whole-brain parcellation, on the fsaverage inflated "
         "surface (four views: left-lateral, left-medial, right-lateral, right-medial). "
         "(a) The eight pre-selected cortical ROIs - posterior medial cortex (PMC), posterior cingulate "
         "cortex (PCC), angular gyrus (AG), dorsomedial prefrontal cortex (dmPFC), ventromedial "
-        "prefrontal cortex (vmPFC), primary auditory cortex with peripheral fields (A1+), middle "
+        "prefrontal cortex (vmPFC), early auditory cortex (A1+), middle "
         "superior temporal gyrus (mSTG), and dorsolateral prefrontal cortex (dlPFC) - each shown as a "
         "translucent fill outlined in red and labeled at its surface centroid. The hippocampus, the "
         "study's subcortical ROI, is not shown because it does not project onto the cortical surface. "

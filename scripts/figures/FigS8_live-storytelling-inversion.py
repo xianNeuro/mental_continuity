@@ -1,5 +1,5 @@
-"""Fig. S8 — live-storytelling-narrative replication of the PMC story-to-interruption
-inversion (supplement Section S8). Native re-render (shared _figstyle).
+"""Supplementary Fig. 8 — live-storytelling-narrative replication of the PMC story-to-interruption
+inversion (supplement Supplementary Note 8). Native re-render (shared _figstyle).
 
   (a) story-story vs story-to-interruption inter-subject pattern correlation
       (Fisher-z group mean ± 95% CI) across the five schemes;

@@ -6,7 +6,7 @@ of the hemodynamic post-stimulus undershoot? Three pieces of evidence:
 
   Analysis 1 -- the ROI-wide quadrant test of Result 3.3, re-run on a broader
      pre-selected region-of-interest (ROI) set: three control regions outside
-     the default-mode network (primary auditory cortex, A1+; middle superior
+     the default-mode network (early auditory cortex, A1+; middle superior
      temporal gyrus, mSTG; dorsolateral prefrontal cortex, dlPFC) and five
      default-mode regions (angular gyrus, AG; posterior cingulate cortex, PCC;
      dorsomedial prefrontal cortex, dmPFC; ventromedial prefrontal cortex,
@@ -64,7 +64,7 @@ _DMN_ROIS: List[str] = ["AG", "PCC", "dmPFC", "vmPFC", "PMC"]
 _ALL_ROIS: List[str] = _CONTROL_ROIS + _DMN_ROIS
 
 _ROI_FULL: Dict[str, str] = {
-    "A1+": "primary auditory cortex (A1+)",
+    "A1+": "early auditory cortex (A1+)",
     "mSTG": "middle superior temporal gyrus (mSTG)",
     "dlPFC": "dorsolateral prefrontal cortex (dlPFC)",
     "AG": "angular gyrus (AG)",
@@ -84,8 +84,7 @@ _TOPBOTTOM_FRAC = 0.20
 METHODS_HTML = """\
 <p>The hemodynamic-undershoot test reported for posterior medial cortex (PMC) in
 Result&nbsp;3.3 is applied here to the broader pre-selected region-of-interest (ROI)
-set: three control regions outside the default-mode network &mdash; primary auditory
-cortex (A1+), middle superior temporal gyrus (mSTG), and dorsolateral prefrontal cortex
+set: three control regions outside the default-mode network &mdash; early auditory cortex (A1+), middle superior temporal gyrus (mSTG), and dorsolateral prefrontal cortex
 (dlPFC) &mdash; and the five pre-selected default-mode regions reported elsewhere in
 this supplement (angular gyrus, AG; posterior cingulate cortex, PCC; dorsomedial
 prefrontal cortex, dmPFC; ventromedial prefrontal cortex, vmPFC; and PMC). Windows,
@@ -113,8 +112,7 @@ pooled participants with replacement, which keeps each participant&rsquo;s
 within-subject spatial voxel dependence intact and propagates the subject-level
 sampling variability the grand mean averages over). The pure-undershoot prediction is
 a Q4 fraction reliably above 0.5 (95% bootstrap confidence interval excluding 0.5); a
-confidence interval spanning 0.5 (Q2&nbsp;&asymp;&nbsp;Q4) rejects the pure-undershoot
-account.</p>
+confidence interval spanning 0.5 (Q2&nbsp;&asymp;&nbsp;Q4) argues against the pure-undershoot account.</p>
 """
 
 
@@ -468,7 +466,7 @@ def _supplement_html(all_stats: List[Dict[str, object]], out_html: Path,
 
     html = f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"/>
-<title>Supplementary Section S10 (inversion control 1): HRF undershoot across pre-selected ROIs</title>
+<title>Supplementary Note 10 (inversion control 1): HRF undershoot across pre-selected ROIs</title>
 <style>
 body{{font-family:system-ui,sans-serif;max-width:1400px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}}
 h1{{border-bottom:2px solid #333;padding-bottom:6px;}}
@@ -485,7 +483,7 @@ tbody tr:nth-child({len(_CONTROL_ROIS)+1}){{border-top:3px solid #333;}}
 ol li{{margin-bottom:4px;}}
 </style></head>
 <body>
-<h1>Supplementary Section S10 (inversion control 1):
+<h1>Supplementary Note 10 (inversion control 1):
 hemodynamic-undershoot test across pre-selected ROIs</h1>
 
 <p>This report examines whether the story-to-interruption pattern inversion in posterior
@@ -501,7 +499,7 @@ interruption, asking in particular whether the story-phase <em>bottom</em>-most 
 positive activity.</p>
 
 <p>Analysis&nbsp;1 is applied to three control regions outside the default-mode
-network &mdash; primary auditory cortex (A1+), middle superior temporal gyrus (mSTG), and
+network &mdash; early auditory cortex (A1+), middle superior temporal gyrus (mSTG), and
 dorsolateral prefrontal cortex (dlPFC) &mdash; and to the five pre-selected default-mode regions
 reported elsewhere in this supplement: angular gyrus (AG), posterior cingulate cortex (PCC),
 dorsomedial prefrontal cortex (dmPFC), ventromedial prefrontal cortex (vmPFC), and PMC.

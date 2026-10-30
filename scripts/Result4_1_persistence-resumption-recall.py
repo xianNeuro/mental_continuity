@@ -31,8 +31,8 @@ Inputs (per-subject Excels, shipped under ``mental_continuity/data/derived/``):
   boundary activity, defined as mean(post-onset 5 TRs, skip 1) − mean(pre-onset
   5 TRs) averaged across interruption epochs.
 - ``carver_neural-realign_combo-4DMN.xlsx`` — per-subject DMN realignment
-  (excluding PMC; 4 ROIs: AG + PCC + dmPFC + vmPFC) averaged over the first
-  ``skip3``–``use5`` post-return-to-story TRs.
+  (excluding PMC; 4 ROIs: AG + PCC + dmPFC + vmPFC) averaged over TRs 4 to 8
+  after the return cue.
 - Behavior: ``mental_continuity/data/beh/carver_tally_clean.xlsx``.
 
 Outputs (under ``mental_continuity/output/Result4_1_persistence-resumption-recall/``):
@@ -48,7 +48,7 @@ Analysis spec (main paper default)
 - Persistence:        1-vs-others ISPC within matching int epochs, all-TR-pair interruption-phase mean
 - Interruption win:   skip 5 TRs, use 10 TRs per epoch  (skip5-use10)
 - Hipp boundary:      mean(post-onset 5 TRs, skip 1) − mean(pre-onset 5 TRs), per epoch, then subject mean
-- DMN realignment:    1-vs-CTavg ISPC at post-return-to-story TRs (skip 3, use 5), 4 DMN ROIs
+- DMN realignment:    1-vs-CTavg ISPC at TRs 4 to 8 after the return cue, 4 DMN ROIs
                       (AG + PCC + dmPFC + vmPFC), combined via
                       ``helper/derive_carver_neural-realign_combo-4DMN.py``
 - Preprocessing:      mvp_zscore-entire (per-voxel z-score over full timecourse)
@@ -285,20 +285,18 @@ def render_html_report(
         "<h2>Methods</h2>",
 
         "<p>We tested whether two neural signatures measured during the "
-        "interruption phase predict downstream behavior at the immediately "
-        "following story segment: the persistence of the shared posterior "
+        "interruption phase predict later outcomes: the persistence of the shared posterior "
         "medial cortex (PMC) multivoxel pattern across the interruption "
         "(interruption-phase inter-subject pattern correlation in a fifteen-second "
         "window beginning seven and a half seconds after interruption onset, "
         "with the first five TRs from onset discarded to avoid hemodynamic "
         "carry-over from the preceding story), and hippocampal boundary "
-        "activity at the interruption-to-story transition (post-minus-pre "
+        "activity at interruption onset (post-minus-pre "
         "mean signal over a five-TR window, with one TR skipped at the "
-        "boundary to avoid hemodynamic carry-over). The downstream "
-        "behavioral measures were default-mode-network (DMN) realignment at "
-        "story resumption (a five-TR realignment score over the "
-        "skip-three-use-five window immediately after the story resumes) and "
-        "subsequent free-recall accuracy.</p>",
+        "boundary to avoid hemodynamic carry-over). The outcomes were neural "
+        "resumption, measured as default-mode-network (DMN) realignment "
+        "(TRs 4 to 8 after the return cue), and subsequent free-recall "
+        "accuracy.</p>",
 
         "<p>For each predictor and each outcome, an ordinary-least-squares "
         "model was fit to the pooled intact-pause (IP), intact-theory-of-mind "
@@ -315,14 +313,14 @@ def render_html_report(
         "the model header.</p>",
 
         "<p>The scatter accompanying each single-predictor model visualizes "
-        "the same within-condition relationship. Each axis is residualised "
+        "the same within-condition relationship. Each axis is residualized "
         "against the condition fixed effect: the predictor on the x-axis is "
         "the raw predictor minus its condition mean, and the outcome on the "
         "y-axis is the raw outcome minus its condition mean. The slope of a "
         "line through these residuals equals the within-condition &beta; "
         "reported in the matched table, and that slope is drawn as the "
         "dashed fit line in each panel. Each participant retains their "
-        "condition color (CT, IP, IT, SP) so the per-condition spread is "
+        "condition color (IP, IT, SP) so the per-condition spread is "
         "still visible. The joint two-predictor models (PMC + Hipp) are "
         "reported in table form only; their partial relationships are "
         "visualized by the corresponding single-predictor scatters.</p>",
@@ -418,12 +416,12 @@ def render_html_report(
                 caption = (
                     f"Condition-adjusted scatter for the model above. "
                     f"<strong>x-axis (predictor &mdash; {html_mod.escape(pred_label)})</strong> "
-                    f"is residualised against the categorical condition fixed "
+                    f"is residualized against the categorical condition fixed "
                     f"effect: each value is the predictor minus its "
                     f"within-condition mean. <strong>y-axis (outcome &mdash; "
                     f"{html_mod.escape(dv_label)})</strong> is similarly the "
                     f"outcome minus its within-condition mean. The slope of "
-                    f"an OLS line through these residualised values equals "
+                    f"an OLS line through these residualized values equals "
                     f"the within-condition partial regression coefficient "
                     f"&beta; reported in the table above; the dashed line is "
                     f"that fit. Marker colors label the three interrupted "
@@ -480,7 +478,7 @@ def scatter_predictor_vs_outcome(
 ) -> None:
     """Condition-adjusted scatter of predictor vs outcome.
 
-    Both axes are residualised against the categorical condition fixed
+    Both axes are residualized against the categorical condition fixed
     effect: each point is plotted as
         x_resid = predictor - mean(predictor | condition),
         y_resid = outcome   - mean(outcome   | condition).
@@ -494,7 +492,7 @@ def scatter_predictor_vs_outcome(
     if sub.empty:
         return
 
-    # Per-condition mean centering (i.e., residualising against C(cond)).
+    # Per-condition mean centering (i.e., residualizing against C(cond)).
     sub["_x_resid"] = sub.groupby("cond")[predictor].transform(
         lambda v: v - v.mean()
     )

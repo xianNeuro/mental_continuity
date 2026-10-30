@@ -1,10 +1,10 @@
-"""Fig. S10 — normalization and preprocessing controls for the PMC
+"""Supplementary Fig. 10 — normalization and preprocessing controls for the PMC
 story-to-interruption inversion (combines supplement Sections S11 and S12).
 
   (a) phase-wise z-score control (each voxel z-scored within story / interruption
-      phases; filtered main-pipeline data) — Section S11;
-  (b) unfiltered fMRIPrep (no high-pass filter), whole-run z-score — Section S12;
-  (c) unfiltered fMRIPrep, phase-wise z-score — Section S12.
+      phases; filtered main-pipeline data) — Supplementary Note 11;
+  (b) unfiltered fMRIPrep (no high-pass filter), whole-run z-score — Supplementary Note 12;
+  (c) unfiltered fMRIPrep, phase-wise z-score — Supplementary Note 12.
 
 Each panel: PMC story-story (solid) vs story-to-interruption (hatched) inter-subject
 pattern correlation (Fisher-z group mean ± 95% CI) across the five schemes. The

@@ -3,8 +3,7 @@ Result1_1_beh.py
 
 Condition comparison (one-way ANOVA, descriptives, pairwise
 Bonferroni-corrected t-tests when omnibus p < 0.1) for comprehension score and
-recall, for the main narrative. The second (live-storytelling) narrative's
-behavioral measures are reported in the supplement.
+recall, for the main narrative.
 
 Reads:  mental_continuity/data/beh/carver_tally_clean.csv
 Writes: mental_continuity/output/Result1_1_beh/ (folder name == script stem)

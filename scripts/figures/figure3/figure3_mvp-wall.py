@@ -4,7 +4,7 @@ figure3_mvp-wall.py
 
 MVP "wall" of PMC multivoxel patterns rendered on the left-hemisphere
 cortical surface, for the IP and IT conditions only (CT and SP removed),
-modelled on
+modeled on
   13_plot-mvp-wall/.../mvp-wall_PMC_carver_skip5-use10_cbrng4_left.png.
 
 Two tile sets are produced (each 4 rows x 17 epochs, RdBu_r):
@@ -20,7 +20,7 @@ functions directly (fresh renders additionally need an optional
 surface-rendering utility; the shipped cached tiles cover the published
 figures). That helper is shared
 with the live-storytelling-narrative wall in
-Section S8, so neither script depends on the other.
+Supplementary Note 8, so neither script depends on the other.
 
 Writes ONLY to output/figures/figure3/figure3_mvp-wall/.
 """

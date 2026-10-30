@@ -193,7 +193,7 @@ def draw_cond_demo(ax, title: bool = True, title_y: float = 95.0,
     """Render the full four-condition design illustration onto ``ax``.
 
     The axes is an invisible 0..100 (x) × ``ylim`` (y) layout grid; the
-    track centres live at the fixed ``TRACK_Y`` values. ``title_y`` sets
+    track centers live at the fixed ``TRACK_Y`` values. ``title_y`` sets
     the height of the "Design of conditions" header (raise it for more
     clearance above the first row). Factored out of ``main`` so the same
     panel can be reused inside a composite figure.

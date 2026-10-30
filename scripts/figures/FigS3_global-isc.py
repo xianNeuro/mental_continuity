@@ -1,5 +1,5 @@
-"""Fig. S3 — whole-brain inter-subject correlation during story listening
-(supplement Section S1). Native re-render (shared _figstyle).
+"""Supplementary Fig. 3 — whole-brain inter-subject correlation during story listening
+(supplement Supplementary Note 1). Native re-render (shared _figstyle).
 
 Per-parcel one-sample t (subject-level ISC vs 0) for IP/IT/SP/CT on the inflated
 surface via volcano_plot's projection (the analysis renderer), split into a
@@ -48,7 +48,7 @@ def build():
     views = {c: [to_w(im, vw) for im in v] for c, v in views.items()}
     vh = max(im.height for v in views.values() for im in v)
 
-    col_gap, row_gap = 44, 40                       # generous spacing (match Fig. S5)
+    col_gap, row_gap = 44, 40                       # generous spacing (match Supplementary Fig. 5)
     left_m, top_m, bot_m = 150, 120, 190
     W = left_m + 4 * vw + 3 * col_gap + 20
     H = top_m + 4 * vh + 3 * row_gap + bot_m

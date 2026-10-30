@@ -1,5 +1,5 @@
-"""Fig. S5 — interruption-pattern reliability across the pre-selected regions
-(supplement Section S3).
+"""Supplementary Fig. 5 — interruption-pattern reliability across the pre-selected regions
+(supplement Supplementary Note 3).
 
 Vertical dot-and-whisker summary (regions aligned along the horizontal axis) of
 the reliability reported in ``scripts/supplement/S3_reliability-test-ROIs.py``.
@@ -8,7 +8,7 @@ offset and color-coded; the dot is the Fisher-z group-mean inter-subject pattern
 correlation (ISPC) and the whisker its 95% confidence interval. A dotted line
 marks zero.
 
-Significance markers correspond to the exact reliability test of Section S3: a
+Significance markers correspond to the exact reliability test of Supplementary Note 3: a
 delete-one-participant jackknife followed by a one-sided sign-flip permutation
 test (in the positive direction) on the subject pseudo-values. A cell is marked
 *** (P < .001), ** (P < .01), or * (P < .05) when it passes that test, and n.s.

@@ -5,7 +5,7 @@ S3_reliability-test-ROIs.py
 The inter-subject pattern reliability test reported in the main text for
 posterior medial cortex (Result2_1_PMC-reliable) applied, unchanged, to two
 pre-selected regions-of-interest (ROI) sets: first the three control regions
-(primary auditory cortex A1+, middle superior temporal gyrus mSTG, dorsolateral
+(early auditory cortex A1+, middle superior temporal gyrus mSTG, dorsolateral
 prefrontal cortex dlPFC) and then the five default-mode-network regions (angular
 gyrus AG, posterior cingulate cortex PCC, dorsomedial prefrontal cortex dmPFC,
 ventromedial prefrontal cortex vmPFC, posterior medial cortex PMC), on the
@@ -187,7 +187,7 @@ def write_html(all_results: Dict[str, Dict[str, dict]]) -> None:
     )
     html = f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"/>
-<title>Supplementary Section S3: reliability test across control and DMN ROIs</title>
+<title>Supplementary Note 3: reliability test across control and DMN ROIs</title>
 <style>
 body{{font-family:system-ui,sans-serif;max-width:1000px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}}
 h1{{border-bottom:2px solid #333;padding-bottom:6px;}}
@@ -198,18 +198,18 @@ th{{background:#f4f6f8;}}
 .note{{color:#555;font-size:13px;margin-top:6px;}}
 </style></head>
 <body>
-<h1>Supplementary Section S3: inter-subject pattern reliability across control and default-mode regions</h1>
+<h1>Supplementary Note 3: inter-subject pattern reliability across control and default-mode regions</h1>
 
 <p>The inter-subject pattern reliability test reported in the main text for
 posterior medial cortex (PMC; Result&nbsp;2.1) is applied here, unchanged, to
 two pre-selected regions-of-interest (ROI) sets: first the three
-<strong>control regions</strong> &mdash; primary auditory cortex (A1+), middle
+<strong>control regions</strong> &mdash; early auditory cortex (A1+), middle
 superior temporal gyrus (mSTG), and dorsolateral prefrontal cortex (dlPFC)
 &mdash; and then the five <strong>default-mode network (DMN) regions</strong>
 &mdash; angular gyrus (AG), posterior cingulate cortex (PCC), dorsomedial
 prefrontal cortex (dmPFC), ventromedial prefrontal cortex (vmPFC), and PMC. The
 epoch-selectivity and pattern-evolution tests for these same regions are reported in
-Section&nbsp;S5.</p>
+Supplementary Note&nbsp;5.</p>
 
 <h2>Methods</h2>
 <p>For each ROI, inter-subject pattern correlation (ISPC) was measured in a

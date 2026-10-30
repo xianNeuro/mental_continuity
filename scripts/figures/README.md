@@ -133,7 +133,7 @@ surface plots (small parcels like AG/vmPFC all but vanish).
 
 **Panel 2 — `figure2/`** (pattern time-by-time correlation / selectivity /
 evolve):
-- `full-panel/figure2_full-panel.py` — the composite (a: matching-vs-shuffled
+- `full-panel/figure2_full-panel.py` — the composite (a: matching-vs-mismatching
   TTC schematic drawn by `_ttc_demo_panel.py`; b/c: 4-column epoch-selectivity
   maps + ROI insets + paired strips; d: PMC evolve lineplots via
   `clean_report_engine`).
@@ -156,30 +156,30 @@ evolve):
 
 **Panel 4 — `figure4/`** (persistence / resumption / recall):
 - `full-panel/figure4_full-panel.py` — the composite (a: dual-pathway
-  schematic; b: 2×2 scatters from the canonical Result4_1 merged
-  per-participant table; c: DMN ROI views + TR-by-TR realignment via the
-  canonical `derive_carver_neural-realign_combo-4DMN` helper).
+  schematic; b: DMN ROI views + TR-by-TR realignment via the
+  canonical `derive_carver_neural-realign_combo-4DMN` helper; c: 2×2 scatters from the canonical Result4_1 merged
+  per-participant table).
 
 **Supplement (flat).** One script per supplement figure, `FigS{N}_…` → `Fig. S{N}`
-in the Supplementary Materials; each writes to `output/supplement/<script-stem>/`.
+in the Supplementary Information; each writes to `output/supplement/<script-stem>/`.
 The filename number, the docstring `Fig. S{N}` header, and the supplement figure
 number are kept identical (1:1 with the supplement's Figs. S1 to S13):
 
 | Script | Figure | Content |
 |---|---|---|
-| `FigS1_scramble-demo.py`                  | Fig. S1  | Scrambled-Pause sub-section subdivision/reordering |
-| `FigS2_cortical-rois_schaefer.py`         | Fig. S2  | Pre-selected cortical ROIs + Schaefer 400/17-net atlas (needs `nilearn`) |
-| `FigS3_global-isc.py`                     | Fig. S3  | Whole-brain ISC during story listening, four conditions |
-| `FigS4_onset-response.py`                 | Fig. S4  | Whole-brain interruption-onset response (needs the whole-brain voxel slabs, which are not shipped: set `MENTAL_CONTINUITY_WB_DATA_ROOT` or provide `data/1_data/mvp_raw/n400_net17/`; no digest mode) |
-| `FigS5_reliability-dotwhisker.py`         | Fig. S5  | Interruption-pattern reliability across pre-selected ROIs |
-| `FigS6_wholebrain-pmc-profile-search.py`  | Fig. S6  | Whole-brain Schaefer-400 selectivity + evolve maps |
-| `FigS7_live-storytelling-replication.py`  | Fig. S7  | Live-storytelling-narrative replication of the interruption-pattern analyses |
-| `FigS8_live-storytelling-inversion.py`    | Fig. S8  | Live-storytelling-narrative replication of the story-to-interruption inversion |
-| `FigS9_undershoot-panel.py`               | Fig. S9  | Hemodynamic-undershoot control panel |
-| `FigS10_zscore-highpass-controls.py`      | Fig. S10 | Normalization + high-pass controls for the inversion |
-| `FigS11_timecourse-filtered-unfiltered.py`| Fig. S11 | Story-to-interruption similarity time course, filtered vs unfiltered |
-| `FigS12_wholebrain-inversion.py`          | Fig. S12 | Whole-brain Schaefer-400 story-to-interruption inversion maps |
-| `FigS13_persistence-offdiag.py`           | Fig. S13 | Off-diagonal control for the PMC persistence effect |
+| `FigS1_scramble-demo.py`                  | Supplementary Fig. 1  | Scrambled-Pause sub-section subdivision/reordering |
+| `FigS2_cortical-rois_schaefer.py`         | Supplementary Fig. 2  | Pre-selected cortical ROIs + Schaefer 400/17-net atlas (needs `nilearn`) |
+| `FigS3_global-isc.py`                     | Supplementary Fig. 3  | Whole-brain ISC during story listening, four conditions |
+| `FigS4_onset-response.py`                 | Supplementary Fig. 4  | Whole-brain interruption-onset response (needs the whole-brain voxel slabs, which are not shipped: set `MENTAL_CONTINUITY_WB_DATA_ROOT` or provide `data/1_data/mvp_raw/n400_net17/`; no digest mode) |
+| `FigS5_reliability-dotwhisker.py`         | Supplementary Fig. 5  | Interruption-pattern reliability across pre-selected ROIs |
+| `FigS6_wholebrain-pmc-profile-search.py`  | Supplementary Fig. 6  | Whole-brain Schaefer-400 selectivity + evolve maps |
+| `FigS7_live-storytelling-replication.py`  | Supplementary Fig. 7  | Live-storytelling-narrative replication of the interruption-pattern analyses |
+| `FigS8_live-storytelling-inversion.py`    | Supplementary Fig. 8  | Live-storytelling-narrative replication of the story-to-interruption inversion |
+| `FigS9_undershoot-panel.py`               | Supplementary Fig. 9  | Hemodynamic-undershoot control panel |
+| `FigS10_zscore-highpass-controls.py`      | Supplementary Fig. 10 | Normalization + high-pass controls for the inversion |
+| `FigS11_timecourse-filtered-unfiltered.py`| Supplementary Fig. 11 | Story-to-interruption similarity time course, filtered vs unfiltered |
+| `FigS12_wholebrain-inversion.py`          | Supplementary Fig. 12 | Whole-brain Schaefer-400 story-to-interruption inversion maps |
+| `FigS13_persistence-offdiag.py`           | Supplementary Fig. 13 | Off-diagonal control for the PMC persistence effect |
 
 ## Why this folder exists separately from `scripts/`
 

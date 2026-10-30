@@ -22,7 +22,7 @@ and a companion *_IP-vs-SP.csv).
 
 The two scrambled-to-intact schemes (SP-IP and SP-IP-unscr), which ask whether
 the scrambled-pause group carries the intact-pause interruption pattern, are
-reported separately in supplementary Section S4
+reported separately in supplementary Supplementary Note 4
 (scripts/supplement/S4_scrambled-contents.py). Both scripts call the same
 ``clean_report_engine.run_selectivity``; they differ only in the schemes
 requested.

@@ -2,7 +2,7 @@
 """
 S4_scrambled-contents.py
 
-Supplementary Section S4. Does the shared, epoch-specific interruption pattern
+Supplementary Note 4. Does the shared, epoch-specific interruption pattern
 in posterior medial cortex (PMC) survive when the narrative is scrambled?
 
 The intact-pause group's interruption pattern is epoch-specific (Result 2.2).
@@ -59,7 +59,7 @@ FIG_DIR = OUT_ROOT / "figures"
 HTML = OUT_ROOT / "S4_scrambled-contents.html"
 CSV = DATA_DIR / "S4_scrambled-contents_results.csv"
 
-PAGE_TITLE = ("Supplementary Section S4: is the shared interruption pattern "
+PAGE_TITLE = ("Supplementary Note 4: is the shared interruption pattern "
               "present when the narrative is scrambled?")
 
 LEAD = (

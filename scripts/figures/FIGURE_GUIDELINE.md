@@ -48,7 +48,7 @@ Rules:
     letter. Nothing in the panel (y-axis title, tick labels, content) may extend
     left of the letter or above it.
 - Anchor with `va="top", ha="left"`.
-- **A single-panel figure carries no letter** (Fig. S3, S5 have none).
+- **A single-panel figure carries no letter** (Supplementary Fig. 3, S5 have none).
 - Letters label content in reading order (left→right, top→bottom).
 
 ## 2b. Quantitative spacing — one set of constants for every panel
@@ -68,7 +68,7 @@ figure hand-codes a spacing value:
   use `S.place_letter(fig, ax, letter)`. All variants apply the same
   `GAP_LETTER_TITLE_PT` above-title and `GAP_LETTER_LEFT_PT` left-of-content
   offsets. **When panels in a row must share a column, give them the same axes-left
-  x** (e.g. Fig. S13's beta row and scatter row use one `COL_L`/`COL_R`).
+  x** (e.g. Supplementary Fig. 13's beta row and scatter row use one `COL_L`/`COL_R`).
 - **Left / right margins.** Single and vertically-stacked panels use `STD_LEFT`
   and `STD_RIGHT` for their Axes; grids use one shared left and right edge. Because
   every figure is the same width (`PAGE_W`), these fractions are physically
@@ -85,7 +85,7 @@ figure hand-codes a spacing value:
 ## 3. Spacing and alignment of labeled subplots
 
 - Leave a clear visual gap between rows and between columns of a multi-panel
-  figure — enough that neighbouring panels read as separate. When in doubt,
+  figure — enough that neighboring panels read as separate. When in doubt,
   widen the gap rather than tighten it.
 - For stacked panels (a over b over c), the vertical gap between one panel's
   bottom-most element (x-axis title, colorbar, legend) and the next panel's
@@ -94,14 +94,14 @@ figure hand-codes a spacing value:
 - **Common left margin.** Within one figure, the left-most content of every
   panel — y-axis titles and row labels — aligns to a **single left x**, and the
   panel letters share an x just left of that margin. A stacked panel's y-axis
-  title must left-align with the panel above/below it (e.g. Fig. S4b's y-axis
-  title aligns horizontally with Fig. S4a's IP/IT/SP row labels).
+  title must left-align with the panel above/below it (e.g. Supplementary Fig. 4b's y-axis
+  title aligns horizontally with Supplementary Fig. 4a's IP/IT/SP row labels).
 - **Common right edge / equal total width** — see §6.
 
 ## 4. No overlap
 
 No element of one labeled panel touches or overlaps any element of another,
-or its own neighbours:
+or its own neighbors:
 - panel titles stay clear of adjacent panels' letters, titles, and content;
 - a row's colorbar/label stays clear of the next row's title and brains;
 - y-axis titles are never clipped by the figure's left edge;
@@ -139,8 +139,8 @@ panel enlarged.
   a legend outside (e.g. a vertical stack on the right), that legend sets the
   figure's right edge, and the **other panels stretch their plot to reach the
   same right edge** — a legend-less grid or panel is widened to the full width
-  (plot + external legend). E.g. the Fig. S9 scatter grid (panel a) stretches to
-  the full width that the Fig. S9 time-course panels (b, c) occupy **including
+  (plot + external legend). E.g. the Supplementary Fig. 9 scatter grid (panel a) stretches to
+  the full width that the Supplementary Fig. 9 time-course panels (b, c) occupy **including
   their right-side legends**, so a, b and c share identical left and right edges.
 
 ## 7. Title and axis-label content: clear and concise
@@ -183,7 +183,7 @@ The conventions as a checklist:
 - [ ] panels share one left margin; y-axis titles / row labels left-align across panels
 - [ ] panels share one right edge — legend-less panels stretched to the full (plot+legend) width
 - [ ] clear gaps between rows/columns; no cross-panel overlap
-- [ ] each subplot title close to its own content (never floating over empty space), clear of neighbours
+- [ ] each subplot title close to its own content (never floating over empty space), clear of neighbors
 - [ ] no legend overlaps content; outside/aligned where needed
 - [ ] every quantitative axis has a concise title with units
 - [ ] titles are short; formulas/counts/windows are in the caption, not the figure

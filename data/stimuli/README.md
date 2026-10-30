@@ -24,7 +24,7 @@ analyses rely on:
 Related stimulus information elsewhere in the bundle:
 
 - `data/supplement/tom_probes_table.csv` — the theory-of-mind vignette and
-  question texts of the IT condition, with answer keys (Table S1).
+  question texts of the IT condition, with answer keys (Supplementary Table 1).
 - `data/aud-info-main.xlsx` and `data/supplement/carver_scramble_map.csv` —
   the sub-section reordering that builds the scrambled (SP) narrative.
 - `data/1_data/audenv/` — the amplitude envelope of each run's audio (one

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-FigS1_scramble-demo.py — illustrative figure for the Stimuli/"Scrambling narrative
-(SP condition)" subsection of the Supplementary Materials.
+FigS1_scramble-demo.py — illustrative figure for the Stimuli/"Scrambled narrative
+(SP condition)" subsection of the Methods.
 
 This figure illustrates the scrambling design so the manipulation can be seen
 at a glance: in the Scrambled-Pause (SP) condition each story segment is divided
@@ -326,10 +326,10 @@ def main():
         OUT / "scramble_map.csv", index=False)
 
     caption = (
-        "Fig. S1. Sub-section scrambling in the scrambled-pause (SP) condition. "
+        "Supplementary Fig. 1. Sub-section scrambling in the scrambled-pause (SP) condition. "
         "Narrative position (segment 1 to 18) is shown on a single perceptually-uniform, "
         "color-blind-safe color scale; gray blocks mark interruption phases. "
-        "(a) Each 30-60 s story segment is cut at sentence boundaries into a head, middle "
+        "(a) Each story segment of about 30-70 s is cut at sentence boundaries into a head, middle "
         "and tail sub-section (Segment 6 shown, with its neighbors for context). "
         "(b) The full design (18 segments, 55 sub-sections - three per segment, except "
         "segment 7 which has four) as a flow diagram: the intact narrative (top, each segment "

@@ -469,7 +469,7 @@ def _write_html(per_cond_records: List[Dict[str, Any]], fig_path: Path) -> Path:
     out = OUTPUT_ROOT / f"{SCRIPT_PATH.stem}.html"
     parts: List[str] = []
     parts.append("<!DOCTYPE html><html><head><meta charset='utf-8'/>"
-                 f"<title>{SCRIPT_PATH.stem} — Supplementary Section S1: global ISC across four conditions</title>"
+                 f"<title>{SCRIPT_PATH.stem} — Supplementary Note 1: global ISC across four conditions</title>"
                  "<style>"
                  "body{font-family:system-ui,sans-serif;max-width:1020px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}"
                  "h1{border-bottom:2px solid #333;padding-bottom:6px;}"
@@ -485,7 +485,7 @@ def _write_html(per_cond_records: List[Dict[str, Any]], fig_path: Path) -> Path:
                  ".legend{color:#333;font-size:13px;margin:8px 0 18px 0;padding-left:22px;}"
                  ".legend li{margin-bottom:4px;}"
                  "</style></head><body>")
-    parts.append("<h1>Supplementary Section S1 &mdash; Whole-brain inter-subject correlation across conditions</h1>")
+    parts.append("<h1>Supplementary Note 1 &mdash; Whole-brain inter-subject correlation across conditions</h1>")
     parts.append(
         "<h2>Methods</h2>"
         "<p>We measured whole-brain inter-subject correlation during the "
@@ -707,13 +707,13 @@ def main() -> None:
         })
         print(f"  {cond}: {int(np.sum(p_fdr < 0.05))} parcels FDR<.05  (n={rmat.shape[0]})")
 
-    # Build Table S1 — 17-network summary across conditions + IP-vs-SP contrast.
+    # Build Supplementary Table 1 — 17-network summary across conditions + IP-vs-SP contrast.
     table_S1 = _build_network_table(per_cond_rmat, lab_df, r1_2)
     table_S1_path = DATA_DIR / "S1_network-table.csv"
     table_S1.to_csv(table_S1_path, index=False)
     print(f"Wrote {table_S1_path}")
 
-    # Per-parcel IP-vs-SP contrast (for Fig S1C cluster outlines + supporting parcel CSV).
+    # Per-parcel IP-vs-SP contrast (for Supplementary Fig. 1C cluster outlines + supporting parcel CSV).
     t_ipsp, p_ipsp, p_fdr_ipsp = _compute_ip_vs_sp_per_parcel(
         per_cond_rmat["intact_pause"], per_cond_rmat["scram_pause"], r1_2
     )

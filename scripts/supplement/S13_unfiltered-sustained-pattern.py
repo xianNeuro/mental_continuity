@@ -10,9 +10,7 @@ survives in the unfiltered fMRIPrep data.
 Rationale: the inversion could in principle reflect a combination of a
 post-stimulus hemodynamic undershoot and the temporal high-pass filter. If the
 *same* time course (same trough timing, same rise/fall) appears in data with NO
-high-pass filter, then (i) temporal filtering cannot be the cause, and (ii) the
-fast dip-and-recover shape is incompatible with a slow monotonic hemodynamic
-undershoot; a combination of the two is therefore ruled out. Magnitude may be
+high-pass filter, then the curve argues against an account in which filtering and undershoot generate the anticorrelation. Magnitude may be
 weaker in the unfiltered data; only the shape/timing needs to match.
 
 Method: the PMC "format" template-similarity time course of Figure 3,
@@ -23,7 +21,7 @@ recomputed identically on two inputs per condition:
 Each participant's 10-TR pre-onset story template is correlated, TR by TR, with
 the across-participant average pattern of the OTHER participants at each TR
 offset around interruption onset (1-vs-others). The filtered curve is validated
-against the published Figure-3 JSON (staged via the shared sustained_timecourse
+against the manuscript Figure-3 JSON (staged via the shared sustained_timecourse
 helper).
 
 1:1 script <-> output, no dependency on any other script's output: writes a full
@@ -84,7 +82,7 @@ HTML_PATH = OUT_ROOT / f"{SLUG}.html"
 FIG_STEM = f"{SLUG}_PMC"
 # canonical format-results JSONs are staged into this script's OWN data dir (via
 # the shared sustained_timecourse helper); used only for the validation
-# correlation against the published Figure-3 group_mean below.
+# correlation against the manuscript Figure-3 group_mean below.
 JSON_DIR = DATA_DIR
 
 _NF_PROC = "fmriprep_no-filter_resampled-3mm-space_smooth-4mm"
@@ -220,7 +218,7 @@ def run() -> Dict[str, dict]:
         x, gm_f, se_f, n_f = format_timecourse(dfilt, cond)
         _, gm_u, se_u, n_u = format_timecourse(dunf, cond)
 
-        # validation against published Figure-3 JSON group_mean
+        # validation against manuscript Figure-3 JSON group_mean
         jp = JSON_DIR / f"format_results_{TASK}_{cond}_{ROI_DISK}_zscore-entire_skip0-use10_win-40to40.json"
         val_r = float("nan")
         if jp.is_file():
@@ -397,8 +395,7 @@ from positive, through zero, to a negative trough within the interruption and
 then recovers (the &ldquo;sustained pattern&rdquo; line of Figure&nbsp;3). A
 post-stimulus hemodynamic undershoot combined with the temporal high-pass filter
 has been raised as an alternative source of such an anticorrelation. If that
-combination were responsible, removing the high-pass filter should change the
-time course. This report shows that it does not.</p>
+combination were responsible, removing the high-pass filter should change the time course. Removing the filter reduced the magnitude but preserved the temporal profile.</p>
 
 <h2>Methods</h2>
 <p>We recomputed the Figure&nbsp;3 template-similarity time course on the
@@ -411,7 +408,7 @@ offset around interruption onset (a 1-vs-others inter-subject pattern
 correlation). Offsets beyond +20 TRs are re-anchored to each epoch's own
 story-resumption point (the Figure&nbsp;3 convention), so the right half of
 each curve is resumption-locked. The filtered time course reproduces the
-published Figure&nbsp;3 curve (validation correlations in the last column of
+manuscript Figure&nbsp;3 curve (validation correlations in the last column of
 the table, r &ge; {val_lo:.2f} in every condition).</p>
 
 <h2>Results</h2>
@@ -437,7 +434,7 @@ starts to re-enter the story for that epoch.</p>
   <th>Filtered trough<br>(TR offset)</th>
   <th>Unfiltered trough<br>(TR offset)</th>
   <th>Shape correlation<br>(filtered vs unfiltered)</th>
-  <th>Validation r<br>(vs published Fig. 3)</th>
+  <th>Validation r<br>(vs manuscript Fig. 3)</th>
   <th>n (filt / unfilt)</th>
 </tr></thead>
 <tbody>
@@ -449,18 +446,12 @@ shape (r = {shape_lo:.2f} to {shape_hi:.2f} over the plotted window) even though
 the unfiltered correlations are several times weaker in absolute terms (troughs
 near r = {it['tu_v']:.2f} to {sp['tu_v']:.2f} unfiltered versus {ip['tf_v']:.2f}
 to {it['tf_v']:.2f} filtered). In intact-pause and scrambled-pause the
-anticorrelation reaches its trough at the same time offset with or without the
-high-pass filter (TR {ip['tf_tr']} vs {ip['tu_tr']}, and TR {sp['tf_tr']} vs
+anticorrelation reaches its trough within one TR with or without the high-pass filter (TR {ip['tf_tr']} vs {ip['tu_tr']}, and TR {sp['tf_tr']} vs
 {sp['tu_tr']}). In intact-ToM the interruption is filled by an active task and
 the trough is broad and shallow, so its single lowest point is less stable
 across the two pipelines (TR {it['tf_tr']} vs {it['tu_tr']}), yet the whole
 rise-and-fall still tracks closely (shape r = {it['shape_r']:.2f}; see the
-normalized overlay). Two conclusions follow. First, because the effect is
-present with no temporal filtering, the high-pass filter cannot produce the
-inversion. Second, the dynamics are a fast dip and recovery locked to the
-interruption, not the slow monotonic return of a post-stimulus hemodynamic
-undershoot, so a combination of undershoot and filtering is also incompatible
-with the observed time course.</p>
+normalized overlay). These results argue against a simple account in which the anticorrelation is generated by undershoot and high-pass filtering; filtering primarily amplified the relationship.</p>
 </body></html>"""
 
 

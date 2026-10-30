@@ -1,7 +1,7 @@
 """
 S9_invert-extent.py
 
-Supplementary Section S9: the extent of the posterior-medial-cortex (PMC)
+Supplementary Note 9: the extent of the posterior-medial-cortex (PMC)
 story-to-interruption inversion.
 
 This section collects two views that together answer "how far does the
@@ -369,9 +369,7 @@ complete flip would reach the ceiling (100%); a pure orthogonalization would
 sit at 0.</figcaption></figure>
 <p class="note">The observed inversion reaches a large fraction of the
 cross-phase ceiling in every condition, and the disattenuated
-&rho;<sub>true</sub> is reliably negative, so the interruption pattern is a
-near-complete reflection of the story pattern rather than an
-orthogonalization of it.</p>
+&rho;<sub>true</sub> is reliably negative, so the interruption pattern is an inversion of the story pattern rather than merely an orthogonalization of it.</p>
 
 </body></html>
 """

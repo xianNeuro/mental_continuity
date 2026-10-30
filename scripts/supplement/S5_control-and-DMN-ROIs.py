@@ -3,7 +3,7 @@
 S5_control-and-DMN-ROIs.py
 
 Reliability, selectivity, and evolve tests applied first to the three
-pre-selected control regions (primary auditory cortex A1+, middle superior
+pre-selected control regions (early auditory cortex A1+, middle superior
 temporal gyrus mSTG, dorsolateral prefrontal cortex dlPFC) and then to the five
 pre-selected default-mode regions (angular gyrus AG, posterior cingulate cortex
 PCC, dorsomedial prefrontal cortex dmPFC, ventromedial prefrontal cortex vmPFC,
@@ -561,7 +561,7 @@ def write_html(all_results: Dict[str, Dict[str, dict]]) -> None:
 
     html = f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"/>
-<title>Supplementary Section S5: control and DMN ROIs sequential reliability, selectivity, evolve</title>
+<title>Supplementary Note 5: control and DMN ROIs sequential reliability, selectivity, evolve</title>
 <style>
 body{{font-family:system-ui,sans-serif;max-width:1400px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}}
 h1{{border-bottom:2px solid #333;padding-bottom:6px;}}
@@ -578,12 +578,12 @@ table.summary th, table.summary td{{padding:9px 14px; min-width:80px; text-align
 table.summary th:first-child, table.summary td:first-child{{text-align:left;}}
 </style></head>
 <body>
-<h1>Supplementary Section S5: reliability, selectivity, and evolve across control and default-mode regions</h1>
+<h1>Supplementary Note 5: reliability, selectivity, and evolve across control and default-mode regions</h1>
 
 <p>The reliability, selectivity, and evolve tests reported in the main text
 for posterior medial cortex (PMC) are applied here to two pre-selected
 regions-of-interest (ROI) sets: first the three <strong>control regions</strong>
-&mdash; primary auditory cortex (A1+), middle superior temporal gyrus (mSTG),
+&mdash; early auditory cortex (A1+), middle superior temporal gyrus (mSTG),
 and dorsolateral prefrontal cortex (dlPFC) &mdash; and then the five
 <strong>default-mode network (DMN) regions</strong> &mdash; angular gyrus (AG),
 posterior cingulate cortex (PCC), dorsomedial prefrontal cortex (dmPFC),

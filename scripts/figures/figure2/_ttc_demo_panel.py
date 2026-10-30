@@ -373,7 +373,7 @@ def draw(ax):
     (xlim (0, A_W), ylim (A_H, -6), axis off)."""
     from matplotlib.colors import TwoSlopeNorm
     raw_norm = TwoSlopeNorm(vcenter=0.0, vmin=-0.6, vmax=0.95)
-    # zero-centred like panel b's maps, so ~0 renders neutral teal
+    # zero-centered like panel b's maps, so ~0 renders neutral teal
     diff_norm = TwoSlopeNorm(vcenter=0.0, vmin=-0.45, vmax=0.45)
     left, center, right = (4, 429), (429, 751), (751, 1176)
     _panel_box(ax, left[0], 10, left[1], A_H - 22)

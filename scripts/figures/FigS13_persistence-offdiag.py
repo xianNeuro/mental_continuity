@@ -1,5 +1,5 @@
-"""Fig. S13 — off-diagonal control for the PMC persistence effect
-(supplement Section S16). Native matplotlib implementation of Fig. S13:
+"""Supplementary Fig. 13 — off-diagonal control for the PMC persistence effect
+(supplement Supplementary Note 16). Native matplotlib implementation of Supplementary Fig. 13:
 
   (a) schematic 10x10 interruption time-by-time-correlation block at each minimum
       retained lag |i-j| (viridis; near-diagonal band grayed);

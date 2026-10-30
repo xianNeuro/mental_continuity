@@ -414,7 +414,7 @@ def _write_html(stats: pd.DataFrame, beta_fig: Path,
 
     if scatter_specs:
         parts.append("<h2>Condition-adjusted scatters at selected lags</h2>")
-        parts.append("<p class='note'>Each panel residualises both axes against "
+        parts.append("<p class='note'>Each panel residualizes both axes against "
                      "the condition fixed effect (value minus its within-condition "
                      "mean); the dashed line's slope is the within-condition "
                      "&beta;. Marker colors label conditions (IP blue, SP green, "

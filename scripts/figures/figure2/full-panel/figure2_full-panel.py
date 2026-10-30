@@ -177,7 +177,7 @@ def _pools_to_arrays(pools):
 
 
 def paired_data(roi_token):
-    """{scheme: (matching, mismatching, p_perm)} — the matching-vs-shuffled
+    """{scheme: (matching, mismatching, p_perm)} — the matching-vs-mismatching
     ISPC construction shared with ``clean_report_engine``."""
     def compute():
         from data_structure import get_semantic_sp_epoch

@@ -10,7 +10,7 @@ The computation and plotting are shared with
 Each test:
 
   * computes the canonical statistics
-      - reliability : epoch-mean bootstrap CI (1-vs-others); subject t/d
+      - reliability : Fisher-z group mean +/- 1.96 SE (1-vs-others); subject t/d
                        reported for reference only
       - selectivity : within-participant epoch-label permutation null
                        (one-sided), min epoch separation = 1 (all
@@ -89,7 +89,7 @@ EVOLVE_CONDS_IT_SP = ["IT-SP", "IT-SP-unscr"]
 # same STORY SEGMENT rather than the same serial position.
 SELECTIVITY_CONDS = ["IP-IP", "SP-SP", "SP-IP", "SP-IP-unscr", "IT-IT", "IT-IP"]
 # Result 2.2 reports four of these schemes; the two scrambled-to-intact
-# schemes (SP-IP, SP-IP-unscr) are reported in supplementary Section S4,
+# schemes (SP-IP, SP-IP-unscr) are reported in supplementary Supplementary Note 4,
 # which asks whether the shared interruption pattern survives when the
 # narrative is scrambled.
 SELECTIVITY_CONDS_MAIN = ["IP-IP", "SP-SP", "IT-IT", "IT-IP"]
@@ -827,7 +827,7 @@ def evolve_methods(n_ep, max_d):
         f"epochs were re-ordered into the intact narrative sequence, so that "
         f"epoch distance reflects true narrative distance rather than "
         f"scrambled presentation order. PMC voxels were "
-        f"defined by the project's anatomical PMC mask and per-voxel "
+        f"defined by the project's PMC mask, built from Schaefer 400-parcel, 17-network atlas parcels and per-voxel "
         f"timecourses were z-scored across the entire run before "
         f"analysis.</p>"
         f"<p>To test whether ISPC declines with epoch distance, we "
@@ -1389,7 +1389,7 @@ def run_selectivity(task, roi_token, narrative, out_html, out_csv, fig_dir,
     """Epoch-selectivity across inter-subject schemes.
 
     ``conds`` picks the schemes to compute and report. Result 2.2 passes
-    ``SELECTIVITY_CONDS_MAIN``; supplementary Section S4 passes
+    ``SELECTIVITY_CONDS_MAIN``; supplementary Supplementary Note 4 passes
     ``SELECTIVITY_CONDS_SCRAM`` to ask the scrambled-narrative question. The
     computation is identical either way -- only the reported subset differs.
     """

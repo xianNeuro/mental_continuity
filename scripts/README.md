@@ -26,7 +26,7 @@ numbered by the sequence they appear in the paper, with the pattern
 
 Supplement scripts live under `scripts/supplement/` and use the pattern
 `S{N}_{slug}.py`, where `N` is the supplementary section number in the
-Supplementary Materials. Each writes to `output/supplement/S{N}_{slug}/`.
+Supplementary Information. Each writes to `output/supplement/S{N}_{slug}/`.
 
 | Script | Supplementary section |
 |---|---|
@@ -51,7 +51,7 @@ Supplementary Materials. Each writes to `output/supplement/S{N}_{slug}/`.
 One additional supplement script sits outside the `S{N}` numbering:
 `scripts/supplement/methods_tom-probe-accuracy.py` computes the behavioral
 accuracy on the theory-of-mind probe questions of the IT condition reported in
-the Supplementary Materials **Methods** (17 questions in the main narrative,
+the Supplementary Information **Methods** (17 questions in the main narrative,
 11 in the second narrative), from the scored responses shipped in
 `data/beh/tom_probe_scores.csv`. It writes to
 `output/supplement/methods_tom-probe-accuracy/` (1:1, like every other script).
@@ -73,12 +73,8 @@ are **never overwritten** — and saves a `comparison_vs_canonical.txt` report
 (row counts, per-column Pearson r, max absolute difference) so a user can
 compare their re-derivation against the shipped values. The canonical files
 remain the source of truth for `Result4_1`; the derivation scripts document
-the computation and reproduce values within numerical tolerance (the PMC
-phase means and DMN realignment match to ~1e-17; the hipp recipe agrees at
-Pearson r &asymp; 0.94 &mdash; the shipped values were produced by the
-original preprocessing, whose per-subject NaN handling is not carried into
-the bundled recipe; each recipe's `comparison_vs_canonical.txt` quantifies
-the difference per column).
+the computation and reproduce values within numerical tolerance; each
+recipe's `comparison_vs_canonical.txt` quantifies the difference per column.
 
 ## ROI naming
 

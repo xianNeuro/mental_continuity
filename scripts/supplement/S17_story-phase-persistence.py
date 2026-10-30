@@ -2,7 +2,7 @@
 """
 S17_story-phase-persistence.py
 
-Supplementary Section S17 — Story-phase PMC pattern persistence as a predictor
+Supplementary Note 17 — Story-phase PMC pattern persistence as a predictor
 of neural resumption and recall.
 
 The main text (Result 4) showed that the *interruption-phase* PMC pattern
@@ -111,7 +111,7 @@ def _fmt_p(p: float) -> str:
 def render_paper_stats_txt(summaries: Sequence[Dict[str, object]],
                            story_int_corr: Optional[Tuple[float, int]] = None) -> str:
     lines: List[str] = []
-    lines.append("Section S17 — Story-phase PMC pattern persistence predicting neural")
+    lines.append("Supplementary Note 17 — Story-phase PMC pattern persistence predicting neural")
     lines.append("resumption (DMN realignment, excl. PMC) and later narrative recall.")
     lines.append("")
     lines.append("Pooled IP+IT+SP OLS; condition fixed effect; per-participant observations.")
@@ -173,15 +173,15 @@ def render_html_report(summaries: Sequence[Dict[str, object]],
         "<title>S17 — Story-phase PMC pattern persistence and resumption &amp; recall</title>",
         f"<style>{css}</style>",
         "</head><body>",
-        "<h1>Section S17 &mdash; Story-phase PMC pattern persistence predicting resumption and recall</h1>",
+        "<h1>Supplementary Note 17 &mdash; Story-phase PMC pattern persistence predicting resumption and recall</h1>",
         "<h2>Rationale and methods</h2>",
-        "<p>The main-text Result 4 established that the persistence of the shared "
+        "<p>The main-text Result 4 reported that the persistence of the shared "
         "posterior medial cortex (PMC) multivoxel pattern <em>during the "
         "interruption</em> &mdash; the interruption-phase pattern persistence, "
         "the inter-subject pattern correlation averaged over every pair of TRs "
         "in the ten TRs beginning five TRs after interruption onset &mdash; "
         "predicts both default-mode-network (DMN) realignment at story "
-        "resumption and subsequent free recall, independent of hippocampal "
+        "resumption and subsequent free recall, beyond hippocampal "
         "boundary activity. Here we ask whether the analogous persistence "
         "measured in the <em>story phase immediately before</em> each "
         "interruption &mdash; the story-phase pattern persistence, the same "
@@ -260,7 +260,7 @@ def render_html_report(summaries: Sequence[Dict[str, object]],
                     f"alt='Condition-adjusted scatter: {html_mod.escape(dv_label)} "
                     f"vs {html_mod.escape(pred_label)}'/>"
                     f"<figcaption>Condition-adjusted scatter for the model above. "
-                    f"Both axes are residualised against the condition fixed effect "
+                    f"Both axes are residualized against the condition fixed effect "
                     f"(each value minus its within-condition mean); the dashed line "
                     f"is the within-condition fit whose slope equals the &beta; for "
                     f"{html_mod.escape(pred_label.lower())} reported in the table. "
@@ -334,7 +334,7 @@ def main() -> None:
     merged.to_csv(merged_csv, index=False)
     print(f"Merged table: {merged.shape} -> {merged_csv}")
 
-    # Correlation between the two persistence measures, cited in Section S17.
+    # Correlation between the two persistence measures, cited in Supplementary Note 17.
     corr_sub = merged[["pmc_quad1", "pmc_quad5"]].dropna()
     story_int_corr = (float(corr_sub["pmc_quad1"].corr(corr_sub["pmc_quad5"])),
                       len(corr_sub))

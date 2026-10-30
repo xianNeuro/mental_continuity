@@ -561,8 +561,7 @@ average pattern of the other participants in the same condition
 (intact-pause, IP-IP; scrambled-pause, SP-SP; intact-theory-of-mind,
 IT-IT), and two across-condition, in which each participant in one
 condition was compared with the across-participant average of the other
-condition's group (IP-IT and IT-IP). PMC voxels were defined by the
-project's anatomical PMC mask and per-voxel timecourses were z-scored
+condition's group (IP-IT and IT-IP). PMC voxels were defined by the project's PMC mask, built from Schaefer 400-parcel, 17-network atlas parcels and per-voxel timecourses were z-scored
 across the entire run before analysis.</p>
 
 <p>For each participant the ISPC values at <em>i</em> = <em>j</em>

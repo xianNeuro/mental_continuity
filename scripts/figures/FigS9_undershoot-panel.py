@@ -1,4 +1,4 @@
-"""Fig. S9 — hemodynamic-undershoot control panel (supplement Section S10).
+"""Supplementary Fig. 9 — hemodynamic-undershoot control panel (supplement Supplementary Note 10).
 Native re-render (shared _figstyle) for consistent fonts.
 
   (a) voxelwise story-vs-interruption grand-mean scatters for the eight

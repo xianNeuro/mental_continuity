@@ -1,5 +1,5 @@
-"""Fig. S7 — live-storytelling-narrative replication of the PMC interruption-phase pattern
-analyses (supplement Section S7). Native re-render (shared _figstyle).
+"""Supplementary Fig. 7 — live-storytelling-narrative replication of the PMC interruption-phase pattern
+analyses (supplement Supplementary Note 7). Native re-render (shared _figstyle).
 
   (a) per-condition reliability (Fisher-z group mean ± 95% CI);
   (b) per-condition selectivity (matching − mismatching ± 95% CI);

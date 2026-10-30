@@ -1,8 +1,8 @@
-"""Fig. S6 — whole-brain Schaefer-400 selectivity and evolve maps
-(supplement Section S6).
+"""Supplementary Fig. 6 — whole-brain Schaefer-400 selectivity and evolve maps
+(supplement Supplementary Note 6).
 
 Re-renders the S6 "row 2" maps (parcels reaching an uncorrected permutation
-P < 0.10 in the hypothesised direction) through S6's OWN renderer (``volcano_plot``
+P < 0.10 in the hypothesized direction) through S6's OWN renderer (``volcano_plot``
 on fsaverage5), so the brains match the analysis output exactly — no re-analysis,
 only re-plotting. View labels are turned off and one shared colorbar per row is
 added, with fixed scales:

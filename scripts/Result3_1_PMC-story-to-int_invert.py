@@ -588,7 +588,7 @@ def _invert_write_html(stats_by_family, fig_rel, out_html,
     engine always computes both story-story and story-interruption, but the
     main Result 3.1 report displays only the story-interruption inversion;
     the story-story stimulus-driven reliability and its inversion-extent
-    interpretation live in Section S9. The table follows Science's
+    interpretation live in Supplementary Note 9. The table lists the statistical parameters for each comparison.
     reporting guidance: point estimate (group ISPC), its uncertainty (SE and
     the corresponding 95% CI), the reported test (sign-flip permutation p),
     and n -- no redundant second test or duplicate pseudo-value estimate.
@@ -638,7 +638,7 @@ def _invert_write_html(stats_by_family, fig_rel, out_html,
             "<strong>interruption window</strong> at the matched epoch; a "
             "reliably negative value is the predicted story-to-interruption "
             "inversion. (The story-window stimulus-driven reliability that "
-            "bounds this inversion is reported in Section S9.) ")
+            "bounds this inversion is reported in Supplementary Note 9.) ")
         dir_clause = ("the expected direction of the inversion "
                       "(story-interruption <em>&lt;</em>&nbsp;0)")
         title_h1 = "Result 3.1: PMC story-to-interruption inversion across conditions"
@@ -667,7 +667,7 @@ th{{background:#f4f6f8;}}
 <h2>Methods</h2>
 <p>We tested whether the shared multivoxel pattern in posterior medial
 cortex (PMC) inverts from the story phase to the immediately following
-interruption phase, and whether that inversion generalises across
+interruption phase, and whether that inversion generalizes across
 participant groups. For every interruption epoch we built two 10-TR
 template patterns in PMC: a <strong>story window</strong> spanning the
 ten TRs ending one TR before interruption onset, and an
@@ -684,8 +684,7 @@ other participants in the same condition (intact-pause, IP-IP;
 scrambled-pause, SP-SP; intact-theory-of-mind, IT-IT), and two
 across-condition, in which each participant in one condition was
 compared with the across-participant average of the other condition's
-group (IP-IT and IT-IP). PMC voxels were defined by the project's
-anatomical PMC mask, and per-voxel timecourses were z-scored across the
+group (IP-IT and IT-IP). PMC voxels were defined by the project's PMC mask, built from Schaefer 400-parcel, 17-network atlas parcels, and per-voxel timecourses were z-scored across the
 entire run before analysis.</p>
 
 <p>All averaging across subjects was performed in Fisher-z space (each
@@ -705,8 +704,7 @@ ISPC depends on the other participants these pseudo-values, rather than
 the raw participant means, are the exchangeable units the permutation
 acts on. The null distribution was built by randomly flipping the sign
 of each pseudo-value over {_INVERT_N_PERM} iterations and recording the
-mean; the one-sided permutation <em>p</em> is the proportion of null
-means at or beyond the observed mean in {dir_clause}. The legend under
+mean; the one-sided permutation <em>p</em> is (k + 1)/(N + 1), where k is the number of null means at or beyond the observed mean in {dir_clause}. The legend under
 the table defines each column.</p>
 
 <h2>Results</h2>
@@ -849,7 +847,7 @@ def main():
     Writes the story-interruption inversion for the five condition schemes as
     one HTML report (with the ``invert-test`` filename prefix), one grouped
     bar plot, and a CSV. The story-story stimulus-driven reliability and the
-    inversion-extent (noise-ceiling) view are reported in Section S9
+    inversion-extent (noise-ceiling) view are reported in Supplementary Note 9
     (S9_invert-extent.py); the engine also computes story-story for the
     supplement scripts that reuse it.
     """

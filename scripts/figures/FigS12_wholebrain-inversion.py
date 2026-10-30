@@ -1,5 +1,5 @@
-"""Fig. S12 — whole-brain Schaefer-400 story-to-interruption inversion
-(supplement Section S15). Native re-render via volcano_plot (like Fig. S7).
+"""Supplementary Fig. 12 — whole-brain Schaefer-400 story-to-interruption inversion
+(supplement Supplementary Note 15). Native re-render via volcano_plot (like Supplementary Fig. 7).
 
   Row a  inversion t (group mean vs 0, negative = pattern reversal), reliably
          inverted parcels (own-condition sign-flip p < .05); fixed scale ±8.

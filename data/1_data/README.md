@@ -15,8 +15,7 @@ The folder has two kinds of content:
    subfolders (Section 2 below). **To run the analysis scripts, download
    them from the Zenodo archive and place them here**, as follows: get
    `1_data.zip` from the Zenodo record
-   https://doi.org/10.5281/zenodo.22260086 (also listed in the paper's Data
-   and materials availability statement, reference 34) and
+   https://doi.org/10.5281/zenodo.22260086 (also listed in the paper's Data availability statement, reference 55) and
    unzip it inside the repository's `data/` directory — the zip unpacks as
    `1_data/…`, so its contents merge into this folder and produce exactly
    the tree shown in Section 2. (The same Zenodo record also archives the repository itself as
@@ -86,8 +85,7 @@ timecourse z-scored across the entire run (`zscore_entire` in
 `scripts/helper/vendor/01_preproc_zscore_methods.py`). The whole-run
 z-scoring places every voxel on a common scale, so inter-subject pattern
 correlations reflect the spatial patterning of activity rather than
-voxel-wise differences in temporal mean or variance — the normalization the
-Supplementary Methods describe as the default for all pattern analyses.
+voxel-wise differences in temporal mean or variance — the normalization the Methods describe as the default for all pattern analyses.
 
 Used by every ROI pattern analysis: the main-text PMC tests
 (`Result2_1`–`Result2_3`, `Result3_1`–`Result3_3`), the hippocampal onset
@@ -138,6 +136,6 @@ tokens describe how the timecourses were prepared:
 - `shift0tr` — no additional hemodynamic TR shift is applied.
 
 Read by `Result1_2_global-ISC.py` (the whole-brain story-listening ISC map,
-manuscript Fig. 1G) and `S1_global-ISC.py` (the four-condition extension and
-per-network table, supplement Section S1), through
+manuscript Fig. 1g) and `S1_global-ISC.py` (the four-condition extension and
+per-network table, Supplementary Note 1), through
 `vendor/global_isc.py::load_voi`.

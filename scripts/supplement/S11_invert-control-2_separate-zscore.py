@@ -214,7 +214,7 @@ def _combined_html(rel_by_family, sel_by_family, rel_fig, sel_fig, out_html):
     sel_tbl = "\n".join(sel_rows)
     html = f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"/>
-<title>Supplementary Section S11 (inversion control 2, separate-phase z-score)</title>
+<title>Supplementary Note 11 (inversion control 2, separate-phase z-score)</title>
 <style>
 body{{font-family:system-ui,sans-serif;max-width:1020px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}}
 h1{{border-bottom:2px solid #333;padding-bottom:6px;}}
@@ -230,7 +230,7 @@ tbody tr:nth-child(6){{border-top:3px solid #333;}}
 th.desc, td.desc{{background:#f1f3f4;color:#666;}}
 </style></head>
 <body>
-<h1>Supplementary Section S11 (inversion control 2): story-to-interruption inversion, separate-phase z-score control
+<h1>Supplementary Note 11 (inversion control 2): story-to-interruption inversion, separate-phase z-score control
 (separate-phase z-score)</h1>
 
 <h2>Methods</h2>

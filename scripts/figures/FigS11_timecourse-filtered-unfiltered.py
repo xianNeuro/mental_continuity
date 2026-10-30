@@ -1,5 +1,5 @@
-"""Fig. S11 — PMC story-to-interruption similarity time course in filtered vs
-unfiltered (no high-pass) fMRIPrep data (supplement Section S12 companion).
+"""Supplementary Fig. 11 — PMC story-to-interruption similarity time course in filtered vs
+unfiltered (no high-pass) fMRIPrep data (supplement Supplementary Note 13 companion).
 
 Native re-render (shared _figstyle) so every sub-panel's title, axis labels and
 legend match the type of the other figures. 3 columns (IP / SP / IT) × 3 rows:

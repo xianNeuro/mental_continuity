@@ -6,11 +6,11 @@ similarity engine — identical to ``Result3_1_PMC-story-to-int_invert.py``.
 For each participant we compute, in posterior medial cortex (PMC) and using
 the same windows and template-averaging rule as Result 3.1:
 
-1. a within-participant story-to-interruption flip index: per epoch, the
+1. a within-participant story-to-interruption inversion index: per epoch, the
    participant's own story window TRs are averaged into a single template
    multivoxel pattern and their own interruption window TRs are averaged
    into a second template, then one Pearson correlation is taken between
-   the two templates. The flip index is the mean of these per-epoch r
+   the two templates. The inversion index is the mean of these per-epoch r
    values across the participant's epochs. A more negative value means a
    stronger story-to-interruption inversion for that participant; and
 2. that participant's interruption inter-participant similarity: per epoch,
@@ -27,7 +27,7 @@ Window definitions match Result 3.1 (single source of truth, no change):
                          [onset + 5, onset + 15), clipped at offset.
 
 Within each condition (intact-pause IP, scrambled-pause SP,
-intact-theory-of-mind IT) the flip index is correlated across
+intact-theory-of-mind IT) the inversion index is correlated across
 participants with the interruption similarity. The report contains a
 plain-language methods description, a per-condition correlation
 statistics table, and one scatter plot with a per-condition trend line.
@@ -238,11 +238,11 @@ def _scatter(stats_by_cond: Dict[str, Dict], out_path: Path) -> None:
             ax.plot(xs, st["slope"] * xs + st["intercept"], color=color,
                     linewidth=2.0, zorder=2)
     ax.axvline(0.0, color="gray", linestyle="--", linewidth=0.8)
-    ax.set_xlabel("Story-to-interruption flip index\n(within-participant "
+    ax.set_xlabel("Story-to-interruption inversion index\n(within-participant "
                   "story vs. interruption pattern similarity)")
     ax.set_ylabel("Interruption inter-participant similarity\n(participant "
                   "vs. averaged other participants)")
-    ax.set_title(f"{_ROI}: flip index vs. interruption-pattern similarity\n"
+    ax.set_title(f"{_ROI}: inversion index vs. interruption-pattern similarity\n"
                  f"(interruption window: {_USE} TRs after a {_SKIP_INT}-TR post-onset skip)")
     ax.legend(loc="best", fontsize=9, framealpha=0.9)
     ax.grid(True, alpha=0.3)
@@ -281,7 +281,7 @@ def _write_html(stats_by_cond: Dict[str, Dict], fig_rel: str, out_html: Path) ->
     table = "\n".join(rows)
     html = f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"/>
-<title>Supplementary Section S14 (invert correlation): PMC flip index vs. interruption inter-subject pattern similarity</title>
+<title>Supplementary Note 14 (invert correlation): PMC inversion index vs. interruption inter-subject pattern similarity</title>
 <style>
 body{{font-family:system-ui,sans-serif;max-width:920px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}}
 h1{{border-bottom:2px solid #333;padding-bottom:6px;}}
@@ -293,7 +293,7 @@ th{{background:#f4f6f8;}}
 .note{{color:#555;font-size:13px;margin-top:6px;}}
 </style></head>
 <body>
-<h1>Supplementary Section S14 (invert correlation): does the strength of the story-to-interruption inversion
+<h1>Supplementary Note 14 (invert correlation): does the strength of the story-to-interruption inversion
 predict interruption inter-subject pattern similarity?</h1>
 
 <h2>Methods</h2>
@@ -304,8 +304,7 @@ analysis uses the same <strong>template-MVP</strong> similarity engine as
 Result&nbsp;3.1 (the primary inversion test): for every interruption
 epoch the TRs within a window are first averaged into a single
 template multivoxel pattern, and Pearson correlations are computed
-between two such templates. PMC voxels were defined by the project's
-anatomical PMC mask, and per-voxel timecourses were z-scored across the
+between two such templates. PMC voxels were defined by the project's PMC mask, built from Schaefer 400-parcel, 17-network atlas parcels, and per-voxel timecourses were z-scored across the
 entire run prior to analysis.</p>
 
 <p>For every epoch, the analysis used two adjacent fifteen-second
@@ -318,13 +317,13 @@ at the epoch offset), with the first five TRs from onset discarded to
 avoid hemodynamic carry-over from the preceding story segment. Two
 quantities were computed per participant.</p>
 
-<p>The <strong>story-to-interruption flip index</strong> is the
+<p>The <strong>story-to-interruption inversion index</strong> is the
 within-participant pattern similarity between that participant's own
 story window and their own interruption window: for each epoch the
 participant's story-window TRs were averaged into a single template
 pattern, their interruption-window TRs were averaged into a second
 template pattern, and one Pearson correlation was computed between the
-two templates; the flip index is the mean of those per-epoch
+two templates; the inversion index is the mean of those per-epoch
 correlations across the participant's epochs. A more negative value
 indicates a stronger inversion from story to interruption.</p>
 
@@ -338,7 +337,7 @@ the participant's template and the others-mean template; the
 interruption similarity is the mean of those per-epoch correlations.</p>
 
 <p>Within each condition (intact-pause, IP; scrambled-pause, SP;
-intact-theory-of-mind, IT) the flip index was correlated across
+intact-theory-of-mind, IT) the inversion index was correlated across
 participants with the interruption inter-subject similarity using
 Pearson correlation (two-sided p). A 95% confidence interval for the
 correlation was obtained by resampling participants with replacement
@@ -349,7 +348,7 @@ reported in the table and drawn per condition in the scatter plot.</p>
 <table>
 <thead><tr>
   <th>Condition</th><th>n</th>
-  <th>Mean flip index</th>
+  <th>Mean inversion index</th>
   <th>Mean interruption similarity</th>
   <th>Pearson r</th>
   <th>95% CI (bootstrap)</th>
@@ -360,10 +359,10 @@ reported in the table and drawn per condition in the scatter plot.</p>
 </tbody></table>
 
 <p><img class="fig" src="{fig_rel}"
-    alt="Per-condition scatter of flip index vs interruption similarity with trend lines"/></p>
+    alt="Per-condition scatter of inversion index vs interruption similarity with trend lines"/></p>
 
 <p class="note">Each dot is one participant. The x-axis is the
-within-participant story-to-interruption flip index (more negative means
+within-participant story-to-interruption inversion index (more negative means
 a stronger inversion); the y-axis is the participant's interruption
 pattern similarity to the averaged other participants. Lines are the
 per-condition least-squares fits. Condition codes: intact-pause (IP),
@@ -413,13 +412,13 @@ def build_report(out_root: Path) -> Dict[str, Dict]:
 
 
 def main() -> None:
-    """Supplementary S14 (invert correlation): within-participant story-to-interruption flip index vs.
+    """Supplementary S14 (invert correlation): within-participant story-to-interruption inversion index vs.
     interruption inter-participant similarity, correlated within each
     condition. Writes one HTML report, one scatter figure, and a CSV."""
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Supplementary S14 (invert correlation): flip index vs interruption similarity."
+        description="Supplementary S14 (invert correlation): inversion index vs interruption similarity."
     )
     parser.add_argument(
         "--out-root", type=str, default=None,
@@ -432,7 +431,7 @@ def main() -> None:
         else (MENTAL_CONTINUITY_ROOT / "output" / "supplement" / "S14_invert-correlations").resolve()
     )
     print("=" * 60)
-    print("Supplementary S14 (invert correlation): PMC flip index vs interruption similarity")
+    print("Supplementary S14 (invert correlation): PMC inversion index vs interruption similarity")
     print(f"Output root: {out_root}")
     print("=" * 60)
     build_report(out_root)

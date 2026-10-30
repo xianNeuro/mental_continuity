@@ -403,8 +403,7 @@ def main() -> None:
   <h1>{html.escape(stem)}</h1>
 
   <h2>Methods</h2>
-  <p>We tested whether mean hippocampal BOLD signal rises at the boundary
-  between an interruption and the immediately following story segment.
+  <p>We tested whether mean hippocampal BOLD signal rises at interruption onset, the boundary between a story segment and the interruption that follows it.
   Per-voxel timecourses in the bilateral hippocampus mask were z-scored
   across the entire run and averaged across voxels to give one hippocampal
   timecourse per participant. For every interruption epoch this timecourse

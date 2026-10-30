@@ -31,7 +31,7 @@ The script writes the per-parcel CSV with all reliability + selectivity
 + evolve statistics and renders a two-row whole-brain HTML report:
 row 1 = reliability-masked t-stat per (condition x measure) cell, row 2
 = t-stat at parcels with an uncorrected permutation p < 0.10 in the
-hypothesised direction (selectivity positive; evolve negative). Both
+hypothesized direction (selectivity positive; evolve negative). Both
 rows outline the PMC region of interest in black (via
 scripts/helper/parcel-outline.py) so the whole-brain statistics can be
 read against the PMC location.
@@ -123,7 +123,7 @@ EVOLVE_MIN_D = 1
 N_BOOT = 10_000
 N_PERM = 10_000
 ALPHA = 0.05
-# Row-2 display threshold: uncorrected permutation p (in the hypothesised
+# Row-2 display threshold: uncorrected permutation p (in the hypothesized
 # direction) for selectivity / evolve maps.
 ROW2_P_THRESH = 0.10
 SEED = 42
@@ -444,7 +444,7 @@ _S2_FIG.mkdir(parents=True, exist_ok=True)
 def _fdr_gate_html() -> List[str]:
     """FDR-corrected parcel counts, read from the
     shipped per-parcel digest CSVs so the report stays consistent with the
-    Section S6 text on every run. Returns HTML paragraph strings (empty if the
+    Supplementary Note 6 text on every run. Returns HTML paragraph strings (empty if the
     digest CSVs are absent)."""
     import csv as _csv
     d = OUT_ROOT / "data"
@@ -525,7 +525,7 @@ def _build_html(out: Path, slugs: List[str], n_pass: Dict[str, int]) -> None:
         "<!DOCTYPE html><html><head><meta charset='utf-8'/>",
         "<title>Whole-brain selectivity and evolve maps</title>",
         f"<style>{css}</style></head><body>",
-        "<h1>Supplementary Section S6 (whole-brain): selectivity and "
+        "<h1>Supplementary Note 6 (whole-brain): selectivity and "
         "evolve maps</h1>",
         "<h2>Methods</h2>",
         "<p>The pattern-similarity reliability, selectivity, and evolve "
@@ -561,7 +561,7 @@ def _build_html(out: Path, slugs: List[str], n_pass: Dict[str, int]) -> None:
         "selectivity, IP-IP evolve, IT-IP evolve, and SP-SP evolve. "
         "<strong>Row 2</strong> shows the same t-statistic at every parcel "
         "whose own permutation test reaches an uncorrected "
-        "<em>p</em>&nbsp;&lt;&nbsp;0.10 in the hypothesised direction: the "
+        "<em>p</em>&nbsp;&lt;&nbsp;0.10 in the hypothesized direction: the "
         "selectivity panels retain parcels with positive selectivity "
         "(matching &gt; mismatching), and the evolve panels (including the "
         "SP-SP evolve control) retain parcels with a negative slope "
@@ -599,7 +599,7 @@ def _build_html(out: Path, slugs: List[str], n_pass: Dict[str, int]) -> None:
     parts.append(
         '  <div class="row-label">Row 2 &mdash; t-statistic at parcels '
         'with an uncorrected permutation <em>p</em>&nbsp;&lt;&nbsp;0.10 in '
-        'the hypothesised direction (selectivity: positive; evolve: '
+        'the hypothesized direction (selectivity: positive; evolve: '
         'negative; black PMC outline)</div>'
     )
     for slug in slugs:
@@ -644,7 +644,7 @@ def render_outputs() -> None:
              red-blue palette centered at 0), one panel per
              (condition x measure) cell.
       Row 2: parcels whose own permutation test reaches an uncorrected
-             p < ROW2_P_THRESH in the hypothesised direction (selectivity
+             p < ROW2_P_THRESH in the hypothesized direction (selectivity
              panels: positive; evolve panels including SP-SP: negative).
              Same vmax as the matching row-1 panel for direct visual
              comparison.
@@ -681,7 +681,7 @@ def render_outputs() -> None:
              "SP-SP_evolve"]
 
     def _row2_mask(scores, pvals, direction):
-        """Uncorrected permutation p < ROW2_P_THRESH in the hypothesised
+        """Uncorrected permutation p < ROW2_P_THRESH in the hypothesized
         direction (selectivity positive; evolve negative). NaN-safe."""
         sig = np.where(np.isfinite(pvals), pvals < ROW2_P_THRESH, False)
         return sig & (scores > 0.0 if direction == "pos" else scores < 0.0)
@@ -820,7 +820,7 @@ def reliability_only_update(out_csv: Path, ip_files, sp_files, it_files,
         except KeyError:
             row_existing = {}
         row: Dict[str, Any] = {"parcel_id": int(pid)}
-        # Keep selectivity / evolve / labelling columns from existing CSV;
+        # Keep selectivity / evolve / labeling columns from existing CSV;
         # drop the old reliability_* columns (they'll be replaced).
         for k_existing, v in row_existing.items():
             if not str(k_existing).startswith("reliable_"):

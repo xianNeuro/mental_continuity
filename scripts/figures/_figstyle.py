@@ -4,7 +4,7 @@ Every supplement figure is rendered at a fixed page width (PAGE_W inches) and
 embedded in the supplement at the same width, so matplotlib point sizes ARE the
 on-page point sizes — fonts are therefore identical across all figures. Panel
 letters (a, b, c…) are placed in the margin at each panel's top-left, OUTSIDE the
-content, following Fig. S2.
+content, following Supplementary Fig. 2.
 
 Font sizes (on-page points), shared by every figure:
     TITLE 10 · LABEL 9 · TICK 8 · CBAR_LABEL 9 · CBAR_TICK 8 · LEGEND 8 · LETTER 13(bold)
@@ -66,7 +66,7 @@ def style_axes(ax, *, title=None, xlabel=None, ylabel=None):
 
 def panel_title(ax, text):
     """Canonical panel/subplot title used across every supplement figure:
-    bold, TITLE size, INK color (matches Fig. S4a/b)."""
+    bold, TITLE size, INK color (matches Supplementary Fig. 4a/b)."""
     ax.set_title(text, fontsize=TITLE, fontweight="bold", color=INK)
 
 

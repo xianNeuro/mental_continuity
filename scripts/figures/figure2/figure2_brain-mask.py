@@ -4,7 +4,7 @@ figure2_brain-mask.py
    -> output/figures/figure2/figure2_brain-mask/figure2_brain-mask_<ROI>.png
 
 Cortical-surface region-of-interest (ROI) display figures for the three ROIs
-highlighted in panel 2: primary auditory cortex with peripheral fields (A1+),
+highlighted in panel 2: early auditory cortex (A1+),
 dorsolateral prefrontal cortex (dlPFC), and posterior medial cortex (PMC).
 
 Each figure paints one ROI (red) on the gray fsaverage pial surface across the
@@ -20,7 +20,7 @@ Rendering recipe:
   * render     : ``plotting.plot_surf_stat_map`` on the fsaverage5 pial mesh
                  (visible vertices), gray surface shaded by sulcal depth
                  (``bg_map=sulc``, ``darkness=1.0``) and made semi-transparent
-                 (``alpha=0.75``); the ROI is binarised and drawn as a single
+                 (``alpha=0.75``); the ROI is binarized and drawn as a single
                  flat red (no within-ROI gradient) on top
   * views      : (left, lateral), (left, medial), (right, lateral), (right, medial)
 
@@ -74,7 +74,7 @@ VIEWS = [("left", "lateral"), ("left", "medial"),
          ("right", "lateral"), ("right", "medial")]
 
 # Reference col-0 render parameters. The ROI is drawn as a UNIFORM solid red
-# (binarised, single color -> no within-ROI gradient), matching the reference.
+# (binarized, single color -> no within-ROI gradient), matching the reference.
 ROI_COLOR = "#cc1a1a"
 ROI_CMAP = ListedColormap([ROI_COLOR])
 ROI_THRESHOLD = 0.1

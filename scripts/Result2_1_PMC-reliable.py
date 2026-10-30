@@ -20,9 +20,7 @@ a one-sided sign-flip permutation test on the subject pseudo-values in
 the expected (positive) direction. Within-condition cells (IP-IP, SP-SP,
 IT-IT) shrink the LOO reference to n - 2 others during the jackknife;
 the cross-condition cell (IT-IP) deletes one IT anchor and leaves the
-IP reference group mean unchanged. The bootstrap 95% confidence interval
-on the epoch-level group means, the one-sample t/p over subject means,
-and Cohen's d remain as descriptive companions in the table.
+IP reference group mean unchanged. The 95% confidence interval is the Fisher-z group mean ± 1.96 SE; the one-sample t/p over subject means and Cohen's d remain as descriptive companions in the table.
 
 All computation and report text live in ``clean_report_engine``, shared with
 ``S7_replicate-live-storytelling.py``, so the reports stay consistent in

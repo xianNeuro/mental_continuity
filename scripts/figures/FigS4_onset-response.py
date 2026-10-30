@@ -1,4 +1,4 @@
-"""Fig. S4 — whole-brain interruption-onset response (supplement Section S2).
+"""Supplementary Fig. 4 — whole-brain interruption-onset response (supplement Supplementary Note 2).
 
   (a) native surface montage of the per-parcel onset-response t (IP/IT/SP rows,
       no view labels, title, magma scale, shared colorbar) via volcano_plot's

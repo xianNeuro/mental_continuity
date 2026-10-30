@@ -1,10 +1,10 @@
 # mental_continuity
 
-Code and data associated with the manuscript **"Cortical and Hippocampal Pathways to Mental Continuity"**
+Code and data associated with the manuscript **"A cortical background representation for mental continuity"**
 
 **Authors**: Xian Li, Hongmi Lee, and Christopher J. Honey
 
-**Archive**: A frozen version of this entire project — this repository plus the large `data/1_data/` imaging inputs that GitHub does not carry — is archived as a single Zenodo record: https://doi.org/10.5281/zenodo.22260086 (also listed in the paper's Data and materials availability statement).
+**Archive**: A frozen version of this entire project — this repository plus the large `data/1_data/` imaging inputs that GitHub does not carry — is archived as a single Zenodo record: https://doi.org/10.5281/zenodo.22260086 (also listed in the paper's Data availability statement).
 
 ---
 
@@ -96,8 +96,7 @@ redistributed for copyright reasons; their amplitude envelopes ship in
 
 `output/` mirrors `scripts/` one-to-one: each analysis script owns the folder
 named by its script stem, holding its HTML report, statistics tables, and
-figures. Every number cited in the manuscript or Supplementary Materials
-appears in one of these reports or tables. The four main-text composite
+figures. The four main-text composite
 figures land in `output/figures/figure{1-4}/`.
 
 **See**: the "Output conventions" section of
@@ -148,7 +147,7 @@ figures land in `output/figures/figure{1-4}/`.
   reconstruct the full ready-to-run project from the record alone: unzip the
   repository zip, then unzip the data zip inside its `data/` directory — see
   `data/1_data/README.md`. GitHub cloners need only the data zip.
-- **Raw and preprocessed fMRI data**: will be deposited on OpenNeuro upon
+- **Preprocessed fMRI data**: will be deposited on OpenNeuro upon
   publication of the paper; the accession will be added here and in the paper's
   availability statement at that time.
 
@@ -163,8 +162,8 @@ HTML reports rather than skipping silently.
 If you use this code or data, please cite the accompanying paper (see
 [`CITATION.cff`](CITATION.cff)):
 
-> Li, X., Lee, H., & Honey, C. J. Cortical and Hippocampal Pathways to Mental
-> Continuity.
+> Li, X., Lee, H., & Honey, C. J. A cortical background representation for
+> mental continuity.
 
 ## Contact
 

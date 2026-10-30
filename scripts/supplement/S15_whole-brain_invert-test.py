@@ -592,7 +592,7 @@ def compute_all_parcels(out_csv: Path) -> pd.DataFrame:
 def _inversion_fdr_html() -> List[str]:
     """FDR-corrected inverted-parcel counts, read from the shipped
     wb_inversion_network.csv digest, to keep the report consistent with the
-    Section S15 text. Returns HTML paragraph strings (empty if absent)."""
+    Supplementary Note 15 text. Returns HTML paragraph strings (empty if absent)."""
     import csv as _csv
     p = OUT_ROOT / "data" / "wb_inversion_network.csv"
     if not p.is_file():
@@ -622,7 +622,7 @@ def _inversion_fdr_html() -> List[str]:
                    + "; ".join(f"{k} {v}" for k, v in sel_fdr.items())
                    + " parcels")
     # Top-8 IP-IP invert-selectivity ranking (most negative matching-minus-
-    # mismatching differences), cited in Section S15.
+    # mismatching differences), cited in Supplementary Note 15.
     _lab = pd.read_csv(MENTAL_CONTINUITY_ROOT / "data" / "schaefer400net17_labels.csv")
     _top8 = (_df.merge(_lab[["parcel_id", "full_label"]], on="parcel_id")
                 .nsmallest(8, "sel_IP_IP_mean_diff"))
@@ -677,7 +677,7 @@ def _build_html(out: Path, n_pass: Dict[str, int]) -> None:
         "<title>Whole-brain story-to-interruption inversion + "
         "invert-selectivity maps</title>",
         f"<style>{css}</style></head><body>",
-        "<h1>Supplementary Section S15 (whole-brain): story-to-interruption "
+        "<h1>Supplementary Note 15 (whole-brain): story-to-interruption "
         "inversion and invert-selectivity maps</h1>",
         "<h2>Methods</h2>",
         "<p>The story-to-interruption inversion test of Result&nbsp;3.1 "

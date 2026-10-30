@@ -4,7 +4,7 @@ S12_invert-control-3_highpass-filter-off.py (GitHub paper supplement bundle)
 Control 3 for the story-to-interruption inversion. Re-runs the combined
 inversion analysis of Result 3.1 (story-story and story-interruption
 inter-subject pattern similarity across the five condition references) on
-two pre-selected regions of interest, primary auditory cortex (A1+) and
+two pre-selected regions of interest, early auditory cortex (A1+) and
 posterior medial cortex (PMC), but loaded from fMRIPrep output that has
 NOT been high-pass filtered. Specifically, the multivoxel patterns are
 read from the ``fmriprep_no-filter_resampled-3mm-space_smooth-4mm``
@@ -531,7 +531,7 @@ values.</p>
 """)
     html = f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"/>
-<title>Supplementary Section S12 (inversion control 3): no high-pass filter (3 mm space, 4 mm smoothing)</title>
+<title>Supplementary Note 12 (inversion control 3): no high-pass filter (3 mm space, 4 mm smoothing)</title>
 <style>
 body{{font-family:system-ui,sans-serif;max-width:1020px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}}
 h1{{border-bottom:2px solid #333;padding-bottom:6px;}}
@@ -549,7 +549,7 @@ tbody tr:nth-child(6){{border-top:3px solid #333;}}
 .note{{color:#555;font-size:13px;margin-top:6px;}}
 </style></head>
 <body>
-<h1>Supplementary Section S12 (inversion control 3):
+<h1>Supplementary Note 12 (inversion control 3):
 story-to-interruption inversion without high-pass filtering
 (3&nbsp;mm-resampled space, 4&nbsp;mm smoothing)</h1>
 

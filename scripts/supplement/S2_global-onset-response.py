@@ -854,8 +854,8 @@ def _write_html(per_cond_records: List[Dict[str, Any]], fig_path: Path,
         "at .05. A "
         "positive statistic marks a parcel whose signal rises at the "
         "story-to-interruption boundary, the whole-cortex counterpart of the "
-        "hippocampal boundary response reported in Result 1 (cf. Ben-Yakov "
-        "&amp; Henson, 2018; Baldassano et al., 2017).</p>")
+        "hippocampal boundary response reported in Result 1 (cf. Baldassano "
+        "et al., 2017).</p>")
 
     parts.append("<h2>Results</h2>")
     parts.append(
