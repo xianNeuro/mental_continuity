@@ -87,14 +87,13 @@ DATA_ROOT = resolve_wb_data_root()
 DERIVED_DIR = (MENTAL_CONTINUITY_ROOT / "data" / "derived" / "whole_brain"
                / SCRIPT_PATH.stem)
 # CSVs render_outputs() needs present in OUT_ROOT/data before rendering. Only
-# parcel_results.csv is strictly required (render regenerates the network /
-# gate digests from it); the rest are shipped for completeness.
+# parcel_results.csv is strictly required (render regenerates the network
+# digests from it); the rest are shipped for completeness.
 _DIGEST_CSVS = [
     "parcel_results.csv",
     "wb_reliability_network.csv",
     "wb_selectivity_network.csv",
     "wb_evolve_parcels_FDR.csv",
-    "full_profile_gate.csv",
 ]
 
 
@@ -443,7 +442,7 @@ _S2_FIG.mkdir(parents=True, exist_ok=True)
 # ----------------------------------------------------------------------------
 
 def _fdr_gate_html() -> List[str]:
-    """FDR-corrected parcel counts and the full-profile gate, read from the
+    """FDR-corrected parcel counts, read from the
     shipped per-parcel digest CSVs so the report stays consistent with the
     Section S6 text on every run. Returns HTML paragraph strings (empty if the
     digest CSVs are absent)."""
@@ -486,32 +485,6 @@ def _fdr_gate_html() -> List[str]:
             f"Selectivity (FDR &lt; 0.05): {_fmt(sel)}. "
             f"Pattern evolution (FDR &lt; 0.05, declining): {_fmt(evo_by_scheme)}.</p>"
         )
-    gate = d / "full_profile_gate.csv"
-    if not gate.is_file():
-        out.append(
-            "<p><strong>Full episodic-background profile.</strong> "
-            "The three-criterion gate table is produced by "
-            "<code>S6_full-profile-gate.py</code>; run it and re-render this "
-            "report to include that paragraph.</p>")
-    if gate.is_file():
-        rows = list(_csv.DictReader(open(gate)))
-        ipip = [r["parcel"] for r in rows if r.get("scheme") == "IP-IP"]
-        itit = [r for r in rows if r.get("scheme") == "IT-IT"]
-        if ipip:
-            out.append(
-                "<p><strong>Full episodic-background profile.</strong> "
-                "Restricting to parcels that are reliable <em>and</em> "
-                "epoch-selective <em>and</em> evolving, each at an uncorrected "
-                "permutation threshold <em>p</em>&nbsp;&lt;&nbsp;0.005, leaves "
-                f"exactly {len(ipip)} parcels in the intact-pause scheme &mdash; "
-                "the right angular gyrus (parcel&nbsp;386, default-mode network) "
-                "and a right superior-occipital / extrastriate parcel "
-                "(parcel&nbsp;221); none in the scrambled-pause or across-group "
-                "schemes, consistent with the predicted absence of narrative "
-                "integration without a coherent story. The intact-ToM scheme "
-                "(question epochs, not tabulated) yields "
-                f"{len(itit)} such parcels.</p>"
-            )
     return out
 
 

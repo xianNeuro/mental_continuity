@@ -36,7 +36,6 @@ Supplementary Materials. Each writes to `output/supplement/S{N}_{slug}/`.
 | `S4_scrambled-contents.py`                  | S4 — Is the shared interruption pattern present when the narrative is scrambled? (SP-IP and SP-IP-unscr) |
 | `S5_control-and-DMN-ROIs.py`                | S5 — Control and default-mode ROIs: reliability, selectivity, evolve |
 | `S6_whole-brain-analysis.py`                | S6 — Whole-brain Schaefer-400 reliability, selectivity, evolve |
-| `S6_full-profile-gate.py`                   | S6 (companion) — parcels passing all three criteria at p < .005 |
 | `S7_replicate-live-storytelling.py`         | S7 — Live-storytelling-narrative replication |
 | `S8_invert-replicate-live-storytelling.py`  | S8 — Story-to-interruption transformation: live-storytelling replication |
 | `S9_invert-extent.py`                       | S9 — Transformation: extent of the inversion |
@@ -112,14 +111,8 @@ data in S12/S13) to test robustness.
 `output/` mirrors `scripts/` one-to-one: each analysis script owns one folder
 named by its script stem, holding the script's HTML report at its root, its
 statistics tables under `data/`, and its rendered figures under `figures/`.
-Two refinements:
+One refinement:
 
-- **One intentional 1:1 exception.** `scripts/supplement/S6_full-profile-gate.py`
-  is a documented companion to `S6_whole-brain-analysis.py`: it reads that
-  script's `parcel_results.csv` and writes `full_profile_gate.csv` into the
-  same `output/supplement/S6_whole-brain-analysis/` folder (the two-parcel
-  full-profile result reported in Section S6). Every other analysis script
-  is strictly 1:1 with its own output folder.
 - **Cached intermediates.** Two items reuse cached intermediates shipped in
   `output/`: the main-text figure assembly and the wall surface-patch
   rendering (`_render_*/` tile caches under `output/figures/figure3/`).
