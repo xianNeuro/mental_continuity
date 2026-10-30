@@ -350,7 +350,7 @@ def selectivity_stats(pair: np.ndarray, rng: np.random.Generator) -> dict:
         ps = permuted[:, :nm].mean(axis=1) - permuted[:, nm:].mean(axis=1)
         null_means += ps
     null_means /= len(pools)
-    p_perm = float(np.mean(null_means >= obs))   # one-sided, canonical
+    p_perm = float((np.sum(null_means >= obs) + 1) / (N_PERM + 1))   # one-sided, canonical
     boot = np.empty(N_BOOT)
     for b in range(N_BOOT):
         idx = rng.integers(0, n, size=n)
@@ -409,7 +409,7 @@ def evolve_stats(pair: np.ndarray, rng: np.random.Generator) -> dict:
     permM = np.take_along_axis(M_3d, perm_idx, axis=-1)
     null_slopes = slopes_vectorized(permM)
     null_means = np.nanmean(null_slopes, axis=-1)
-    p_perm = float(np.mean(np.abs(null_means) >= abs(obs_mean)))
+    p_perm = float((np.sum(np.abs(null_means) >= abs(obs_mean)) + 1) / (N_PERM + 1))
     # Primary inference: the within-participant temporal-label
     # permutation p (preserves the leave-one-out dependence structure,
     # no across-participant independence assumption). The per-participant
@@ -572,7 +572,7 @@ def _build_html(out: Path, slugs: List[str], n_pass: Dict[str, int]) -> None:
         "per-participant OLS slope of mean ISPC against forward epoch "
         "distance d&nbsp;=&nbsp;1..8. Per-parcel inferential statistics "
         "for all three tests &mdash; reliability "
-        "&theta;&#770;<sub>z</sub>, SE, bootstrap CI, sign-flip "
+        "&theta;&#770;<sub>z</sub>, SE, 95% CI (mean &plusmn; 1.96 SE), sign-flip "
         "permutation <em>p</em>; selectivity mean diff, <em>t</em>, "
         "within-subject label-shuffle permutation <em>p</em>, bootstrap "
         "CI; evolve slope, within-subject temporal-label permutation "
@@ -643,7 +643,7 @@ def _build_html(out: Path, slugs: List[str], n_pass: Dict[str, int]) -> None:
     parts.append(
         "<p>Per-parcel results: <code>data/parcel_results.csv</code> "
         "(parcel_id, parcel_label; for each of the four conditions: "
-        "reliability mean, Fisher-z group mean and 95% bootstrap CI in "
+        "reliability mean, Fisher-z group mean and 95% CI (mean ± 1.96 SE) in "
         "Fisher-z, and the sign-flip-jackknife permutation <em>p</em>; "
         "selectivity mean diff, <em>t</em>, permutation <em>p</em> and "
         "bootstrap CI; evolve slope, temporal-label permutation "

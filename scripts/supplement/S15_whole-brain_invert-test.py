@@ -413,7 +413,7 @@ def invert_selectivity_stats(pair: np.ndarray) -> Dict[str, float]:
         ps = permuted[:, :nm].mean(axis=1) - permuted[:, nm:].mean(axis=1)
         null += ps
     null /= len(pools)
-    p_perm = float(np.mean(null <= obs))
+    p_perm = float((np.sum(null <= obs) + 1) / (N_PERM + 1))
     return dict(mean_diff=obs, mean_match=float(np.nanmean(diag)),
                 mean_mismatch=float(np.nanmean(mis)),
                 t=float(t), p_perm=p_perm, n=n)

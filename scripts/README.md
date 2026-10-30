@@ -100,7 +100,7 @@ Unless a specific result states otherwise:
 - **Interruption window:** **skip 5 TRs, use 10 TRs** (`skip5-use10`).
 - **Story window:** **10 TRs immediately pre-interruption**.
 - **Preprocessing:** **`mvp_zscore-entire`** — per-voxel z-score across the full timecourse (every acquired TR of the run, including the free-association periods).
-- **Permutation p-values:** N = 10,000 iterations throughout. The ROI analyses report the Monte-Carlo-corrected form (k + 1)/(N + 1) (minimum reportable p = 1/10001 ≈ 1.0e-4); the whole-brain per-parcel tests (S6/S15) report the plain null proportion k/N, to which the FDR correction is then applied.
+- **Permutation p-values:** N = 10,000 iterations throughout. The ROI analyses report the Monte-Carlo-corrected form (k + 1)/(N + 1) (minimum reportable p = 1/10001 ≈ 1.0e-4); the whole-brain per-parcel tests (S6/S15) use the same form.
 
 Each script's docstring states its analysis parameters and notes any deviation
 (many under an explicit *Analysis spec* heading). Supplement replications vary
