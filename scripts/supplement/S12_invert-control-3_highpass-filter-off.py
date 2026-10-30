@@ -39,7 +39,7 @@ Result&nbsp;3.1.
 The analysis windows, similarity measure (template-MVP Pearson
 correlation per epoch), the five inter-subject schemes, statistics, and
 report layout are otherwise IDENTICAL to Result 3.1 (its cell
-computation, statistics, and plotting are imported and reused). These data come from a separate fMRIPrep re-preprocessing with no temporal high-pass filter or nuisance regression, whereas S11_invert-control-2_separate-zscore.py (recipe 2) and Result 3.1 (recipe 1) use the primary FSL data.
+computation, statistics, and plotting are imported and reused). These data come from a separate fMRIPrep re-preprocessing with no temporal high-pass filter, whereas S11_invert-control-2_separate-zscore.py (recipe 2) and Result 3.1 (recipe 1) use the primary FSL data.
 
 The report also carries the prior question, epoch selectivity: without a
 high-pass filter, does the interruption pattern still carry epoch-specific
@@ -557,7 +557,7 @@ story-to-interruption inversion without high-pass filtering
 <p>This is a preprocessing control for Result&nbsp;3.1: the analysis
 windows, the pattern-similarity measure, the five inter-subject
 schemes, the statistics, and the report layout are identical to those
-used there; the preprocessing differs: the data were re-preprocessed with fMRIPrep, with no temporal high-pass filter or nuisance regression, whereas the comparison data come from the primary FSL pipeline. Specifically,
+used there; the preprocessing differs: the data were re-preprocessed with fMRIPrep, with no temporal high-pass filter, whereas the comparison data come from the primary FSL pipeline. Specifically,
 the multivoxel patterns were read from the fMRIPrep preprocessed output
 resampled to 3&nbsp;mm isotropic space with spatial smoothing
 (4&nbsp;mm Gaussian kernel) but without any high-pass filtering (no DCT,

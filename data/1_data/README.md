@@ -3,7 +3,7 @@
 Every neural analysis in this repository reads its imaging input from this
 folder: region-of-interest (ROI) multivoxel-pattern matrices, whole-brain
 parcel timecourses, an unfiltered-preprocessing variant, and the audio
-amplitude envelopes. All extractions except the no-filter control start from the primary FSL preprocessing (motion correction, 140 s high-pass filter, registration to the MNI template, 4 mm FWHM smoothing, 3 mm isotropic voxels). The `fmriprep_no-filter_…` folder comes from the separate fMRIPrep control pipeline. Each subfolder name is the
+amplitude envelopes. All extractions except the no-filter control start from the primary FSL preprocessing (motion correction, 140 s high-pass filter, 4 mm FWHM smoothing, then registration to the MNI template and resampling to 3 mm isotropic voxels). The `fmriprep_no-filter_…` folder comes from the separate fMRIPrep control pipeline. Each subfolder name is the
 `processing_level` token that `scripts/helper/data_structure.py::find_file`
 resolves.
 
@@ -112,7 +112,7 @@ the analyses that must apply their own normalization:
 ### `fmriprep_no-filter_resampled-3mm-space_smooth-4mm/` — the no-high-pass variant (176 files)
 
 Per-subject CSV matrices (`sub-XXX_{task}_{ROI}-3mm_mvp.csv`, TR x voxel) for
-A1+ and PMC, extracted from the separate fMRIPrep 25.2.3 re-preprocessing, with no high-pass filtering or nuisance regression, resampled to 3 mm space with 4 mm spatial
+A1+ and PMC, extracted from the separate fMRIPrep 25.2.3 re-preprocessing, with no high-pass filtering, resampled to 3 mm space with 4 mm spatial
 smoothing. These exist to answer one supplement question: is the
 story-to-interruption pattern inversion an artifact of temporal high-pass
 filtering? `S12_invert-control-3_highpass-filter-off.py` re-runs the
