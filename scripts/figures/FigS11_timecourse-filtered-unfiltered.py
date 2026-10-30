@@ -96,7 +96,7 @@ def build():
     fig.legend(handles, labels, frameon=False, fontsize=S.LEGEND, ncol=3,
                loc="lower center", bbox_to_anchor=(0.5, 0.045))
     fig.suptitle("PMC story-to-interruption similarity time course:\n"
-                 "filtered vs unfiltered (no high-pass) fMRIPrep data",
+                 "filtered FSL data vs unfiltered (no high-pass) fMRIPrep data",
                  fontsize=S.TITLE, fontweight="bold", y=1.00)
     for ext in ("png", "svg", "pdf"):
         fig.savefig(OUT.with_suffix(f".{ext}"), dpi=S.DPI, bbox_inches="tight", pad_inches=0.02)

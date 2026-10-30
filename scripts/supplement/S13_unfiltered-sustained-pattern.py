@@ -321,7 +321,7 @@ def _figure(results: Dict[str, dict]) -> None:
     ]
     fig.legend(handles=handles, loc="lower center", ncol=3, frameon=False,
                fontsize=10, bbox_to_anchor=(0.5, -0.005))
-    fig.suptitle("PMC story-to-interruption similarity time course: filtered vs unfiltered "
+    fig.suptitle("PMC story-to-interruption similarity time course: filtered FSL data vs unfiltered "
                  "(no high-pass) fMRIPrep data", fontsize=14, fontweight="bold")
     fig.tight_layout(rect=(0, 0.03, 1, 0.975))
     png = FIG_DIR / f"{FIG_STEM}.png"
