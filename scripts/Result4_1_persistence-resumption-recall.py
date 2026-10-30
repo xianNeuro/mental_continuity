@@ -193,7 +193,8 @@ def summarize_model(
             label_t = LABEL.get(term, term)
         rows.append(
             {"term": term, "label": label_t, "kind": kind,
-             "b": b, "se": se, "t": t, "p": p}
+             "b": b, "se": se, "t": t, "p": p,
+             "ci_lo": float(res.conf_int().loc[term, 0]), "ci_hi": float(res.conf_int().loc[term, 1])}
         )
     return {
         "label": label,
@@ -232,12 +233,12 @@ def render_paper_stats_txt(summaries: Sequence[Dict[str, object]]) -> str:
         lines.append(f"=== {s['label']} ===")
         lines.append(f"  Formula: {s['formula']}   |   n rows = {s['n']}")
         lines.append(f"  Model R² = {s['r2']:.4f}   adj R² = {s['r2_adj']:.4f}")
-        lines.append(f"  {'Predictor':<32}  {'β':>10}  {'SE':>10}  {'t':>8}  {'p':>10}")
-        lines.append(f"  {'-'*32:<32}  {'-'*10:>10}  {'-'*10:>10}  {'-'*8:>8}  {'-'*10:>10}")
+        lines.append(f"  {'Predictor':<32}  {'β':>10}  {'SE':>10}  {'t':>8}  {'p':>10}  95% CI")
+        lines.append(f"  {'-'*32:<32}  {'-'*10:>10}  {'-'*10:>10}  {'-'*8:>8}  {'-'*10:>10}  {'-'*20}")
         for r in s["rows"]:
             label = r["label"]
             b, se, t, p = r["b"], r["se"], r["t"], r["p"]
-            lines.append(f"  {label:<32.32}  {b:>10.4g}  {se:>10.4g}  {t:>8.3f}  {p:>10.4g}")
+            lines.append(f"  {label:<32.32}  {b:>10.4g}  {se:>10.4g}  {t:>8.3f}  {p:>10.4g}  [{r['ci_lo']:.4g}, {r['ci_hi']:.4g}]")
         lines.append("")
 
     return "\n".join(lines)
