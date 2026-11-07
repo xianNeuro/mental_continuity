@@ -4,7 +4,7 @@ Code and data associated with the manuscript **"A cortical background representa
 
 **Authors**: Xian Li, Hongmi Lee, and Christopher J. Honey
 
-**Archive**: A frozen version of this entire project — this repository plus the large `data/1_data/` imaging inputs that GitHub does not carry — is archived as a single Zenodo record: https://doi.org/10.5281/zenodo.22260086 (also listed in the paper's Data availability statement).
+**Archive**: A frozen version of this entire project — this repository plus the large `data/1_data/` imaging inputs that GitHub does not carry — is archived as a single Zenodo record: https://doi.org/10.5281/zenodo.24042031 (also listed in the paper's Data availability statement).
 
 ---
 
@@ -116,7 +116,7 @@ figures land in `output/figures/figure{1-4}/`.
 2. **Get the imaging inputs.** The GitHub repository tracks everything except
    `data/1_data/` (9.1 GB — over GitHub's per-file size limit). Download the
    data archive from the Zenodo record
-   (https://doi.org/10.5281/zenodo.22260086) and unzip it so it forms
+   (https://doi.org/10.5281/zenodo.24042031) and unzip it so it forms
    `data/1_data/`; the scripts pick it up with no code change.
 
 3. **Run any analysis script** from its own folder:
@@ -140,8 +140,8 @@ figures land in `output/figures/figure{1-4}/`.
 - **This repository (GitHub)**: all code, outputs, and small data (~0.4 GB) —
   everything except the large imaging inputs in `data/1_data/`.
 - **Zenodo (frozen archive)**: this repository is archived as a frozen
-  version in a single Zenodo record, https://doi.org/10.5281/zenodo.22260086,
-  holding two files: `mental_continuity-1.0.0.zip` (this repository,
+  version in a single Zenodo record, https://doi.org/10.5281/zenodo.24042031,
+  holding two files: `mental_continuity-1.1.0.zip` (this repository,
   exactly as on GitHub) and `1_data.zip` (the
   large `data/1_data/` imaging inputs that GitHub does not carry). To
   reconstruct the full ready-to-run project from the record alone: unzip the

@@ -19,6 +19,10 @@ authors:
     affiliation: >-
       Department of Psychological and Brain Sciences, Johns Hopkins University
 license: MIT
+version: 1.1.0
+doi: 10.5281/zenodo.24042031
+date-released: 2026-11-07
+repository-code: "https://github.com/xianNeuro/mental_continuity"
 preferred-citation:
   type: article
   title: "A cortical background representation for mental continuity"

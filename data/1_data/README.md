@@ -15,11 +15,11 @@ The folder has two kinds of content:
    subfolders (Section 2 below). **To run the analysis scripts, download
    them from the Zenodo archive and place them here**, as follows: get
    `1_data.zip` from the Zenodo record
-   https://doi.org/10.5281/zenodo.22260086 (also listed in the paper's Data availability statement, reference 55) and
+   https://doi.org/10.5281/zenodo.24042031 (also listed in the paper's Data availability statement, reference 55) and
    unzip it inside the repository's `data/` directory — the zip unpacks as
    `1_data/…`, so its contents merge into this folder and produce exactly
    the tree shown in Section 2. (The same Zenodo record also archives the repository itself as
-   `mental_continuity-1.0.0.zip`, so the record alone reconstructs the
+   `mental_continuity-1.1.0.zip`, so the record alone reconstructs the
    full project: unzip the repository zip, then unzip the data zip inside
    its `data/` directory.) Until then, any script needing these
    inputs stops with a `FileNotFoundError` naming this folder.
