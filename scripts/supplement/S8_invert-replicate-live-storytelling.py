@@ -34,7 +34,6 @@ Outputs (under output/supplement/S8_invert-replicate-live-storytelling/):
 
 from __future__ import annotations
 
-import importlib.util
 import sys
 from pathlib import Path
 
@@ -59,19 +58,10 @@ _WALL_CBRNG = 4                     # color range +/- 0.4
 _WALL_HEMI = "left"
 
 
-def _load_result_module(slug: str):
-    """Import a Result3 engine module from mental_continuity/scripts/ by path."""
-    path = MENTAL_CONTINUITY_ROOT / "scripts" / f"{slug}.py"
-    spec = importlib.util.spec_from_file_location(slug.replace("-", "_"), str(path))
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-# Reuse the three Result 3 engines unchanged.
-R31 = _load_result_module("Result3_1_PMC-story-to-int_invert")
-R32 = _load_result_module("Result3_2_PMC-story-to-int_invert-selective")
-R33 = _load_result_module("Result3_3_PMC-story-to-int_undershoot")
+# Reuse the three Result 3 engines (scripts/helper/) unchanged.
+import invert_story_int as R31  # noqa: E402
+import invert_selective as R32  # noqa: E402
+import undershoot_engine as R33  # noqa: E402
 
 # Point each engine at the live-storytelling narrative. Every windowing / similarity /
 # inference constant is left exactly as in the main-narrative Result 3.
@@ -264,7 +254,7 @@ def build_combined_report(out_root: Path, inv_stats, sel_stats, und_stats) -> No
 
     html = f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"/>
-<title>Supplementary Section: live-storytelling replication of the PMC story-to-interruption inversion</title>
+<title>Supplementary Note 8: live-storytelling replication of the PMC story-to-interruption inversion</title>
 <style>
 body{{font-family:system-ui,sans-serif;max-width:1080px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}}
 h1{{border-bottom:2px solid #333;padding-bottom:6px;}}

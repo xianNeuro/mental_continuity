@@ -72,11 +72,11 @@ def _load_module_from_path(name: str, path: Path) -> Any:
 
 
 def _load_result1_2() -> Any:
-    """Load Result1_2_global-ISC.py from the bundle scripts dir; expose its helpers."""
-    path = MAIN_SCRIPTS_DIR / "Result1_2_global-ISC.py"
-    if not path.is_file():
-        raise FileNotFoundError(f"Expected Result1_2_global-ISC.py at {path}")
-    return _load_module_from_path("result1_2_global_isc", path)
+    """Return the Result1_2 engine (scripts/helper/global_isc_engine.py)."""
+    if str(HELPER_DIR) not in sys.path:
+        sys.path.insert(0, str(HELPER_DIR))
+    import global_isc_engine
+    return global_isc_engine
 
 
 def _ensure_dirs() -> None:

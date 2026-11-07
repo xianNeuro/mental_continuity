@@ -13,7 +13,6 @@ and, lazily, on the Result3_1 loader.
 """
 from __future__ import annotations
 
-import importlib.util
 import sys
 from pathlib import Path
 from typing import Dict, List, Tuple
@@ -69,10 +68,8 @@ _R31 = None
 def _r31():
     global _R31
     if _R31 is None:
-        path = MENTAL_CONTINUITY_ROOT / "scripts" / "Result3_1_PMC-story-to-int_invert.py"
-        spec = importlib.util.spec_from_file_location("result3_1_pmc_story_to_int_invert", str(path))
-        _R31 = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(_R31)
+        import invert_story_int as _R31_mod   # engine of Result3_1 (this folder)
+        _R31 = _R31_mod
     return _R31
 
 

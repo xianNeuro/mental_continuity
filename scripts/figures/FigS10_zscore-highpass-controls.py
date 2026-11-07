@@ -1,5 +1,5 @@
 """Supplementary Fig. 10 — normalization and preprocessing controls for the PMC
-story-to-interruption inversion (combines supplement Sections S11 and S12).
+story-to-interruption inversion (combines Supplementary Notes 11 and 12).
 
   (a) phase-wise z-score control (each voxel z-scored within story / interruption
       phases; filtered main-pipeline data) — Supplementary Note 11;

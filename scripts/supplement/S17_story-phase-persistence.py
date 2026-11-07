@@ -232,7 +232,7 @@ def render_html_report(summaries: Sequence[Dict[str, object]],
         parts.append(f"<h2>{html_mod.escape(str(s['label']))}</h2>")
         parts.append(f"<p><code>{html_mod.escape(pretty_formula(str(s['formula'])))}</code></p>")
         parts.append("<table><thead><tr>"
-                     "<th>Term</th><th>&beta;</th><th>SE</th>"
+                     "<th>Term</th><th><i>b</i></th><th>SE</th>"
                      "<th><i>t</i></th><th><i>p</i></th><th>95% CI</th>"
                      "</tr></thead><tbody>")
         parts.extend(rows_html)
@@ -262,7 +262,7 @@ def render_html_report(summaries: Sequence[Dict[str, object]],
                     f"<figcaption>Condition-adjusted scatter for the model above. "
                     f"Both axes are residualized against the condition fixed effect "
                     f"(each value minus its within-condition mean); the dashed line "
-                    f"is the within-condition fit whose slope equals the &beta; for "
+                    f"is the within-condition fit whose slope equals the <i>b</i> for "
                     f"{html_mod.escape(pred_label.lower())} reported in the table. "
                     f"Marker colors label the conditions (IP, IT, SP).</figcaption>"
                     f"</figure>"
@@ -293,7 +293,7 @@ def scatter_predictor_vs_outcome(df: pd.DataFrame, predictor: str, outcome: str,
         slope, intercept = np.polyfit(xv, yv, 1)
         xs = np.linspace(np.nanmin(xv), np.nanmax(xv), 50)
         ax.plot(xs, intercept + slope * xs, color="#333", lw=1.4, ls="--", alpha=0.85,
-                label=f"within-condition fit (β = {slope:+.3f})")
+                label=f"within-condition fit (b = {slope:+.3f})")
     ax.set_xlabel(f"{LABEL.get(predictor, predictor)}\n(condition-adjusted residuals)", fontsize=9)
     ax.set_ylabel(f"{LABEL.get(outcome, outcome)}\n(condition-adjusted residuals)", fontsize=8)
     ax.set_title(f"{LABEL.get(outcome, outcome)}\nvs {LABEL.get(predictor, predictor)}",

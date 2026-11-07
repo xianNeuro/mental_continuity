@@ -812,7 +812,7 @@ def _write_html(per_cond_records: List[Dict[str, Any]], fig_path: Path,
     parts: List[str] = []
     parts.append(
         "<!DOCTYPE html><html><head><meta charset='utf-8'/>"
-        f"<title>{SCRIPT_PATH.stem} — Supplementary Section: whole-brain "
+        f"<title>{SCRIPT_PATH.stem} — Supplementary Note 2: whole-brain "
         "interruption-onset response</title>"
         "<style>"
         "body{font-family:system-ui,sans-serif;max-width:1020px;margin:24px auto;line-height:1.55;color:#1a1a1a;padding:0 16px;}"
@@ -825,7 +825,7 @@ def _write_html(per_cond_records: List[Dict[str, Any]], fig_path: Path,
         ".note{color:#555;font-size:13px;margin-top:6px;}"
         "</style></head><body>")
 
-    parts.append("<h1>Supplementary Section &mdash; Whole-brain "
+    parts.append("<h1>Supplementary Note 2 &mdash; Whole-brain "
                  "interruption-onset response across conditions</h1>")
 
     # ---- Methods ----

@@ -59,7 +59,6 @@ inversion table + bar plot for each (recipe, ROI) cell (four cells in
 
 from __future__ import annotations
 
-import importlib.util
 import sys
 from pathlib import Path
 from typing import Dict, List
@@ -88,39 +87,21 @@ import clean_report_engine as eng
 from roi_subject_exclusions import apply_roi_subject_exclusions
 
 
-def _load_module(slug: str):
-    path = MENTAL_CONTINUITY_ROOT / "scripts" / f"{slug}.py"
-    spec = importlib.util.spec_from_file_location(slug.replace("-", "_"), str(path))
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
 # ``get_valid_subject_ids`` comes from the shared helper in
 # scripts/helper/, which resolves the shipped cohort tables under
 # ``mental_continuity/data/cohort/`` (fsl_preproc.xlsx,
 # exclusion_criteria.xlsx), so this script runs fully from this
 # repository.
 
-# Reuse the Result 3.1 invert-test engine (cell compute, statistics, plot).
-R31 = _load_module("Result3_1_PMC-story-to-int_invert")
+# Reuse the Result 3.1 invert-test engine (scripts/helper/invert_story_int.py:
+# cell compute, statistics, plot).
+import invert_story_int as R31  # noqa: E402
 
-
-def _load_supplement_module(slug: str):
-    path = MENTAL_CONTINUITY_ROOT / "scripts" / "supplement" / f"{slug}.py"
-    spec = importlib.util.spec_from_file_location(
-        slug.replace("-", "_"), str(path)
-    )
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-# Reuse the separate-phase z-score recipe from S11_invert-control-2 so this
-# script and that one apply IDENTICAL standardization (only the source
-# differs: raw fMRIprep no-filter smoothed CSV here vs. mvp_raw there).
-S3C1 = _load_supplement_module("S11_invert-control-2_separate-zscore")
-_split_zscore = S3C1._split_zscore
+# Reuse the separate-phase z-score recipe (scripts/helper/phase_zscore.py) that
+# S11_invert-control-2 also uses, so both scripts apply IDENTICAL
+# standardization (only the source differs: raw fMRIPrep no-filter smoothed
+# CSV here vs. mvp_raw there).
+from phase_zscore import split_zscore as _split_zscore  # noqa: E402
 
 _TASK = "carver"
 _ROIS: List[str] = ["A1+", "PMC"]        # paper-facing labels; A1+ reported first

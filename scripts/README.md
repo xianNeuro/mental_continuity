@@ -38,7 +38,7 @@ Supplementary Information. Each writes to `output/supplement/S{N}_{slug}/`.
 | `S6_whole-brain-analysis.py`                | S6 — Whole-brain Schaefer-400 reliability, selectivity, evolve |
 | `S7_replicate-live-storytelling.py`         | S7 — Live-storytelling-narrative replication |
 | `S8_invert-replicate-live-storytelling.py`  | S8 — Story-to-interruption transformation: live-storytelling replication |
-| `S9_invert-extent.py`                       | S9 — Transformation: extent of the inversion |
+| `S9_invert-extent.py`                       | S9 — Transformation: magnitude of the inversion |
 | `S10_invert-control-1_hrf-undershoot.py`    | S10 — Transformation control: hemodynamic undershoot |
 | `S11_invert-control-2_separate-zscore.py`   | S11 — Transformation control: phase-wise z-score |
 | `S12_invert-control-3_highpass-filter-off.py` | S12 — Transformation control: high-pass filter off |
@@ -51,7 +51,7 @@ Supplementary Information. Each writes to `output/supplement/S{N}_{slug}/`.
 One additional supplement script sits outside the `S{N}` numbering:
 `scripts/supplement/methods_tom-probe-accuracy.py` computes the behavioral
 accuracy on the theory-of-mind probe questions of the IT condition reported in
-the Supplementary Information **Methods** (17 questions in the main narrative,
+the main-text **Methods** (17 questions in the main narrative,
 11 in the second narrative), from the scored responses shipped in
 `data/beh/tom_probe_scores.csv`. It writes to
 `output/supplement/methods_tom-probe-accuracy/` (1:1, like every other script).
@@ -75,6 +75,21 @@ compare their re-derivation against the shipped values. The canonical files
 remain the source of truth for `Result4_1`; the derivation scripts document
 the computation and reproduce values within numerical tolerance; each
 recipe's `comparison_vs_canonical.txt` quantifies the difference per column.
+
+Analysis engines shared between a main-text script and supplement scripts also
+live here, so that every analysis script depends only on `scripts/helper/`:
+
+| Engine | Entry-point script | Also used by |
+|---|---|---|
+| `global_isc_engine.py`      | `Result1_2_global-ISC.py`                       | S1, `whole_brain_digests.py` |
+| `invert_story_int.py`       | `Result3_1_PMC-story-to-int_invert.py`          | S8, S9, S11, S12, `invert_geometry.py` |
+| `invert_selective.py`       | `Result3_2_PMC-story-to-int_invert-selective.py`| S8, S11 |
+| `undershoot_engine.py`      | `Result3_3_PMC-story-to-int_undershoot.py`      | S8, S10 |
+| `persistence_regression.py` | `Result4_1_persistence-resumption-recall.py`    | S16 |
+| `phase_zscore.py`           | (phase-wise z-scoring)                          | S11, S12 |
+
+Each entry-point script keeps its command-line interface and writes to the same
+`output/` folder as before.
 
 ## ROI naming
 

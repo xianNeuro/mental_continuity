@@ -97,6 +97,43 @@ _DIGEST_CSVS = [
 ]
 
 
+ATLAS_LABELS_CSV = MENTAL_CONTINUITY_ROOT / "data" / "schaefer400net17_labels.csv"
+
+
+def _atlas_parcel_label(pid: int) -> str:
+    """Parcel label "<id>_<full Schaefer label>" from the repository's single
+    Schaefer-400 (17-network) label table, shared with S1, S2 and S15."""
+    if not hasattr(_atlas_parcel_label, "_tab"):
+        tab = pd.read_csv(ATLAS_LABELS_CSV)
+        _atlas_parcel_label._tab = dict(zip(tab["parcel_id"].astype(int),
+                                            tab["full_label"].astype(str)))
+    return f"{int(pid)}_{_atlas_parcel_label._tab[int(pid)]}"
+
+
+def _harmonize_parcel_labels(csv_path: Path) -> None:
+    """Rewrite the parcel_label column of a per-parcel results CSV from the
+    shared label table. Only that column's text is replaced; every other
+    field is written back exactly as read (no float re-formatting)."""
+    import csv
+    if not csv_path.is_file():
+        return
+    with open(csv_path, newline="") as fh:
+        rows = list(csv.reader(fh))
+    if not rows or "parcel_label" not in rows[0]:
+        return
+    i_id, i_lab = rows[0].index("parcel_id"), rows[0].index("parcel_label")
+    changed = False
+    for r in rows[1:]:
+        lab = _atlas_parcel_label(int(r[i_id]))
+        if r[i_lab] != lab:
+            r[i_lab] = lab
+            changed = True
+    if changed:
+        with open(csv_path, "w", newline="") as fh:
+            csv.writer(fh, lineterminator="\n").writerows(rows)
+        print(f"  parcel labels harmonized with {ATLAS_LABELS_CSV.name}: {csv_path}")
+
+
 def _ensure_digest_csvs() -> None:
     """Copy shipped per-parcel digest CSV(s) from DERIVED_DIR into
     OUT_ROOT/data if not already present, so the render stage can run with
@@ -600,7 +637,9 @@ def _build_html(out: Path, slugs: List[str], n_pass: Dict[str, int]) -> None:
         '  <div class="row-label">Row 2 &mdash; t-statistic at parcels '
         'with an uncorrected permutation <em>p</em>&nbsp;&lt;&nbsp;0.10 in '
         'the hypothesized direction (selectivity: positive; evolve: '
-        'negative; black PMC outline)</div>'
+        'negative; black PMC outline). These maps are not restricted to '
+        'reliable parcels; Supplementary Fig. 6 (FigS6_wholebrain-pmc-profile-search.py) '
+        'additionally keeps only parcels reliable at sign-flip <em>p</em>&nbsp;&lt;&nbsp;0.05.</div>'
     )
     for slug in slugs:
         col_label = slug.replace("_", " ")
@@ -633,7 +672,7 @@ def _build_html(out: Path, slugs: List[str], n_pass: Dict[str, int]) -> None:
 # ----------------------------------------------------------------------------
 
 def render_outputs() -> None:
-    """Three-row whole-brain layout. Every brain map is restricted to
+    """Three-row whole-brain layout. Row 1 maps are restricted to
     parcels that pass own-condition reliability (one-sided sign-flip
     permutation p on jackknife pseudo-values from the Fisher-z group
     mean, p < ALPHA in the expected positive direction). The PMC region of
@@ -645,10 +684,13 @@ def render_outputs() -> None:
              (condition x measure) cell.
       Row 2: parcels whose own permutation test reaches an uncorrected
              p < ROW2_P_THRESH in the hypothesized direction (selectivity
-             panels: positive; evolve panels including SP-SP: negative).
+             panels: positive; evolve panels including SP-SP: negative);
+             not reliability-gated (Supplementary Fig. 6, rendered by
+             FigS6_wholebrain-pmc-profile-search.py, adds that gate).
              Same vmax as the matching row-1 panel for direct visual
              comparison.
     """
+    _harmonize_parcel_labels(OUT_ROOT / "data" / "parcel_results.csv")
     df = (pd.read_csv(OUT_ROOT / "data" / "parcel_results.csv")
             .sort_values("parcel_id").reset_index(drop=True))
 
@@ -922,9 +964,7 @@ def main() -> None:
         pair_for_cond = {"IP-IP": ip_pair, "SP-SP": sp_pair,
                           "IT-IT": it_pair, "IT-IP": cross_pair}
         row: Dict[str, Any] = {"parcel_id": int(pid),
-                               "parcel_label":
-                                   ip_files[pid].name.split("_parcel_")[1]
-                                   .split("_schaefer400_shape_")[0]}
+                               "parcel_label": _atlas_parcel_label(pid)}
         # Reliability uses the Fisher-z + sign-flip-jackknife inference
         # via the engine. Selectivity / evolve keep their existing primary
         # tests (within-subject label-shuffle permutation) since those are

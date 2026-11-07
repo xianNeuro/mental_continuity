@@ -38,7 +38,7 @@ mental_continuity/
 ├── scripts/                    # analysis scripts
 │   ├── README.md               # script-by-script documentation
 │   ├── Result{N}_{sub}_{slug}.py   # main paper analyses, numbered by paper sequence
-│   ├── supplement/             # supplement analyses (S{N}_{slug}.py, sections S1–S17)
+│   ├── supplement/             # supplement analyses (S{N}_{slug}.py, Supplementary Notes 1–17)
 │   ├── figures/                # figure-assembly scripts (figure{1-4}/…, FigS{1-13}_…)
 │   └── helper/                 # shared helpers + derive_*.py provenance recipes
 │
@@ -68,7 +68,7 @@ mental_continuity/
 
 Main paper analyses (`Result{N}_{sub}_{slug}.py`, numbered by the sequence they
 appear in the paper), supplement analyses (`supplement/S{N}_{slug}.py`, one per
-supplementary section S1–S17), figure assembly (`figures/`), and shared
+Supplementary Note 1–17), figure assembly (`figures/`), and shared
 helpers plus the provenance recipes that rebuild the Result 4 regression
 inputs (`helper/`).
 
@@ -168,7 +168,7 @@ If you use this code or data, please cite the accompanying paper (see
 ## Contact
 
 For questions about the code, data, or analyses, please open an issue on
-GitHub or contact xianl.cogneuro@gmail.com.
+GitHub or contact xli239@jhu.edu.
 
 ## License
 

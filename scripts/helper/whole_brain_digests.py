@@ -203,13 +203,9 @@ _NET_ORDER = [
 
 
 def _load_result1_2():
-    """Load Result1_2 for its Schaefer-400 label lookup and network->system map."""
-    here = Path(__file__).resolve()
-    r12_path = here.parent.parent / "Result1_2_global-ISC.py"
-    spec = importlib.util.spec_from_file_location("_r12_for_wb_digests", str(r12_path))
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
+    """Return the Result1_2 engine for its Schaefer-400 label lookup and network->system map."""
+    import global_isc_engine
+    return global_isc_engine
 
 
 def _bh_fdr(p: np.ndarray) -> np.ndarray:

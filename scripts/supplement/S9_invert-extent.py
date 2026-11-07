@@ -38,7 +38,6 @@ helpers from the bundle's ``scripts/helper/`` (read-only); MVP inputs from
 
 from __future__ import annotations
 
-import importlib.util
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -52,17 +51,9 @@ if str(MENTAL_CONTINUITY_ROOT / "scripts" / "helper") not in sys.path:
     sys.path.insert(0, str(MENTAL_CONTINUITY_ROOT / "scripts" / "helper"))
 
 
-def _load_module(slug: str, subdir: str = ""):
-    base = MENTAL_CONTINUITY_ROOT / "scripts"
-    path = (base / subdir / f"{slug}.py") if subdir else (base / f"{slug}.py")
-    spec = importlib.util.spec_from_file_location(slug.replace("-", "_"), str(path))
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)  # type: ignore[union-attr]
-    return mod
-
-
-# Reuse the Result 3.1 inversion engine and the invert_geometry helper.
-R31 = _load_module("Result3_1_PMC-story-to-int_invert")
+# Reuse the Result 3.1 inversion engine (scripts/helper/invert_story_int.py)
+# and the invert_geometry helper.
+import invert_story_int as R31  # noqa: E402
 import invert_geometry as ORTHO   # shared inversion-geometry helper
 
 TASK = "carver"
@@ -282,12 +273,12 @@ def build_report(out_root: Path) -> None:
     stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
     html = f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"/>
-<title>Supplement S9: extent of the PMC story-to-interruption inversion</title>
+<title>Supplementary Note 9: magnitude of the PMC story-to-interruption inversion</title>
 {CSS}</head><body>
-<h1>Supplement S9 &mdash; the extent of the PMC story-to-interruption inversion</h1>
+<h1>Supplementary Note 9 &mdash; magnitude of the PMC story-to-interruption inversion</h1>
 <p class="note">Posterior medial cortex (PMC); inter-subject pattern
 correlation (ISPC); main narrative; PMC voxels from the project's
-anatomical PMC mask, per-voxel timecourses z-scored across the entire run.
+PMC mask (built from Schaefer 400-parcel, 17-network atlas parcels), per-voxel timecourses z-scored across the entire run.
 Generated {stamp}.</p>
 
 <h2>Overview</h2>

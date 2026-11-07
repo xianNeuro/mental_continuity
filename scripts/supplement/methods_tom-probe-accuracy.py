@@ -4,7 +4,7 @@ methods_tom-probe-accuracy.py
 
 Behavioral accuracy on the theory-of-mind (ToM) probe questions asked during
 the interruption epochs of the intact-ToM (IT) condition, reported in the
-Supplementary Information Methods ("Theory-of-mind probes (IT condition)").
+main-text Methods (theory-of-mind interruptions in the IT condition).
 Participants assigned to IT heard a short situational-reasoning vignette (adapted from a false-belief localizer) in each
 interruption epoch, followed by a single yes/no question answered by button
 press: 17 questions in the main narrative (Carver) and 11 in the second

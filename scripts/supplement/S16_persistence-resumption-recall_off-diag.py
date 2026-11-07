@@ -43,14 +43,14 @@ persistence predictor in the exact Result 4 models —
 
 — ordinary least squares with condition fixed effect and per-participant
 observations (reusing Result4_1's loaders and fit). The predictor is z-scored
-within the fitted sample so the standardized β is comparable across variants.
-We report, per variant and outcome, the PMC β (± SE), t and two-sided p,
-and plot β against the minimum retained lag.
+within the fitted sample so the standardized b is comparable across variants.
+We report, per variant and outcome, the PMC b (± SE), t and two-sided p,
+and plot b against the minimum retained lag.
 
 Outputs (under output/supplement/S16_persistence-resumption-recall_off-diag/):
   - data/offdiag_persistence_per-subject.csv      per-participant persistence, every variant
-  - data/offdiag_regression_stats.csv             PMC β/SE/t/p per variant × outcome
-  - figures/S16_offdiag_beta-vs-lag.png        β vs minimum retained lag (both outcomes)
+  - data/offdiag_regression_stats.csv             PMC b/SE/t/p per variant × outcome
+  - figures/S16_offdiag_beta-vs-lag.png        b vs minimum retained lag (both outcomes)
   - figures/S16_scatter_*.png                  condition-adjusted scatters at selected lags
   - S16_persistence-resumption-recall_off-diag.html
 
@@ -110,7 +110,7 @@ def _load_module(name: str, path: Path):
 # Result4_1: reuse its per-subject loaders, pooled OLS fit, and
 # condition-adjusted scatter so the regression is identical to the main result
 # and only the persistence predictor changes.
-R41 = _load_module("result4_1_main", MAIN_SCRIPTS_DIR / "Result4_1_persistence-resumption-recall.py")
+import persistence_regression as R41  # noqa: E402  (scripts/helper/; engine of Result4_1)
 # TTC engine: computes the same inter-subject quad5 block that derives
 # Result 4's persistence.
 ENG = _load_module("ttc_quad_engine", HELPER_DIR / "_ttc_quad_engine.py")
@@ -271,9 +271,9 @@ def _plot_beta_vs_lag(stats: pd.DataFrame, out_path: Path) -> None:
         # reference bands
         ax.axhline(0, color="#aaa", lw=0.8)
         ax.axhline(full.beta, color="#c0392b", ls="--", lw=1.3,
-                   label=f"full block ({int(full.n_cells)} cells; β={full.beta:+.2f}, p={full.p:.3g})")
+                   label=f"full block ({int(full.n_cells)} cells; b={full.beta:+.2f}, p={full.p:.3g})")
         ax.axhline(diag.beta, color="#7f8c8d", ls=":", lw=1.3,
-                   label=f"diagonal only ({int(diag.n_cells)} cells; β={diag.beta:+.2f}, p={diag.p:.3g})")
+                   label=f"diagonal only ({int(diag.n_cells)} cells; b={diag.beta:+.2f}, p={diag.p:.3g})")
         # sweep with SE bars; fill sig markers
         sig = sweep.p < 0.05
         ax.errorbar(sweep.L, sweep.beta, yerr=sweep.se, fmt="none",
@@ -297,7 +297,7 @@ def _plot_beta_vs_lag(stats: pd.DataFrame, out_path: Path) -> None:
         ax.set_xticks(LAGS)
         ax.grid(True, alpha=0.25)
         ax.legend(fontsize=8, loc="best", framealpha=0.9)
-    axes[0].set_ylabel("Standardized PMC persistence β\n(per SD; ± standard error)")
+    axes[0].set_ylabel("Standardized PMC persistence b\n(per SD; ± standard error)")
     fig.suptitle("PMC persistence effect as near-diagonal cells are removed",
                  fontsize=13, fontweight="bold", y=0.99)
     fig.text(0.5, 0.90,
@@ -369,7 +369,7 @@ def _write_html(stats: pd.DataFrame, beta_fig: Path,
         "that the persistence predictor is the mean of a chosen subset of the "
         "10&times;10 block rather than the full block. For each variant the "
         "predictor is z-scored within the fitted sample, so the reported "
-        "&beta; is the standardized within-condition slope (per standard "
+        "<i>b</i> is the standardized within-condition slope (per standard "
         "deviation of persistence) and is comparable across variants.</p>",
         "<h2>PMC persistence effect vs. minimum retained lag</h2>",
     ]
@@ -382,7 +382,7 @@ def _write_html(stats: pd.DataFrame, beta_fig: Path,
         "near-diagonal band (|<em>i</em>&minus;<em>j</em>| &lt; lag) is excluded "
         "and only the colored off-diagonal cells are averaged into that lag's "
         "persistence value (block number matches the x-axis below). "
-        "Standardized PMC persistence &beta; (± standard "
+        "Standardized PMC persistence <i>b</i> (± standard "
         "error) for each outcome as the minimum retained lag |<em>i</em>&minus;"
         "<em>j</em>| increases (filled markers <em>p</em> &lt; .05; open markers "
         "not significant). The <em>n</em> above each point is the number of "
@@ -393,7 +393,7 @@ def _write_html(stats: pd.DataFrame, beta_fig: Path,
     # stats table
     parts.append("<h2>Regression statistics (PMC persistence term)</h2>")
     parts.append("<table><thead><tr><th>Outcome</th><th>Variant</th>"
-                 "<th>cells</th><th>&beta; (std)</th><th>SE</th><th><i>t</i></th>"
+                 "<th>cells</th><th><i>b</i> (std)</th><th>SE</th><th><i>t</i></th>"
                  "<th><i>p</i></th><th><i>n</i></th></tr></thead><tbody>")
     order = {v: i for i, v in enumerate(VARIANTS)}
     for dv, dv_lab in OUTCOMES:
@@ -417,7 +417,7 @@ def _write_html(stats: pd.DataFrame, beta_fig: Path,
         parts.append("<p class='note'>Each panel residualizes both axes against "
                      "the condition fixed effect (value minus its within-condition "
                      "mean); the dashed line's slope is the within-condition "
-                     "&beta;. Marker colors label conditions (IP blue, SP green, "
+                     "<i>b</i>. Marker colors label conditions (IP blue, SP green, "
                      "IT orange).</p>")
         for dv_lab, variant_lab, fp in scatter_specs:
             if fp.exists():
@@ -482,7 +482,7 @@ def main() -> None:
     stats.to_csv(DATA_DIR / "offdiag_regression_stats.csv", index=False)
     print("\n" + stats.to_string(index=False))
 
-    # 4. Figure: β vs minimum retained lag.
+    # 4. Figure: b vs minimum retained lag.
     beta_fig = FIG_DIR / "S16_offdiag_beta-vs-lag.png"
     _plot_beta_vs_lag(stats, beta_fig)
 

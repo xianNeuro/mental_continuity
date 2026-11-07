@@ -3,7 +3,7 @@
 Every neural analysis in this repository reads its imaging input from this
 folder: region-of-interest (ROI) multivoxel-pattern matrices, whole-brain
 parcel timecourses, an unfiltered-preprocessing variant, and the audio
-amplitude envelopes. All extractions except the no-filter control start from the primary FSL preprocessing (motion correction, 140 s high-pass filter, 4 mm FWHM smoothing, then registration to the MNI template and resampling to 3 mm isotropic voxels). The `fmriprep_no-filter_…` folder comes from the separate fMRIPrep control pipeline. Each subfolder name is the
+amplitude envelopes. All extractions except the no-filter control start from the primary FSL preprocessing (B0 field-map correction, motion correction, 140 s high-pass filter, 4 mm FWHM smoothing, then registration to the MNI template and resampling to 3 mm isotropic voxels). The `fmriprep_no-filter_…` folder comes from the separate fMRIPrep control pipeline. Each subfolder name is the
 `processing_level` token that `scripts/helper/data_structure.py::find_file`
 resolves.
 

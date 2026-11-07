@@ -28,7 +28,6 @@ Output: one combined HTML report, per-ROI figures, and a per-ROI CSV under
 
 from __future__ import annotations
 
-import importlib.util
 import sys
 from pathlib import Path
 from typing import Dict, List
@@ -47,16 +46,9 @@ import numpy as np
 import pandas as pd
 
 
-def _load_module(slug: str):
-    path = MENTAL_CONTINUITY_ROOT / "scripts" / f"{slug}.py"
-    spec = importlib.util.spec_from_file_location(slug.replace("-", "_"), str(path))
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-# Reuse the Result 3.3 engine: grand-mean ROI test, scatter plotting, stats table.
-R33 = _load_module("Result3_3_PMC-story-to-int_undershoot")
+# Reuse the Result 3.3 engine (scripts/helper/undershoot_engine.py): grand-mean
+# ROI test, scatter plotting, stats table.
+import undershoot_engine as R33  # noqa: E402
 
 
 _CONTROL_ROIS: List[str] = ["A1+", "mSTG", "dlPFC"]

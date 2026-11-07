@@ -11,7 +11,7 @@ Inputs:
 === Resumption: DMN realignment ~ PMC persistence (+ condition) ===
   Formula: dmn_realign ~ pmc_quad5 + C(cond)   |   n rows = 57
   Model R² = 0.3540   adj R² = 0.3174
-  Predictor                                  β          SE         t           p  95% CI
+  Predictor                                  b          SE         t           p  95% CI
   --------------------------------  ----------  ----------  --------  ----------  --------------------
   Intercept (baseline)                0.006824    0.009562     0.714      0.4786  [-0.01235, 0.026]
   Condition intact_tom (vs. baseli     0.01694    0.007653     2.213      0.0312  [0.001588, 0.03229]
@@ -21,7 +21,7 @@ Inputs:
 === Resumption: DMN realignment ~ Hipp boundary activity (+ condition) ===
   Formula: dmn_realign ~ hipp_onset_diff + C(cond)   |   n rows = 57
   Model R² = 0.1813   adj R² = 0.1350
-  Predictor                                  β          SE         t           p  95% CI
+  Predictor                                  b          SE         t           p  95% CI
   --------------------------------  ----------  ----------  --------  ----------  --------------------
   Intercept (baseline)                 0.03669    0.006897     5.319   2.138e-06  [0.02285, 0.05052]
   Condition intact_tom (vs. baseli     0.02045    0.008932     2.290     0.02604  [0.002537, 0.03837]
@@ -31,7 +31,7 @@ Inputs:
 === Resumption: DMN realignment ~ PMC + Hipp (+ condition) ===
   Formula: dmn_realign ~ pmc_quad5 + hipp_onset_diff + C(cond)   |   n rows = 57
   Model R² = 0.4231   adj R² = 0.3787
-  Predictor                                  β          SE         t           p  95% CI
+  Predictor                                  b          SE         t           p  95% CI
   --------------------------------  ----------  ----------  --------  ----------  --------------------
   Intercept (baseline)                0.003354    0.009227     0.364      0.7177  [-0.01516, 0.02187]
   Condition intact_tom (vs. baseli       0.022    0.007577     2.903    0.005411  [0.006792, 0.0372]
@@ -42,7 +42,7 @@ Inputs:
 === Recall: recall ~ PMC persistence (+ condition) ===
   Formula: recall ~ pmc_quad5 + C(cond)   |   n rows = 55
   Model R² = 0.3589   adj R² = 0.3212
-  Predictor                                  β          SE         t           p  95% CI
+  Predictor                                  b          SE         t           p  95% CI
   --------------------------------  ----------  ----------  --------  ----------  --------------------
   Intercept (baseline)                  0.1747     0.03127     5.589   8.974e-07  [0.112, 0.2375]
   Condition intact_tom (vs. baseli    -0.04083     0.02497    -1.635      0.1082  [-0.09096, 0.009302]
@@ -52,7 +52,7 @@ Inputs:
 === Recall: recall ~ Hipp boundary activity (+ condition) ===
   Formula: recall ~ hipp_onset_diff + C(cond)   |   n rows = 55
   Model R² = 0.3262   adj R² = 0.2866
-  Predictor                                  β          SE         t           p  95% CI
+  Predictor                                  b          SE         t           p  95% CI
   --------------------------------  ----------  ----------  --------  ----------  --------------------
   Intercept (baseline)                   0.229     0.02019    11.340   1.491e-15  [0.1885, 0.2695]
   Condition intact_tom (vs. baseli    -0.03077     0.02656    -1.158      0.2522  [-0.0841, 0.02257]
@@ -62,7 +62,7 @@ Inputs:
 === Recall: recall ~ PMC + Hipp (+ condition) ===
   Formula: recall ~ pmc_quad5 + hipp_onset_diff + C(cond)   |   n rows = 55
   Model R² = 0.4080   adj R² = 0.3606
-  Predictor                                  β          SE         t           p  95% CI
+  Predictor                                  b          SE         t           p  95% CI
   --------------------------------  ----------  ----------  --------  ----------  --------------------
   Intercept (baseline)                  0.1661     0.03064     5.419   1.723e-06  [0.1045, 0.2276]
   Condition intact_tom (vs. baseli    -0.02681     0.02519    -1.064      0.2924  [-0.07741, 0.02379]

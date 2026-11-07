@@ -1367,8 +1367,7 @@ def save_isc_brain_surface(isc_r, isc_p, outpath, task, condition, roi, phase, n
         # Note: save_isc_brain has a bug where it passes crop=(0,50,0,0) as a single tuple
         # but combine_figures_w_title2 expects crop_tuple=[(tuple1), (tuple2)]
         # We'll work around this by calling the functions directly with correct parameters
-        import os
-        import nibabel as nib
+        import nibabel as nib  # (os is imported at module level)
         
         # Step 1: Save nifti file using view_surf
         xf.mkdir(brain_outpath)

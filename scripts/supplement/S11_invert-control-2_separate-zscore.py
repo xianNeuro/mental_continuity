@@ -32,10 +32,9 @@ plus CSVs, under
 
 from __future__ import annotations
 
-import importlib.util
 import sys
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict
 
 _SCRIPT_FILE = Path(__file__).resolve()
 MENTAL_CONTINUITY_ROOT = _SCRIPT_FILE.parent.parent.parent
@@ -48,27 +47,22 @@ import matplotlib
 matplotlib.use("Agg")
 import numpy as np
 
-from data_structure import find_file, get_interruption_epochs, get_task_structure, load_matrix
+from data_structure import find_file, load_matrix
 
 from roi_subject_exclusions import apply_roi_subject_exclusions
 
 
-def _load_module(slug: str):
-    path = MENTAL_CONTINUITY_ROOT / "scripts" / f"{slug}.py"
-    spec = importlib.util.spec_from_file_location(slug.replace("-", "_"), str(path))
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-# Reuse the inversion (Result 3.1) and selectivity (Result 3.2) engines.
-R31 = _load_module("Result3_1_PMC-story-to-int_invert")
-R32 = _load_module("Result3_2_PMC-story-to-int_invert-selective")
+# Reuse the inversion (Result 3.1) and selectivity (Result 3.2) engines, which
+# live in scripts/helper/.
+import invert_story_int as R31  # noqa: E402
+import invert_selective as R32  # noqa: E402
+from phase_zscore import (  # noqa: E402  (scripts/helper/phase_zscore.py)
+    phase_tr_indices as _phase_tr_indices,
+    split_zscore as _split_zscore,
+)
 
 _TASK = "carver"
 _ROI = "PMC"
-_PHASE_SKIP = 5      # TRs skipped at the start of each story segment and
-                     # from each interruption onset for the z-score split
 _SEED = 42
 _CONDS = ["intact_pause", "scram_pause", "intact_tom"]
 
@@ -95,65 +89,6 @@ def _load_raw_qc(task: str, condition: str, roi: str):
     except Exception as e:  # pragma: no cover
         print(f"Warning: could not apply ROI/subject exclusions: {e}")
     return data
-
-
-def _story_segments(task: str, condition: str) -> List[Tuple[int, int]]:
-    """Story segments [seg_start, seg_end): story onset to first
-    interruption, then each interruption offset to the next onset, then
-    the final offset to story end."""
-    ts = get_task_structure(task)
-    s0, s1 = int(ts["story_start"]), int(ts["story_end"])
-    eps = sorted(get_interruption_epochs(task, condition), key=lambda x: x[0])
-    segs: List[Tuple[int, int]] = []
-    if not eps:
-        return [(s0, s1)]
-    segs.append((s0, eps[0][0]))
-    for i, (on, off) in enumerate(eps):
-        seg_end = eps[i + 1][0] if i < len(eps) - 1 else s1
-        if seg_end > off:
-            segs.append((off, seg_end))
-    return segs
-
-
-def _phase_tr_indices(task: str, condition: str, n_tr: int):
-    """Return (story_idx, int_idx): the repetition-time indices used to
-    estimate the story-phase and interruption-phase z-score statistics.
-    Each story segment and each interruption epoch drops its first
-    ``_PHASE_SKIP`` repetition times."""
-    story_idx: List[int] = []
-    for a, b in _story_segments(task, condition):
-        lo = min(a + _PHASE_SKIP, b)
-        story_idx.extend(range(lo, b))
-    int_idx: List[int] = []
-    for on, off in sorted(get_interruption_epochs(task, condition)):
-        lo = min(on + _PHASE_SKIP, off)
-        int_idx.extend(range(lo, off))
-    story_idx = sorted(set(i for i in story_idx if 0 <= i < n_tr))
-    int_idx = sorted(set(i for i in int_idx if 0 <= i < n_tr))
-    return np.asarray(story_idx, int), np.asarray(int_idx, int)
-
-
-def _split_zscore(data: np.ndarray, task: str, condition: str) -> np.ndarray:
-    """Per participant and per voxel, standardize the story-phase
-    repetition times with the story-phase mean/SD and the
-    interruption-phase repetition times with the interruption-phase
-    mean/SD (population over the concatenated, skip-trimmed phase TRs;
-    ddof=1, NaN-robust). Repetition times outside both phase sets (word
-    chain, the trimmed skips) are not used by any analysis window and are
-    set to NaN."""
-    n_sub, n_tr, n_vox = data.shape
-    s_idx, i_idx = _phase_tr_indices(task, condition, n_tr)
-    out = np.full_like(data, np.nan, dtype=float)
-    with np.errstate(all="ignore"):
-        for idx in (s_idx, i_idx):
-            if idx.size == 0:
-                continue
-            block = data[:, idx, :]                       # (n_sub, |idx|, n_vox)
-            mu = np.nanmean(block, axis=1, keepdims=True)  # (n_sub, 1, n_vox)
-            sd = np.nanstd(block, axis=1, ddof=1, keepdims=True)
-            sd = np.where(sd > 0, sd, np.nan)
-            out[:, idx, :] = (block - mu) / sd
-    return out
 
 
 def _build_data_by_cond() -> Dict[str, np.ndarray]:
